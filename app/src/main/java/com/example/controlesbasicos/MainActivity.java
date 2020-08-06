@@ -1,0 +1,96 @@
+package com.example.controlesbasicos;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.RadioGroup;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class MainActivity extends Activity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+
+    public void Calcular (View view)
+        {
+            try {
+                RadioGroup optOperaciones = (RadioGroup) findViewById(R.id.optOperaciones);
+                Spinner cboOperaciones = (Spinner)findViewById(R.id.cboOperaciones);
+
+
+
+                TextView tempVal = (TextView) findViewById(R.id.txtnum1);
+                double num1 = Double.parseDouble(tempVal.getText().toString());
+
+                tempVal = (TextView) findViewById(R.id.txtnum2);
+                double num2 = Double.parseDouble(tempVal.getText().toString());
+
+                double respuesta = 0;
+
+                //este es para el Radiogroups y RadioButtons
+
+                switch (optOperaciones.getCheckedRadioButtonId()) {
+                    case R.id.optsuma:
+
+                        respuesta = num1 + num2;
+
+                        break;
+
+                    case R.id.optresta:
+
+                        respuesta = num1 - num2;
+
+                        break;
+
+                    case R.id.optmultiplicacion:
+
+                        respuesta = num1 * num2;
+
+                        break;
+
+                    case R.id.optdivision:
+
+                        respuesta = num1 / num2;
+
+                        break;
+                }
+
+                //Este es para el Spinner----Combobox
+
+              switch (cboOperaciones.getSelectedItemPosition())
+              {
+                  case 1:
+
+                      respuesta = num1 + num2;
+                      break;
+
+                  case 2:
+
+                      respuesta = num1 - num2;
+                      break;
+
+                  case 3:
+
+                      respuesta = num1 * num2;
+                      break;
+
+                  case 4:
+
+                      respuesta = num1 / num2;
+                      break;
+              }
+
+                tempVal = (TextView) findViewById(R.id.lblrespuesta);
+                tempVal.setText("La respuesta es: " + respuesta);
+            } catch (Exception error) {
+
+               Toast.makeText(getApplicationContext(),"Ingrese los dos numeros", Toast.LENGTH_LONG).show();
+            }
+    }
+
+}

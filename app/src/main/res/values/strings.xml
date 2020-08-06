@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">ControlesBasicos</string>
+    <string name="saludo">Holaa a todos, biemvenidos</string>
+    <string name="titulo">Controles Basicos</string>
+    <string name="Bienvenida">Esto es genial!!</string>
+    <string name="lblnum1">Ingrese un numero:</string>
+    <string name="lblnum2">Ingrese un numero:</string>
+
+    <string-array name="operaciones">
+
+        <item>Opciones:</item>
+        <item>Suma</item>
+        <item>Resta</item>
+        <item>Multiplicacion</item>
+        <item>Division</item>
+
+    </string-array>
+
+
+</resources>
