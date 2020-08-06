@@ -8,7 +8,7 @@
 
     <string-array name="operaciones">
 
-        <item>Opciones:</item>
+        <item>Seleccionar:</item>
         <item>Suma</item>
         <item>Resta</item>
         <item>Multiplicacion</item>
