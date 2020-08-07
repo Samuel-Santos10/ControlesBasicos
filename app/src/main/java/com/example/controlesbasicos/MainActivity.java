@@ -58,6 +58,24 @@ public class MainActivity extends Activity {
                         respuesta = num1 / num2;
 
                         break;
+
+                    case R.id.optPorcentaje:
+
+                        respuesta = (num1 * num2) / 100;
+
+                        break;
+
+                    case R.id.optExponente:
+
+                        respuesta = Math.pow(num1,num2);
+
+                        break;
+
+                    case R.id.optModulo:
+
+                        respuesta = num1 % num2;
+                        break;
+
                 }
 
                 //Este es para el Spinner----Combobox
@@ -83,6 +101,22 @@ public class MainActivity extends Activity {
 
                       respuesta = num1 / num2;
                       break;
+
+                  case 5:
+
+                      respuesta = (num1 * num2) / 100;
+                      break;
+
+                  case 6:
+
+                      respuesta = Math.pow(num1,num2);
+                      break;
+
+                  case 7:
+
+                      respuesta = num1 % num2;
+                      break;
+
               }
 
                 tempVal = (TextView) findViewById(R.id.lblrespuesta);

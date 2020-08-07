@@ -13,6 +13,9 @@
         <item>Resta</item>
         <item>Multiplicacion</item>
         <item>Division</item>
+        <item>Porcenteje</item>
+        <item>Exponente</item>
+        <item>Modulo</item>
 
     </string-array>
 
