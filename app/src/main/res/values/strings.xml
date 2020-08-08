@@ -3,19 +3,19 @@
     <string name="saludo">Holaa a todos, biemvenidos</string>
     <string name="titulo">Controles Basicos</string>
     <string name="Bienvenida">Esto es genial!!</string>
-    <string name="lblnum1">Ingrese un numero:</string>
-    <string name="lblnum2">Ingrese un numero:</string>
+    <string name="lblnum1">Ingrese un número:</string>
+    <string name="lblnum2">Ingrese un número:</string>
 
     <string-array name="operaciones">
 
         <item>Seleccionar:</item>
         <item>Suma</item>
         <item>Resta</item>
-        <item>Multiplicacion</item>
-        <item>Division</item>
+        <item>Multiplicación</item>
+        <item>División</item>
         <item>Porcenteje</item>
         <item>Exponente</item>
-        <item>Modulo</item>
+        <item>Módulo</item>
 
     </string-array>
 

@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/fondo">
 
     <TextView
         android:id="@+id/lblnum1"
@@ -12,13 +13,12 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="100dp"
-        android:background="#00BCD4"
+        android:background="#FFFFFF"
         android:text="@string/lblnum1"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textIsSelectable="false"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:typeface="normal"
         android:verticalScrollbarPosition="defaultPosition" />
 
     <EditText
@@ -28,7 +28,7 @@
         android:layout_marginLeft="151dp"
         android:layout_marginTop="80dp"
         android:ems="9"
-        android:hint="Numero"
+        android:hint="Número"
         android:inputType="numberDecimal" />
 
     <TextView
@@ -37,8 +37,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="170dp"
-        android:background="#00BCD4"
-        android:text="Ingrese un numero:"
+        android:background="#FFFFFF"
+        android:text="@string/lblnum2"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textSize="16sp"
         android:textStyle="bold" />
@@ -50,7 +50,7 @@
         android:layout_marginLeft="151dp"
         android:layout_marginTop="150dp"
         android:ems="9"
-        android:hint="Numero"
+        android:hint="Número"
         android:inputType="numberDecimal" />
 
     <Button
@@ -64,11 +64,15 @@
 
     <TextView
         android:id="@+id/lblrespuesta"
-        android:text="Respuesta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="460dp"
-        android:layout_marginLeft="170dp"/>
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="480dp"
+        android:background="#FFFFFF"
+        android:text="?"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:drawableTint="#525B5C" />
 
     <TextView
         android:id="@+id/lbltitulo"
@@ -83,15 +87,17 @@
         android:id="@+id/optOperaciones"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="9dp"
         android:layout_marginTop="220dp"
-        android:layout_marginLeft="9dp">
+        android:background="#F6F5F5"
+        android:hapticFeedbackEnabled="false">
 
         <RadioButton
             android:id="@+id/optsuma"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Suma"
-            android:checked="true"/>
+            android:checked="true"
+            android:text="Suma" />
 
         <RadioButton
             android:id="@+id/optresta"
@@ -103,13 +109,13 @@
             android:id="@+id/optmultiplicacion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Multiplicacion" />
+            android:text="Multiplicación" />
 
         <RadioButton
             android:id="@+id/optdivision"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Division" />
+            android:text="División" />
 
         <RadioButton
             android:id="@+id/optPorcentaje"
@@ -127,7 +133,7 @@
             android:id="@+id/optModulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Modulo" />
+            android:text="Módulo" />
     </RadioGroup>
 
     <Spinner
