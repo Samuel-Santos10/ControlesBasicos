@@ -3,6 +3,7 @@ package com.example.controlesbasicos;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -10,11 +11,25 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
+    public Button btnCalcular;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        btnCalcular = (Button)findViewById(R.id.btnCalcular);
+        btnCalcular.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+                Calcular(view);
+            }
+        });
+
     }
+
 
     public void Calcular (View view)
         {
@@ -76,6 +91,18 @@ public class MainActivity extends Activity {
                         respuesta = num1 % num2;
                         break;
 
+
+                    case R.id.optFactoreal:
+
+                        int facto = 1;
+
+                        for (int i = 2; i<= num1; i++)
+
+                        {
+                        facto = facto * i;
+
+                        respuesta = facto;
+                        }
                 }
 
                 //Este es para el Spinner----Combobox
@@ -117,6 +144,17 @@ public class MainActivity extends Activity {
                       respuesta = num1 % num2;
                       break;
 
+                  case 8:
+
+                      int Facto = 1;
+
+                      for (int i = 2; i <= num1; i++)
+
+                      {
+                          Facto = Facto * i;
+
+                          respuesta = Facto;
+                      }
               }
 
                 tempVal = (TextView) findViewById(R.id.lblrespuesta);

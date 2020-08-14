@@ -14,8 +14,9 @@
         <item>Multiplicación</item>
         <item>División</item>
         <item>Porcenteje</item>
-        <item>Exponente</item>
+        <item>Exponenciación</item>
         <item>Módulo</item>
+        <item>Factorial</item>
 
     </string-array>
 

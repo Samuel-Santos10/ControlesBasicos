@@ -59,15 +59,14 @@
         android:layout_height="wrap_content"
         android:text="Calcular"
         android:layout_marginTop="380dp"
-        android:layout_marginLeft="160dp"
-        android:onClick="Calcular"/>
+        android:layout_marginLeft="160dp" />
 
     <TextView
         android:id="@+id/lblrespuesta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="150dp"
-        android:layout_marginTop="480dp"
+        android:layout_marginLeft="170dp"
+        android:layout_marginTop="500dp"
         android:background="#FFFFFF"
         android:text="?"
         android:textSize="16sp"
@@ -134,6 +133,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Módulo" />
+
+        <RadioButton
+            android:id="@+id/optFactoreal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Factoreal" />
     </RadioGroup>
 
     <Spinner
