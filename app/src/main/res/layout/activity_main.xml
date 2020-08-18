@@ -7,147 +7,15 @@
     tools:context=".MainActivity"
     android:background="@drawable/fondo">
 
-    <TextView
-        android:id="@+id/lblnum1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="100dp"
-        android:background="#FFFFFF"
-        android:text="@string/lblnum1"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textIsSelectable="false"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:verticalScrollbarPosition="defaultPosition" />
-
-    <EditText
-        android:id="@+id/txtnum1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="151dp"
-        android:layout_marginTop="80dp"
-        android:ems="9"
-        android:hint="Número"
-        android:inputType="numberDecimal" />
-
-    <TextView
-        android:id="@+id/lblnum2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="170dp"
-        android:background="#FFFFFF"
-        android:text="@string/lblnum2"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textSize="16sp"
-        android:textStyle="bold" />
-
-    <EditText
-        android:id="@+id/txtnum2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="151dp"
-        android:layout_marginTop="150dp"
-        android:ems="9"
-        android:hint="Número"
-        android:inputType="numberDecimal" />
-
-    <Button
-        android:id="@+id/btnCalcular"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Calcular"
-        android:layout_marginTop="380dp"
-        android:layout_marginLeft="160dp" />
-
-    <TextView
-        android:id="@+id/lblrespuesta"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="165dp"
-        android:layout_marginTop="500dp"
-        android:background="#FFFFFF"
-        android:text="?"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:drawableTint="#525B5C" />
 
     <TextView
         android:id="@+id/lbltitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="90dp"
-        android:background="#F36D6D"
+        android:background="#DAEA40"
         android:text="@string/titulo"
         android:textSize="18sp" />
-
-    <RadioGroup
-        android:id="@+id/optOperaciones"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="9dp"
-        android:layout_marginTop="220dp"
-        android:background="#F6F5F5"
-        android:hapticFeedbackEnabled="false">
-
-        <RadioButton
-            android:id="@+id/optsuma"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="Suma" />
-
-        <RadioButton
-            android:id="@+id/optresta"
-            android:layout_width="130dp"
-            android:layout_height="wrap_content"
-            android:text="Resta" />
-
-        <RadioButton
-            android:id="@+id/optmultiplicacion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Multiplicación" />
-
-        <RadioButton
-            android:id="@+id/optdivision"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="División" />
-
-        <RadioButton
-            android:id="@+id/optPorcentaje"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Porcentaje" />
-
-        <RadioButton
-            android:id="@+id/optExponente"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Exponente" />
-
-        <RadioButton
-            android:id="@+id/optModulo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Módulo" />
-
-        <RadioButton
-            android:id="@+id/optFactoreal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Factoreal" />
-    </RadioGroup>
-
-    <Spinner
-        android:id="@+id/cboOperaciones"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="220dp"
-        android:layout_marginLeft="160dp"
-        android:entries="@array/operaciones"/>
 
 
 </RelativeLayout>
