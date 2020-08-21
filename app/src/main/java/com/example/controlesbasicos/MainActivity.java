@@ -7,11 +7,18 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TabHost;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.ActionBar;
 
 public class MainActivity extends Activity {
+     ValoresTodos traer=new ValoresTodos() ;
+
+     Inicio Tbh = new Inicio() ;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -29,4 +36,5 @@ public class MainActivity extends Activity {
             }
         });
     }
+
 }
