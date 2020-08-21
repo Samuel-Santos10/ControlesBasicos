@@ -1,10 +1,13 @@
 <resources>
-    <string name="app_name">ControlesBasicos</string>
+    <string name="app_name">CONVERSIONES</string>
     <string name="saludo">Holaa a todos, biemvenidos</string>
     <string name="titulo">Conversores</string>
-    <string name="Bienvenida">Esto es genial!!</string>
-    <string name="lblnum1">Ingrese un número:</string>
-    <string name="lblnum2">Ingrese un número:</string>
-
-
+    <string name="tituloPrincipal">MULTI CONVERSORES</string>
+    <string name="TituloMoneda">CONVERSOR MONEDAS</string>
+    <string name="TituloMasa">CONVERSOR MASA</string>
+    <string name="TituloVolumen">CONVERSOR VOLUMEN</string>
+    <string name="Titulolongi">CONVERSOR LONGITUD</string>
+    <string name="TituloAlmace">CONVERSOR ALMACENAMIENTO</string>
+    <string name="TituloTiempo">CONVERSOR TIEMPO</string>
+    <string name="TituloTransDatos">CONVERSOR TRANSFERENCIA DATOS</string>
 </resources>
