@@ -67,6 +67,33 @@
     </string-array>
 
 
+    <string-array name="Volumen">
+        <item>Litro</item>
+        <item>MiliLitro</item>
+        <item>Metro Cubico</item>
+        <item>Galon</item>
+        <item>Pie Cubico</item>
+        <item>Taza Americana</item>
+        <item>Pulgada cubica</item>
+        <item>Onza liquida imperial</item>
+        <item>Cucharada imperial</item>
+        <item>Cucharadita imperial</item>
+    </string-array>
+
+    <string-array name="Masa">
+        <item>Kilogramo</item>
+        <item>Gramo</item>
+        <item>Miligramo</item>
+        <item>MicroGramo</item>
+        <item>Libra</item>
+        <item>Onza</item>
+        <item>Tonelada</item>
+        <item>Stone</item>
+        <item>Gigagramo</item>
+        <item>Hectogramo</item>
+
+    </string-array>
+
 
 
 </resources>
