@@ -16,7 +16,6 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 
 public class MainActivity extends Activity {
-     ValoresTodos traer=new ValoresTodos() ;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
