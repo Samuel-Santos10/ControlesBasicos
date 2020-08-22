@@ -30,6 +30,61 @@
                 android:layout_height="match_parent">
 
                 <RelativeLayout
+                    android:id="@+id/tabTDatos"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/lbltituTDatos"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="100dp"
+                        android:text="@string/TituloTransDatos"
+                        android:textAllCaps="false"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/imageView8"
+                        android:layout_width="131dp"
+                        android:layout_height="93dp"
+                        android:layout_marginLeft="130dp"
+                        android:layout_marginTop="140dp"
+                        app:srcCompat="@drawable/datos" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/tabTiempo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/lbltituTiempo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="80dp"
+                        android:layout_marginTop="100dp"
+                        android:text="@string/TituloTiempo"
+                        android:textAllCaps="false"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/imageView7"
+                        android:layout_width="131dp"
+                        android:layout_height="93dp"
+                        android:layout_marginLeft="130dp"
+                        android:layout_marginTop="140dp"
+                        app:srcCompat="@drawable/tiempo" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:id="@+id/tabAlmacenamiento"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -46,71 +101,40 @@
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
+                    <ImageView
+                        android:id="@+id/imageView6"
+                        android:layout_width="155dp"
+                        android:layout_height="136dp"
+                        android:layout_marginLeft="130dp"
+                        android:layout_marginTop="120dp"
+                        app:srcCompat="@drawable/memory" />
+
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/tabLongitud"
+                    android:id="@+id/tabVolumen"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/lbltituLongitud"
+                        android:id="@+id/lbltituVolum"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="100dp"
+                        android:layout_marginLeft="80dp"
                         android:layout_marginTop="100dp"
-                        android:text="@string/Titulolongi"
+                        android:text="@string/TituloVolumen"
                         android:textAllCaps="false"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/LongitudCambioTV"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="120dp"
-                        android:layout_marginTop="320dp"
-                        android:text="Longitud a Cambiar"
-                        android:textColor="@android:color/background_dark"
-                        android:textSize="18sp" />
-
-                    <Spinner
-                        android:id="@+id/longitudActualSP"
-                        android:layout_width="132dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="126dp"
-                        android:layout_marginTop="260dp"
-                        android:entries="@array/Longitudes"
-                        android:gravity="center" />
-
-                    <Spinner
-                        android:id="@+id/LongitudCambiarSP"
-                        android:layout_width="142dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="125dp"
-                        android:layout_marginTop="350dp"
-                        android:entries="@array/Longitudes"
-                        android:gravity="center" />
-
-                    <TextView
-                        android:id="@+id/LongitudActualTV"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="135dp"
-                        android:layout_marginTop="230dp"
-                        android:text="Longitud Acual"
-                        android:textColor="@android:color/background_dark"
-                        android:textSize="18sp" />
-
                     <ImageView
-                        android:id="@+id/imageView3"
+                        android:id="@+id/imageView5"
                         android:layout_width="124dp"
                         android:layout_height="84dp"
-                        android:layout_marginLeft="130dp"
-                        android:layout_marginTop="120dp"
-                        app:srcCompat="@drawable/length"
-                        tools:ignore="VectorDrawableCompat" />
+                        android:layout_marginLeft="140dp"
+                        android:layout_marginTop="140dp"
+                        app:srcCompat="@drawable/volume" />
 
                 </RelativeLayout>
 
@@ -182,7 +206,7 @@
                         android:layout_height="84dp"
                         android:layout_marginLeft="130dp"
                         android:layout_marginTop="120dp"
-                        app:srcCompat="@drawable/ic_money"
+                        app:srcCompat="@drawable/coin"
                         tools:ignore="VectorDrawableCompat" />
 
                 </RelativeLayout>
@@ -204,65 +228,81 @@
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
+                    <ImageView
+                        android:id="@+id/imageView4"
+                        android:layout_width="124dp"
+                        android:layout_height="84dp"
+                        android:layout_marginLeft="140dp"
+                        android:layout_marginTop="140dp"
+                        app:srcCompat="@drawable/masa" />
+
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/tabVolumen"
+                    android:id="@+id/tabLongitud"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/lbltituVolum"
+                        android:id="@+id/lbltituLongitud"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="80dp"
+                        android:layout_marginLeft="100dp"
                         android:layout_marginTop="100dp"
-                        android:text="@string/TituloVolumen"
+                        android:text="@string/Titulolongi"
                         android:textAllCaps="false"
                         android:textSize="16sp"
                         android:textStyle="bold" />
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:id="@+id/tabTiempo"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/lbltituTiempo"
+                        android:id="@+id/LongitudCambioTV"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="80dp"
-                        android:layout_marginTop="100dp"
-                        android:text="@string/TituloTiempo"
-                        android:textAllCaps="false"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:layout_marginLeft="120dp"
+                        android:layout_marginTop="320dp"
+                        android:text="Longitud a Cambiar"
+                        android:textColor="@android:color/background_dark"
+                        android:textSize="18sp" />
 
-                </RelativeLayout>
+                    <Spinner
+                        android:id="@+id/longitudActualSP"
+                        android:layout_width="132dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="126dp"
+                        android:layout_marginTop="260dp"
+                        android:entries="@array/Longitudes"
+                        android:gravity="center" />
 
-                <RelativeLayout
-                    android:id="@+id/tabTDatos"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    <Spinner
+                        android:id="@+id/LongitudCambiarSP"
+                        android:layout_width="142dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="125dp"
+                        android:layout_marginTop="350dp"
+                        android:entries="@array/Longitudes"
+                        android:gravity="center" />
 
                     <TextView
-                        android:id="@+id/lbltituTDatos"
+                        android:id="@+id/LongitudActualTV"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginTop="100dp"
-                        android:text="@string/TituloTransDatos"
-                        android:textAllCaps="false"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:layout_marginLeft="135dp"
+                        android:layout_marginTop="230dp"
+                        android:text="Longitud Acual"
+                        android:textColor="@android:color/background_dark"
+                        android:textSize="18sp" />
+
+                    <ImageView
+                        android:id="@+id/imageView3"
+                        android:layout_width="124dp"
+                        android:layout_height="84dp"
+                        android:layout_marginLeft="130dp"
+                        android:layout_marginTop="120dp"
+                        app:srcCompat="@drawable/iconlon"
+                        tools:ignore="VectorDrawableCompat" />
 
                 </RelativeLayout>
-
 
 
             </FrameLayout>
@@ -302,4 +342,6 @@
             android:layout_marginTop="600dp"
             android:hint="Resultado" />
     </RelativeLayout>
+
+
 </RelativeLayout>
