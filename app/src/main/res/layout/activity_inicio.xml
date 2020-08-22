@@ -39,12 +39,50 @@
                         android:id="@+id/lbltituAlmace"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="40dp"
+                        android:layout_marginLeft="75dp"
                         android:layout_marginTop="100dp"
                         android:text="@string/TituloAlmace"
                         android:textAllCaps="false"
                         android:textSize="16sp"
                         android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/lblDe"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="42dp"
+                        android:layout_marginTop="270dp"
+                        android:text="A:"
+                        android:textColor="@android:color/background_dark"
+                        android:textSize="18sp" />
+
+                    <Spinner
+                        android:id="@+id/spnDe"
+                        android:layout_width="132dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="80dp"
+                        android:layout_marginTop="200dp"
+                        android:entries="@array/Almacenamiento"
+                        android:gravity="center" />
+
+                    <Spinner
+                        android:id="@+id/spnA"
+                        android:layout_width="142dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="80dp"
+                        android:layout_marginTop="270dp"
+                        android:entries="@array/Almacenamiento"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:id="@+id/lblA"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginTop="200dp"
+                        android:text="DE:"
+                        android:textColor="@android:color/background_dark"
+                        android:textSize="18sp" />
 
                 </RelativeLayout>
 
@@ -235,15 +273,53 @@
                         android:id="@+id/lbltituTiempo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="80dp"
+                        android:layout_marginLeft="110dp"
                         android:layout_marginTop="100dp"
                         android:text="@string/TituloTiempo"
                         android:textAllCaps="false"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
-                </RelativeLayout>
+                    <TextView
+                        android:id="@+id/lbltime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="42dp"
+                        android:layout_marginTop="270dp"
+                        android:text="A:"
+                        android:textColor="@android:color/background_dark"
+                        android:textSize="18sp" />
 
+                    <Spinner
+                        android:id="@+id/spnTime"
+                        android:layout_width="132dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="80dp"
+                        android:layout_marginTop="200dp"
+                        android:entries="@array/Tiempo"
+                        android:gravity="center" />
+
+                    <Spinner
+                        android:id="@+id/spntimen"
+                        android:layout_width="142dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="80dp"
+                        android:layout_marginTop="270dp"
+                        android:entries="@array/Tiempo"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:id="@+id/lblempo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginTop="200dp"
+                        android:text="DE:"
+                        android:textColor="@android:color/background_dark"
+                        android:textSize="18sp" />
+
+                </RelativeLayout>
+                
                 <RelativeLayout
                     android:id="@+id/tabTDatos"
                     android:layout_width="match_parent"
@@ -301,5 +377,7 @@
             android:layout_marginLeft="100dp"
             android:layout_marginTop="600dp"
             android:hint="Resultado" />
+
+
     </RelativeLayout>
 </RelativeLayout>
