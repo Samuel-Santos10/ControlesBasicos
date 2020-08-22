@@ -53,26 +53,45 @@ public class Inicio extends AppCompatActivity {
                     a = traer.val .getSelectedItemPosition();
                     resp = traer .valores  [0][a] / traer .valores [0][de] * cantidad;
                     break;
+
+                case "Masa":
+                    traer.val = (Spinner) findViewById(R.id.MasaActualsp);
+                    de = traer.val.getSelectedItemPosition();
+                    traer.val = (Spinner) findViewById(R.id.MasaCambiosp);
+                    a = traer.val.getSelectedItemPosition();
+                    resp = traer.valores[1][a] / traer.valores[1][de] * cantidad;
+                    break;
+
+                case "Volumen":
+                    traer.val = (Spinner) findViewById(R.id.volumenactualsp);
+                    de = traer.val.getSelectedItemPosition();
+                    traer.val = (Spinner) findViewById(R.id.volumencambiosp);
+                    a = traer.val.getSelectedItemPosition();
+                    resp = traer.valores[2][a] / traer.valores[2][de] * cantidad;
+                    break;
+
                 case "Longitud":
                     traer.val = (Spinner) findViewById(R.id.longitudActualSP );
                     de = traer.val.getSelectedItemPosition();
                     traer.val  = (Spinner) findViewById(R.id.LongitudCambiarSP );
                     a = traer .val.getSelectedItemPosition();
-                    resp = traer.valores  [1][a] / traer.valores [1][de] * cantidad;
+                    resp = traer.valores  [3][a] / traer.valores [3][de] * cantidad;
                     break;
+
                 case "Almacenamiento":
                     traer.val = (Spinner) findViewById(R.id.spnDe );
                     de = traer.val.getSelectedItemPosition();
                     traer.val  = (Spinner) findViewById(R.id.spnA );
                     a = traer .val.getSelectedItemPosition();
-                    resp = traer.valores  [2][a] / traer.valores [2][de] * cantidad;
+                    resp = traer.valores  [4][a] / traer.valores [4][de] * cantidad;
                     break;
+
                 case "Tiempo":
                     traer.val = (Spinner) findViewById(R.id.spnTime );
                     de = traer.val.getSelectedItemPosition();
                     traer.val  = (Spinner) findViewById(R.id.spntimen );
                     a = traer .val.getSelectedItemPosition();
-                    resp = traer.valores  [3][a] / traer.valores [3][de] * cantidad;
+                    resp = traer.valores  [5][a] / traer.valores [5][de] * cantidad;
                     break;
 
             }
