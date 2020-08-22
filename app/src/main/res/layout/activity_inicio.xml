@@ -65,6 +65,44 @@
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
+                    <TextView
+                        android:id="@+id/lbltime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="120dp"
+                        android:layout_marginTop="320dp"
+                        android:text="Alm a Cambiar"
+                        android:textColor="@android:color/background_dark"
+                        android:textSize="18sp" />
+
+                    <Spinner
+                        android:id="@+id/spnTime"
+                        android:layout_width="132dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="126dp"
+                        android:layout_marginTop="260dp"
+                        android:entries="@array/Tiempo"
+                        android:gravity="center" />
+
+                    <Spinner
+                        android:id="@+id/spntimen"
+                        android:layout_width="142dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="125dp"
+                        android:layout_marginTop="350dp"
+                        android:entries="@array/Tiempo"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:id="@+id/lblempo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="135dp"
+                        android:layout_marginTop="230dp"
+                        android:text="Almacen Acual"
+                        android:textColor="@android:color/background_dark"
+                        android:textSize="18sp" />
+
                     <ImageView
                         android:id="@+id/imageView7"
                         android:layout_width="131dp"
@@ -91,6 +129,44 @@
                         android:textAllCaps="false"
                         android:textSize="16sp"
                         android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/lblDe"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="120dp"
+                        android:layout_marginTop="320dp"
+                        android:text="Alm a Cambiar"
+                        android:textColor="@android:color/background_dark"
+                        android:textSize="18sp" />
+
+                    <Spinner
+                        android:id="@+id/spnDe"
+                        android:layout_width="132dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="126dp"
+                        android:layout_marginTop="260dp"
+                        android:entries="@array/Almacenamiento"
+                        android:gravity="center" />
+
+                    <Spinner
+                        android:id="@+id/spnA"
+                        android:layout_width="142dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="125dp"
+                        android:layout_marginTop="350dp"
+                        android:entries="@array/Almacenamiento"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:id="@+id/lblA"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="135dp"
+                        android:layout_marginTop="230dp"
+                        android:text="Almacen Acual"
+                        android:textColor="@android:color/background_dark"
+                        android:textSize="18sp" />
 
                     <ImageView
                         android:id="@+id/imageView6"
@@ -250,6 +326,28 @@
                         android:id="@+id/LongitudCambioTV"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginTop="280dp"
+                        android:text="Longitud a Cambiar"
+                        android:textColor="@android:color/background_dark"
+                        android:textSize="18sp" />
+
+                    <Spinner
+                        android:id="@+id/longitudActualSP"
+                        android:layout_width="132dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="210dp"
+                        android:layout_marginTop="220dp"
+                        android:entries="@array/Longitudes"
+                        android:gravity="center" />
+                    <Spinner
+                        android:id="@+id/LongitudCambiarSP"
+                        android:layout_width="142dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="210dp"
+                        android:layout_marginTop="280dp"
+                        android:entries="@array/Longitudes"
+                        android:gravity="center" />
 
                     <TextView
                         android:id="@+id/LongitudActualTV"
