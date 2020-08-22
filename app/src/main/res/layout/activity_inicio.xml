@@ -36,15 +36,62 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/lbltituTDatos"
+                        android:id="@+id/lblTituloTransDatos"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
-                        android:layout_marginTop="100dp"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginTop="80dp"
                         android:text="@string/TituloTransDatos"
                         android:textAllCaps="false"
                         android:textSize="16sp"
                         android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/lblTrasDCambiar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="180dp"
+                        android:layout_marginTop="170dp"
+                        android:text="A:"
+                        android:textColor="@android:color/background_dark"
+                        android:textSize="18sp" />
+
+                    <Spinner
+                        android:id="@+id/spnTransDActual"
+                        android:layout_width="132dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="210dp"
+                        android:layout_marginTop="115dp"
+                        android:entries="@array/Longitudes"
+                        android:gravity="center" />
+
+                    <Spinner
+                        android:id="@+id/spnTransDCambiar"
+                        android:layout_width="142dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="210dp"
+                        android:layout_marginTop="170dp"
+                        android:entries="@array/Longitudes"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:id="@+id/lblTrasDActual"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="180dp"
+                        android:layout_marginTop="115dp"
+                        android:text="DE:"
+                        android:textColor="@android:color/background_dark"
+                        android:textSize="18sp" />
+
+
+                    <ImageView
+                        android:id="@+id/imageView8"
+                        android:layout_width="131dp"
+                        android:layout_height="93dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="110dp"
+                        app:srcCompat="@drawable/datos" />
 
                 </RelativeLayout>
 
@@ -58,8 +105,8 @@
                         android:id="@+id/lbltituTiempo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="80dp"
-                        android:layout_marginTop="100dp"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginTop="80dp"
                         android:text="@string/TituloTiempo"
                         android:textAllCaps="false"
                         android:textSize="16sp"
@@ -69,9 +116,9 @@
                         android:id="@+id/lbltime"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="120dp"
-                        android:layout_marginTop="320dp"
-                        android:text="Alm a Cambiar"
+                        android:layout_marginLeft="180dp"
+                        android:layout_marginTop="170dp"
+                        android:text="A:"
                         android:textColor="@android:color/background_dark"
                         android:textSize="18sp" />
 
@@ -79,8 +126,8 @@
                         android:id="@+id/spnTime"
                         android:layout_width="132dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="126dp"
-                        android:layout_marginTop="260dp"
+                        android:layout_marginLeft="210dp"
+                        android:layout_marginTop="115dp"
                         android:entries="@array/Tiempo"
                         android:gravity="center" />
 
@@ -88,8 +135,8 @@
                         android:id="@+id/spntimen"
                         android:layout_width="142dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="125dp"
-                        android:layout_marginTop="350dp"
+                        android:layout_marginLeft="210dp"
+                        android:layout_marginTop="170dp"
                         android:entries="@array/Tiempo"
                         android:gravity="center" />
 
@@ -97,9 +144,9 @@
                         android:id="@+id/lblempo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="135dp"
-                        android:layout_marginTop="230dp"
-                        android:text="Almacen Acual"
+                        android:layout_marginLeft="180dp"
+                        android:layout_marginTop="115dp"
+                        android:text="DE:"
                         android:textColor="@android:color/background_dark"
                         android:textSize="18sp" />
 
@@ -107,8 +154,8 @@
                         android:id="@+id/imageView7"
                         android:layout_width="131dp"
                         android:layout_height="93dp"
-                        android:layout_marginLeft="130dp"
-                        android:layout_marginTop="140dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="110dp"
                         app:srcCompat="@drawable/tiempo" />
 
                 </RelativeLayout>
@@ -124,7 +171,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="40dp"
-                        android:layout_marginTop="100dp"
+                        android:layout_marginTop="80dp"
                         android:text="@string/TituloAlmace"
                         android:textAllCaps="false"
                         android:textSize="16sp"
@@ -134,9 +181,9 @@
                         android:id="@+id/lblDe"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="120dp"
-                        android:layout_marginTop="320dp"
-                        android:text="Alm a Cambiar"
+                        android:layout_marginLeft="180dp"
+                        android:layout_marginTop="170dp"
+                        android:text="A:"
                         android:textColor="@android:color/background_dark"
                         android:textSize="18sp" />
 
@@ -144,8 +191,8 @@
                         android:id="@+id/spnDe"
                         android:layout_width="132dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="126dp"
-                        android:layout_marginTop="260dp"
+                        android:layout_marginLeft="210dp"
+                        android:layout_marginTop="115dp"
                         android:entries="@array/Almacenamiento"
                         android:gravity="center" />
 
@@ -153,8 +200,8 @@
                         android:id="@+id/spnA"
                         android:layout_width="142dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="125dp"
-                        android:layout_marginTop="350dp"
+                        android:layout_marginLeft="210dp"
+                        android:layout_marginTop="170dp"
                         android:entries="@array/Almacenamiento"
                         android:gravity="center" />
 
@@ -162,9 +209,9 @@
                         android:id="@+id/lblA"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="135dp"
-                        android:layout_marginTop="230dp"
-                        android:text="Almacen Acual"
+                        android:layout_marginLeft="180dp"
+                        android:layout_marginTop="115dp"
+                        android:text="DE:"
                         android:textColor="@android:color/background_dark"
                         android:textSize="18sp" />
 
@@ -172,8 +219,8 @@
                         android:id="@+id/imageView6"
                         android:layout_width="155dp"
                         android:layout_height="136dp"
-                        android:layout_marginLeft="130dp"
-                        android:layout_marginTop="120dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="110dp"
                         app:srcCompat="@drawable/memory" />
 
                 </RelativeLayout>
@@ -215,8 +262,8 @@
                         android:id="@+id/lbltituloMoned"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="100dp"
-                        android:layout_marginTop="100dp"
+                        android:layout_marginLeft="78dp"
+                        android:layout_marginTop="80dp"
                         android:text="@string/TituloMoneda"
                         android:textAllCaps="false"
                         android:textSize="16sp"
@@ -226,9 +273,9 @@
                         android:id="@+id/MonedaCambioTV"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="120dp"
-                        android:layout_marginTop="320dp"
-                        android:text="Moneda a Cambiar"
+                        android:layout_marginLeft="180dp"
+                        android:layout_marginTop="170dp"
+                        android:text="A:"
                         android:textColor="@android:color/background_dark"
                         android:textSize="18sp" />
 
@@ -236,8 +283,8 @@
                         android:id="@+id/MonedaActualSP"
                         android:layout_width="132dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="126dp"
-                        android:layout_marginTop="260dp"
+                        android:layout_marginLeft="210dp"
+                        android:layout_marginTop="115dp"
                         android:entries="@array/Moneda"
                         android:gravity="center" />
 
@@ -245,8 +292,8 @@
                         android:id="@+id/MonedaCambiarSP"
                         android:layout_width="142dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="125dp"
-                        android:layout_marginTop="350dp"
+                        android:layout_marginLeft="210dp"
+                        android:layout_marginTop="170dp"
                         android:entries="@array/Moneda"
                         android:gravity="center" /><![CDATA[
 
@@ -261,9 +308,9 @@
                         android:id="@+id/MonedaActualTV"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="135dp"
-                        android:layout_marginTop="230dp"
-                        android:text="Moneda Acual"
+                        android:layout_marginLeft="180dp"
+                        android:layout_marginTop="115dp"
+                        android:text="DE:"
                         android:textColor="@android:color/background_dark"
                         android:textSize="18sp" />
 
@@ -271,8 +318,8 @@
                         android:id="@+id/imageView2"
                         android:layout_width="124dp"
                         android:layout_height="84dp"
-                        android:layout_marginLeft="130dp"
-                        android:layout_marginTop="120dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="110dp"
                         app:srcCompat="@drawable/coin"
                         tools:ignore="VectorDrawableCompat" />
 
@@ -316,7 +363,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="100dp"
-                        android:layout_marginTop="100dp"
+                        android:layout_marginTop="80dp"
                         android:text="@string/Titulolongi"
                         android:textAllCaps="false"
                         android:textSize="16sp"
@@ -326,9 +373,9 @@
                         android:id="@+id/LongitudCambioTV"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="40dp"
-                        android:layout_marginTop="280dp"
-                        android:text="Longitud a Cambiar"
+                        android:layout_marginLeft="180dp"
+                        android:layout_marginTop="170dp"
+                        android:text="A:"
                         android:textColor="@android:color/background_dark"
                         android:textSize="18sp" />
 
@@ -337,15 +384,16 @@
                         android:layout_width="132dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="210dp"
-                        android:layout_marginTop="220dp"
+                        android:layout_marginTop="115dp"
                         android:entries="@array/Longitudes"
                         android:gravity="center" />
+
                     <Spinner
                         android:id="@+id/LongitudCambiarSP"
                         android:layout_width="142dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="210dp"
-                        android:layout_marginTop="280dp"
+                        android:layout_marginTop="170dp"
                         android:entries="@array/Longitudes"
                         android:gravity="center" />
 
@@ -353,9 +401,9 @@
                         android:id="@+id/LongitudActualTV"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="135dp"
-                        android:layout_marginTop="230dp"
-                        android:text="Longitud Acual"
+                        android:layout_marginLeft="170dp"
+                        android:layout_marginTop="115dp"
+                        android:text="DE:"
                         android:textColor="@android:color/background_dark"
                         android:textSize="18sp" />
 
@@ -363,8 +411,8 @@
                         android:id="@+id/imageView3"
                         android:layout_width="124dp"
                         android:layout_height="84dp"
-                        android:layout_marginLeft="130dp"
-                        android:layout_marginTop="120dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="110dp"
                         app:srcCompat="@drawable/iconlon"
                         tools:ignore="VectorDrawableCompat" />
 
@@ -382,21 +430,19 @@
             android:id="@+id/IngreseCantidadTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="90dp"
-            android:layout_marginTop="400dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="250dp"
             android:ems="10"
             android:gravity="center"
-
             android:hint="Ingrese Cantidad"
-
             android:inputType="numberDecimal" />
 
         <Button
             android:id="@+id/ConvertirBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="150dp"
-            android:layout_marginTop="450dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="330dp"
             android:onClick="Convertir"
             android:text="Convertir" />
 
@@ -404,10 +450,9 @@
             android:id="@+id/ResultadoTV"
             android:layout_width="152dp"
             android:layout_height="65dp"
-            android:layout_marginLeft="100dp"
-            android:layout_marginTop="600dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="430dp"
             android:hint="Resultado" />
-
 
     </RelativeLayout>
 
