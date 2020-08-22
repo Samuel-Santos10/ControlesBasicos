@@ -235,8 +235,8 @@
                         android:id="@+id/lbltituVolum"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="80dp"
-                        android:layout_marginTop="100dp"
+                        android:layout_marginLeft="78dp"
+                        android:layout_marginTop="80dp"
                         android:text="@string/TituloVolumen"
                         android:textAllCaps="false"
                         android:textSize="16sp"
@@ -246,24 +246,24 @@
                         android:id="@+id/volumencambiosp"
                         android:layout_width="111dp"
                         android:layout_height="43dp"
-                        android:layout_marginLeft="0dp"
-                        android:layout_marginTop="200dp"
+                        android:layout_marginLeft="210dp"
+                        android:layout_marginTop="170dp"
                         android:entries="@array/Volumen" />
 
                     <Spinner
                         android:id="@+id/volumenactualsp"
                         android:layout_width="106dp"
                         android:layout_height="43dp"
-                        android:layout_marginLeft="4dp"
-                        android:layout_marginTop="18dp"
+                        android:layout_marginLeft="210dp"
+                        android:layout_marginTop="115dp"
                         android:entries="@array/Volumen" />
 
                     <TextView
                     android:id="@+id/lblVolumende"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="180dp"
-                    android:layout_marginTop="115dp"
+                        android:layout_marginLeft="180dp"
+                        android:layout_marginTop="130dp"
                     android:text="DE:"
                     android:textColor="@android:color/background_dark"
                     android:textSize="18sp" />
@@ -273,7 +273,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="180dp"
-                        android:layout_marginTop="115dp"
+                        android:layout_marginTop="180dp"
                         android:text="A:"
                         android:textColor="@android:color/background_dark"
                         android:textSize="18sp" />
@@ -282,8 +282,8 @@
                         android:id="@+id/imageView5"
                         android:layout_width="124dp"
                         android:layout_height="84dp"
-                        android:layout_marginLeft="140dp"
-                        android:layout_marginTop="140dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="130dp"
                         app:srcCompat="@drawable/volume" />
 
                 </RelativeLayout>
@@ -400,7 +400,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="180dp"
-                        android:layout_marginTop="115dp"
+                        android:layout_marginTop="130dp"
                         android:text="DE:"
                         android:textColor="@android:color/background_dark"
                         android:textSize="18sp" />
@@ -409,8 +409,8 @@
                         android:id="@+id/lblMasaA"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="210dp"
-                        android:layout_marginTop="115dp"
+                        android:layout_marginLeft="180dp"
+                        android:layout_marginTop="180dp"
                         android:text="A:"
                         android:textColor="@android:color/background_dark"
                         android:textSize="18sp" />
@@ -420,7 +420,7 @@
                         android:layout_width="124dp"
                         android:layout_height="84dp"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginTop="110dp"
+                        android:layout_marginTop="130dp"
                         app:srcCompat="@drawable/masa" />
 
                 </RelativeLayout>
