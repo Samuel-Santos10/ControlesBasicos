@@ -17,7 +17,6 @@ import androidx.appcompat.app.ActionBar;
 
 public class MainActivity extends Activity {
 
-
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {

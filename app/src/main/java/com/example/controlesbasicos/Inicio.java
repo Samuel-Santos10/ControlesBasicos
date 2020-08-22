@@ -60,10 +60,22 @@ public class Inicio extends AppCompatActivity {
                     a = traer .val.getSelectedItemPosition();
                     resp = traer.valores  [1][a] / traer.valores [1][de] * cantidad;
                     break;
+                case "Almacenamiento":
+                    traer.val = (Spinner) findViewById(R.id.spnDe );
+                    de = traer.val.getSelectedItemPosition();
+                    traer.val  = (Spinner) findViewById(R.id.spnA );
+                    a = traer .val.getSelectedItemPosition();
+                    resp = traer.valores  [2][a] / traer.valores [2][de] * cantidad;
+                    break;
+                case "Tiempo":
+                    traer.val = (Spinner) findViewById(R.id.spnTime );
+                    de = traer.val.getSelectedItemPosition();
+                    traer.val  = (Spinner) findViewById(R.id.spntimen );
+                    a = traer .val.getSelectedItemPosition();
+                    resp = traer.valores  [3][a] / traer.valores [3][de] * cantidad;
+                    break;
 
             }
-
-
 
 
             tmpVal = (TextView) findViewById(R.id.ResultadoTV);
