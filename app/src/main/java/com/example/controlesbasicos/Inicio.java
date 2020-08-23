@@ -8,22 +8,31 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class Inicio extends AppCompatActivity {
+
     TabHost tbhConversores;
     ValoresTodos traer=new ValoresTodos() ;
 
+    EditText IngreseCantidadTV;
+    TextView ResultadoTV;
+
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio);
 
-        tbhConversores = (TabHost)findViewById(R.id.tbhConversores);
+
+        IngreseCantidadTV = findViewById(R.id.IngreseCantidadTV);
+        ResultadoTV = findViewById(R.id.ResultadoTV);
+        tbhConversores = findViewById(R.id.tbhConversores);
         tbhConversores.setup();
 
         tbhConversores.addTab(tbhConversores.newTabSpec("Monedas").setContent(R.id.tabMonedas).setIndicator("",getDrawable(R.drawable.ic_money)));
@@ -34,7 +43,17 @@ public class Inicio extends AppCompatActivity {
         tbhConversores.addTab(tbhConversores.newTabSpec("Tiempo").setContent(R.id.tabTiempo).setIndicator("",getDrawable(R.drawable.ic_baseline_access_time_24)));
         tbhConversores.addTab(tbhConversores.newTabSpec("TransDatos").setContent(R.id.tabTDatos).setIndicator("",getDrawable(R.drawable.ic_transdatos)));
 
+        tbhConversores.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
+            @Override
+            public void onTabChanged(String s) {
+
+                IngreseCantidadTV.getText().clear();
+                ResultadoTV.setText("");
+            }
+        });
     }
+
+
     public void Convertir(View view){
         try {
             TextView tmpVal = (TextView) findViewById(R.id.IngreseCantidadTV);

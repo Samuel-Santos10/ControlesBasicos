@@ -51,7 +51,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="180dp"
-                        android:layout_marginTop="170dp"
+                        android:layout_marginTop="185dp"
                         android:text="A:"
                         android:textColor="@android:color/background_dark"
                         android:textSize="18sp" />
@@ -61,7 +61,7 @@
                         android:layout_width="132dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="210dp"
-                        android:layout_marginTop="115dp"
+                        android:layout_marginTop="130dp"
                         android:entries="@array/Longitudes"
                         android:gravity="center" />
 
@@ -70,7 +70,7 @@
                         android:layout_width="142dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="210dp"
-                        android:layout_marginTop="170dp"
+                        android:layout_marginTop="185dp"
                         android:entries="@array/Longitudes"
                         android:gravity="center" />
 
@@ -79,7 +79,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="180dp"
-                        android:layout_marginTop="115dp"
+                        android:layout_marginTop="130dp"
                         android:text="DE:"
                         android:textColor="@android:color/background_dark"
                         android:textSize="18sp" />
@@ -90,7 +90,7 @@
                         android:layout_width="131dp"
                         android:layout_height="93dp"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginTop="110dp"
+                        android:layout_marginTop="125dp"
                         app:srcCompat="@drawable/datos" />
 
                 </RelativeLayout>
@@ -127,7 +127,7 @@
                         android:layout_width="132dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="210dp"
-                        android:layout_marginTop="115dp"
+                        android:layout_marginTop="130dp"
                         android:entries="@array/Tiempo"
                         android:gravity="center" />
 
@@ -136,7 +136,7 @@
                         android:layout_width="142dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="210dp"
-                        android:layout_marginTop="170dp"
+                        android:layout_marginTop="185dp"
                         android:entries="@array/Tiempo"
                         android:gravity="center" />
 
@@ -145,7 +145,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="180dp"
-                        android:layout_marginTop="115dp"
+                        android:layout_marginTop="130dp"
                         android:text="DE:"
                         android:textColor="@android:color/background_dark"
                         android:textSize="18sp" />
@@ -155,7 +155,7 @@
                         android:layout_width="131dp"
                         android:layout_height="93dp"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginTop="110dp"
+                        android:layout_marginTop="125dp"
                         app:srcCompat="@drawable/tiempo" />
 
                 </RelativeLayout>
@@ -192,7 +192,7 @@
                         android:layout_width="132dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="210dp"
-                        android:layout_marginTop="115dp"
+                        android:layout_marginTop="130dp"
                         android:entries="@array/Almacenamiento"
                         android:gravity="center" />
 
@@ -201,7 +201,7 @@
                         android:layout_width="142dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="210dp"
-                        android:layout_marginTop="170dp"
+                        android:layout_marginTop="185dp"
                         android:entries="@array/Almacenamiento"
                         android:gravity="center" />
 
@@ -210,7 +210,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="180dp"
-                        android:layout_marginTop="115dp"
+                        android:layout_marginTop="130dp"
                         android:text="DE:"
                         android:textColor="@android:color/background_dark"
                         android:textSize="18sp" />
@@ -220,7 +220,7 @@
                         android:layout_width="155dp"
                         android:layout_height="136dp"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginTop="110dp"
+                        android:layout_marginTop="125dp"
                         app:srcCompat="@drawable/memory" />
 
                 </RelativeLayout>
@@ -247,7 +247,7 @@
                         android:layout_width="111dp"
                         android:layout_height="43dp"
                         android:layout_marginLeft="210dp"
-                        android:layout_marginTop="170dp"
+                        android:layout_marginTop="185dp"
                         android:entries="@array/Volumen" />
 
                     <Spinner
@@ -255,7 +255,7 @@
                         android:layout_width="106dp"
                         android:layout_height="43dp"
                         android:layout_marginLeft="210dp"
-                        android:layout_marginTop="115dp"
+                        android:layout_marginTop="130dp"
                         android:entries="@array/Volumen" />
 
                     <TextView
@@ -283,7 +283,7 @@
                         android:layout_width="124dp"
                         android:layout_height="84dp"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginTop="130dp"
+                        android:layout_marginTop="125dp"
                         app:srcCompat="@drawable/volume" />
 
                 </RelativeLayout>
@@ -309,8 +309,8 @@
                         android:id="@+id/MonedaCambioTV"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="180dp"
-                        android:layout_marginTop="170dp"
+                        android:layout_marginLeft="150dp"
+                        android:layout_marginTop="185dp"
                         android:text="A:"
                         android:textColor="@android:color/background_dark"
                         android:textSize="18sp" />
@@ -319,8 +319,8 @@
                         android:id="@+id/MonedaActualSP"
                         android:layout_width="132dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="210dp"
-                        android:layout_marginTop="115dp"
+                        android:layout_marginLeft="185dp"
+                        android:layout_marginTop="130dp"
                         android:entries="@array/Moneda"
                         android:gravity="center" />
 
@@ -328,8 +328,8 @@
                         android:id="@+id/MonedaCambiarSP"
                         android:layout_width="142dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="210dp"
-                        android:layout_marginTop="170dp"
+                        android:layout_marginLeft="175dp"
+                        android:layout_marginTop="185dp"
                         android:entries="@array/Moneda"
                         android:gravity="center" /><![CDATA[
 
@@ -344,8 +344,8 @@
                         android:id="@+id/MonedaActualTV"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="180dp"
-                        android:layout_marginTop="115dp"
+                        android:layout_marginLeft="145dp"
+                        android:layout_marginTop="130dp"
                         android:text="DE:"
                         android:textColor="@android:color/background_dark"
                         android:textSize="18sp" />
@@ -355,7 +355,7 @@
                         android:layout_width="124dp"
                         android:layout_height="84dp"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginTop="110dp"
+                        android:layout_marginTop="125dp"
                         app:srcCompat="@drawable/coin"
                         tools:ignore="VectorDrawableCompat" />
 
@@ -382,24 +382,24 @@
                         android:id="@+id/MasaCambiosp"
                         android:layout_width="202dp"
                         android:layout_height="50dp"
-                        android:layout_marginLeft="210dp"
-                        android:layout_marginTop="170dp"
+                        android:layout_marginLeft="175dp"
+                        android:layout_marginTop="175dp"
                         android:entries="@array/Masa" />
 
 
                     <Spinner
                         android:id="@+id/MasaActualsp"
-                        android:layout_width="202dp"
+                        android:layout_width="200dp"
                         android:layout_height="50dp"
-                        android:layout_marginLeft="210dp"
-                        android:layout_marginTop="115dp"
+                        android:layout_marginLeft="185dp"
+                        android:layout_marginTop="118dp"
                         android:entries="@array/Masa" />
 
                     <TextView
                         android:id="@+id/lblMasade"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="180dp"
+                        android:layout_marginLeft="145dp"
                         android:layout_marginTop="130dp"
                         android:text="DE:"
                         android:textColor="@android:color/background_dark"
@@ -409,8 +409,8 @@
                         android:id="@+id/lblMasaA"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="180dp"
-                        android:layout_marginTop="180dp"
+                        android:layout_marginLeft="150dp"
+                        android:layout_marginTop="185dp"
                         android:text="A:"
                         android:textColor="@android:color/background_dark"
                         android:textSize="18sp" />
@@ -420,7 +420,7 @@
                         android:layout_width="124dp"
                         android:layout_height="84dp"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginTop="130dp"
+                        android:layout_marginTop="125dp"
                         app:srcCompat="@drawable/masa" />
 
                 </RelativeLayout>
@@ -446,8 +446,8 @@
                         android:id="@+id/LongitudCambioTV"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="180dp"
-                        android:layout_marginTop="170dp"
+                        android:layout_marginLeft="150dp"
+                        android:layout_marginTop="185dp"
                         android:text="A:"
                         android:textColor="@android:color/background_dark"
                         android:textSize="18sp" />
@@ -456,8 +456,8 @@
                         android:id="@+id/longitudActualSP"
                         android:layout_width="132dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="210dp"
-                        android:layout_marginTop="115dp"
+                        android:layout_marginLeft="185dp"
+                        android:layout_marginTop="130dp"
                         android:entries="@array/Longitudes"
                         android:gravity="center" />
 
@@ -465,8 +465,8 @@
                         android:id="@+id/LongitudCambiarSP"
                         android:layout_width="142dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="210dp"
-                        android:layout_marginTop="170dp"
+                        android:layout_marginLeft="175dp"
+                        android:layout_marginTop="185dp"
                         android:entries="@array/Longitudes"
                         android:gravity="center" />
 
@@ -474,8 +474,8 @@
                         android:id="@+id/LongitudActualTV"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="170dp"
-                        android:layout_marginTop="115dp"
+                        android:layout_marginLeft="145dp"
+                        android:layout_marginTop="130dp"
                         android:text="DE:"
                         android:textColor="@android:color/background_dark"
                         android:textSize="18sp" />
@@ -485,7 +485,7 @@
                         android:layout_width="124dp"
                         android:layout_height="84dp"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginTop="110dp"
+                        android:layout_marginTop="125dp"
                         app:srcCompat="@drawable/iconlon"
                         tools:ignore="VectorDrawableCompat" />
 
