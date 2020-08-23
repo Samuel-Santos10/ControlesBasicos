@@ -113,15 +113,22 @@ public class Inicio extends AppCompatActivity {
                     resp = traer.valores  [5][a] / traer.valores [5][de] * cantidad;
                     break;
 
+                case "TransDatos":
+                    traer.val = (Spinner) findViewById(R.id.spnTransDActual );
+                    de = traer.val.getSelectedItemPosition();
+                    traer.val  = (Spinner) findViewById(R.id.spnTransDCambiar );
+                    a = traer .val.getSelectedItemPosition();
+                    resp = traer.valores  [6][a] / traer.valores [6][de] * cantidad;
+                    break;
+
             }
 
             tmpVal = (TextView) findViewById(R.id.ResultadoTV);
             tmpVal.setText(String.format("Por la cantidad de: "+ cantidad  + " Usted recivira " + resp  ));
         }catch (Exception err){
             TextView temp = (TextView) findViewById(R.id.ResultadoTV);
-            temp.setText("Porfavor Ingrese solo Numeros.");
 
-            Toast.makeText(getApplicationContext(),"Por Favor Ingrese Solamente Numeros",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),"Error: Ingrese la cantidad",Toast.LENGTH_LONG).show();
 
 
         }

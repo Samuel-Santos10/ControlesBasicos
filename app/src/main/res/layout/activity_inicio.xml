@@ -62,7 +62,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="200dp"
                         android:layout_marginTop="130dp"
-                        android:entries="@array/Longitudes"
+                        android:entries="@array/TransfeDatos"
                         android:gravity="center" />
 
                     <Spinner
@@ -71,7 +71,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="200dp"
                         android:layout_marginTop="185dp"
-                        android:entries="@array/Longitudes"
+                        android:entries="@array/TransfeDatos"
                         android:gravity="center" />
 
                     <TextView

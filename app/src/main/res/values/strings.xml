@@ -77,7 +77,7 @@
         <item>Nibble</item>
         <item>Kilobit</item>
     </string-array>
-    
+
     <string-array name="Tiempo">
         <item>Segundos</item>
         <item>Nanosegundos</item>
@@ -91,7 +91,16 @@
         <item>Año</item>
     </string-array>
 
-
-
+    <string-array name="TransfeDatos">
+        <item>Bit(b/s)</item>
+        <item>Kilobit(Kb/s)</item>
+        <item>Kilobyte(KB/s)</item>
+        <item>Megabit(Mb/s)</item>
+        <item>Megabyte(MB/s)</item>
+        <item>Gigabit(Gb/s)</item>
+        <item>Gigabyte(GB/s)</item>
+        <item>Terabit(Tb/s)</item>
+        <item>Terabyte(TB/s)</item>
+    </string-array>
 
 </resources>
