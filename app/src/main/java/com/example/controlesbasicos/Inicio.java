@@ -73,12 +73,12 @@ public class Inicio extends AppCompatActivity {
                     resp = traer .valores  [0][a] / traer .valores [0][de] * cantidad;
                     break;
 
-                case "Masa":
-                    traer.val = (Spinner) findViewById(R.id.MasaActualsp);
+                case "Longitud":
+                    traer.val = (Spinner) findViewById(R.id.longitudActualSP );
                     de = traer.val.getSelectedItemPosition();
-                    traer.val = (Spinner) findViewById(R.id.MasaCambiosp);
-                    a = traer.val.getSelectedItemPosition();
-                    resp = traer.valores[1][a] / traer.valores[1][de] * cantidad;
+                    traer.val  = (Spinner) findViewById(R.id.LongitudCambiarSP );
+                    a = traer .val.getSelectedItemPosition();
+                    resp = traer.valores  [1][a] / traer.valores [1][de] * cantidad;
                     break;
 
                 case "Volumen":
@@ -89,12 +89,12 @@ public class Inicio extends AppCompatActivity {
                     resp = traer.valores[2][a] / traer.valores[2][de] * cantidad;
                     break;
 
-                case "Longitud":
-                    traer.val = (Spinner) findViewById(R.id.longitudActualSP );
+                case "Masa":
+                    traer.val = (Spinner) findViewById(R.id.MasaActualsp);
                     de = traer.val.getSelectedItemPosition();
-                    traer.val  = (Spinner) findViewById(R.id.LongitudCambiarSP );
-                    a = traer .val.getSelectedItemPosition();
-                    resp = traer.valores  [3][a] / traer.valores [3][de] * cantidad;
+                    traer.val = (Spinner) findViewById(R.id.MasaCambiosp);
+                    a = traer.val.getSelectedItemPosition();
+                    resp = traer.valores[3][a] / traer.valores[3][de] * cantidad;
                     break;
 
                 case "Almacenamiento":
@@ -114,7 +114,6 @@ public class Inicio extends AppCompatActivity {
                     break;
 
             }
-
 
             tmpVal = (TextView) findViewById(R.id.ResultadoTV);
             tmpVal.setText(String.format("Por la cantidad de: "+ cantidad  + " Usted recivira " + resp  ));

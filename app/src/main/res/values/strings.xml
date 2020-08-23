@@ -39,34 +39,6 @@
 
     </string-array>
 
-    <string-array name="Almacenamiento">
-        <item>Megabytes(MB)</item>
-        <item>Kilobytes(kB)</item>
-        <item>Bytes(B)</item>
-        <item>Gigabytes</item>
-        <item>TeraBytes</item>
-        <item>PetaBytes</item>
-        <item>ExaBytes</item>
-        <item>Bit</item>
-        <item>Nibble</item>
-        <item>Kilobit</item>
-    </string-array>
-
-
-    <string-array name="Tiempo">
-        <item>Segundos</item>
-        <item>Nanosegundos</item>
-        <item>Microsegundos</item>
-        <item>Milisegundos</item>
-        <item>Minutos</item>
-        <item>Hora</item>
-        <item>Día</item>
-        <item>Semana</item>
-        <item>Mes</item>
-        <item>Año</item>
-    </string-array>
-
-
     <string-array name="Volumen">
         <item>Litro</item>
         <item>MiliLitro</item>
@@ -91,8 +63,34 @@
         <item>Stone</item>
         <item>Gigagramo</item>
         <item>Hectogramo</item>
-
     </string-array>
+
+    <string-array name="Almacenamiento">
+        <item>Megabytes(MB)</item>
+        <item>Kilobytes(kB)</item>
+        <item>Bytes(B)</item>
+        <item>Gigabytes</item>
+        <item>TeraBytes</item>
+        <item>PetaBytes</item>
+        <item>ExaBytes</item>
+        <item>Bit</item>
+        <item>Nibble</item>
+        <item>Kilobit</item>
+    </string-array>
+    
+    <string-array name="Tiempo">
+        <item>Segundos</item>
+        <item>Nanosegundos</item>
+        <item>Microsegundos</item>
+        <item>Milisegundos</item>
+        <item>Minutos</item>
+        <item>Hora</item>
+        <item>Día</item>
+        <item>Semana</item>
+        <item>Mes</item>
+        <item>Año</item>
+    </string-array>
+
 
 
 
