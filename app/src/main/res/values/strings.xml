@@ -14,11 +14,11 @@
     <string-array name="Moneda">
         <item>Dolar($)</item>
         <item>Colones ¢ (SV)</item>
-        <item>Yenes(¥)</item>
+        <item>Yen</item>
         <item>Rupias(₹)</item>
         <item>Lempiras(L))</item>
         <item>Peso (MXN)</item>
-        <item>Bitcoin(฿)</item>
+        <item>Boliviano</item>
         <item>Quetzal(Q)</item>
         <item>Euro(€)</item>
         <item>Cordoba(C$)</item>
