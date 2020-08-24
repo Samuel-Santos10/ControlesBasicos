@@ -5,33 +5,40 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@drawable/otro">
+    android:background="@drawable/ere">
+
 
     <Button
         android:id="@+id/btnSiguiente"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="400dp"
-        android:layout_marginLeft="120dp"
-        android:text="INICIAR" />
-
+        android:layout_marginTop="450dp"
+        android:background="#FFFDFD"
+        android:text="INICIAR"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/lbltituPrincipal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="35dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="120dp"
+        android:shadowColor="#EFE3E3"
         android:text="@string/tituloPrincipal"
+        android:textColor="#EDECEC"
+        android:textColorHint="@android:color/background_light"
+        android:textColorLink="#FAF4F4"
         android:textSize="24sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:drawableTint="#FFFFFF" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="253dp"
-        android:layout_height="325dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="65dp"
-        android:src="@drawable/icono_app" />
+        android:layout_width="208dp"
+        android:layout_height="286dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="150dp"
+        android:src="@drawable/logo" />
 
 </RelativeLayout>
