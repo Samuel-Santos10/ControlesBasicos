@@ -33,24 +33,25 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         sensorManager = (SensorManager)getSystemService(SENSOR_SERVICE);
-        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
+        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
         if(sensor==null){
             finish();
         }
-        final TextView lblSensorProximidad = (TextView)findViewById(R.id.lblSensorProxim);
+        final TextView lblSensorLuz = (TextView)findViewById(R.id.lblSensorLuz);
         sensorEventListener = new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent sensorEvent) {
-                if( sensorEvent.values[0]>=0 && sensorEvent.values[0]<=4 ){
-                    getWindow().getDecorView().setBackgroundColor(Color.RED);
-                    lblSensorProximidad.setText("LEJOS: "+ sensorEvent.values[0]);
-                } else if(sensorEvent.values[0]>4 && sensorEvent.values[0]<=8 ){
-                    getWindow().getDecorView().setBackgroundColor(Color.YELLOW);
-                    lblSensorProximidad.setText("INTERMEDIO: "+ sensorEvent.values[0]);
-                } else{
-                    getWindow().getDecorView().setBackgroundColor(Color.GREEN);
-                    lblSensorProximidad.setText("CERCA: "+ sensorEvent.values[0]);
+                double luz = sensorEvent.values[0];
+                if(luz>=0 && luz<=15000){
+                    getWindow().getDecorView().setBackgroundColor(Color.BLACK);
                 }
+                if(luz>=15000 && luz<=30000){
+                    getWindow().getDecorView().setBackgroundColor(Color.GRAY);
+                }
+                if(luz>=30000 && luz<=50000){
+                    getWindow().getDecorView().setBackgroundColor(Color.WHITE);
+                }
+                lblSensorLuz.setText("VALOR: " + luz);
             }
             @Override
             public void onAccuracyChanged(Sensor sensor, int i) {
