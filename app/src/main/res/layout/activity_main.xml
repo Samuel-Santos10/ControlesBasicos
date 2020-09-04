@@ -6,12 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-        <TextView
-            android:id="@+id/lblSensorAcelerometro"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="80dp"
-            android:layout_marginTop="70dp"
-            android:text="Sensor de Acelerometro"
-            android:textColor="@color/colorPrimary"/>
-    </RelativeLayout>
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/musica"/>
+
+    <Button
+        android:id="@+id/btnReproducir"
+        android:layout_width="49dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="175dp"
+        android:layout_marginTop="250dp"
+        android:background="@drawable/play" />
+
+</RelativeLayout>

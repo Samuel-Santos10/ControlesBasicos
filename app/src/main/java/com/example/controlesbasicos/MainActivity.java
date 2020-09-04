@@ -1,68 +1,44 @@
 package com.example.controlesbasicos;
-
 import android.app.Activity;
-
-import android.graphics.Color;
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.widget.TextView;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 
 public class MainActivity extends Activity {
 
-    SensorManager sensorManager;
-    Sensor sensor;
-    SensorEventListener sensorEventListener;
+    MediaPlayer mediaPlayer;
 
-    @Override
-    protected void onPause() {
-        detener();
-        super.onPause();
-    }
-    @Override
-    protected void onResume() {
-        iniciar();
-        super.onResume();
-    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        try {
+            mediaPlayer = MediaPlayer.create(this, R.raw.khalid);
 
-        sensorManager = (SensorManager)getSystemService(SENSOR_SERVICE);
-        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-        if(sensor==null){
-            finish();
-        }
-        final TextView lblSensorAcelerometro = (TextView)findViewById(R.id.lblSensorAcelerometro);
-        sensorEventListener = new SensorEventListener() {
-            @Override
-            public void onSensorChanged(SensorEvent sensorEvent) {
-
-                double acelerometro = sensorEvent.values[0];
-                if( acelerometro>=-9 && acelerometro<=0 ) {
-                    getWindow().getDecorView().setBackgroundColor(Color.RED);
-                } else if( acelerometro>0 && acelerometro<=5){
-                    getWindow().getDecorView().setBackgroundColor(Color.YELLOW);
-                } else if(acelerometro>5 && acelerometro<=10){
-                    getWindow().getDecorView().setBackgroundColor(Color.GREEN);
-
+            final Button btnReproducir = (Button) findViewById(R.id.btnReproducir);
+            btnReproducir.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (!mediaPlayer.isPlaying()) {
+                        iniciar();
+                        btnReproducir.setBackgroundResource(R.drawable.pause);
+                    } else {
+                        parar();
+                        btnReproducir.setBackgroundResource(R.drawable.play);
+                    }
                 }
-                lblSensorAcelerometro.setText("VALOR: " + acelerometro);
-            }
-            @Override
-            public void onAccuracyChanged(Sensor sensor, int i) {
-            }
-        };
-        iniciar();
+            });
+        }catch (Exception ex){
+            Toast.makeText(getApplicationContext(), "Error: "+ ex.getMessage(), Toast.LENGTH_LONG).show();
+        }
     }
     void iniciar(){
-        sensorManager.registerListener(sensorEventListener, sensor, 2000*1000);
+        mediaPlayer.start();
     }
-    void detener(){
-        sensorManager.unregisterListener(sensorEventListener);
+    void parar(){
+        mediaPlayer.pause();
     }
 }
