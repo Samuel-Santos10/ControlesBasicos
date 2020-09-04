@@ -1,15 +1,10 @@
 <resources>
-    <string name="app_name">Conversor</string>
+    <string name="app_name">PARCIAL 1</string>
     <string name="saludo">Holaa a todos, biemvenidos</string>
     <string name="titulo">Conversores</string>
     <string name="tituloPrincipal">MULTI CONVERSORES</string>
-    <string name="TituloMoneda">CONVERSOR MONEDAS</string>
-    <string name="TituloMasa">CONVERSOR MASA</string>
-    <string name="TituloVolumen">CONVERSOR VOLUMEN</string>
-    <string name="Titulolongi">CONVERSOR LONGITUD</string>
-    <string name="TituloAlmace">CONVERSOR ALMACENAMIENTO</string>
-    <string name="TituloTiempo">CONVERSOR TIEMPO</string>
-    <string name="TituloTransDatos">CONVERSOR TRANSFERENCIA DATOS</string>
+    <string name="TituloConverUniver">CONVERSOR UNIVERSAL</string>
+    <string name="TituloArea">CONVERSOR AREA</string>
 
     <string-array name="Moneda">
         <item>Dolar($)</item>
@@ -22,7 +17,6 @@
         <item>Quetzal(Q)</item>
         <item>Euro(€)</item>
         <item>Cordoba(C$)</item>
-
     </string-array>
 
     <string-array name="Longitudes">
@@ -37,70 +31,6 @@
         <item>Milímetro</item>
         <item>MicróMetro</item>
 
-    </string-array>
-
-    <string-array name="Volumen">
-        <item>Litro</item>
-        <item>MiliLitro</item>
-        <item>Metro Cubico</item>
-        <item>Galon</item>
-        <item>Pie Cubico</item>
-        <item>Taza Americana</item>
-        <item>Pulgada cubica</item>
-        <item>Onza liquida imperial</item>
-        <item>Cucharada imperial</item>
-        <item>Cucharadita imperial</item>
-    </string-array>
-
-    <string-array name="Masa">
-        <item>Kilogramo</item>
-        <item>Gramo</item>
-        <item>Miligramo</item>
-        <item>MicroGramo</item>
-        <item>Libra</item>
-        <item>Onza</item>
-        <item>Tonelada</item>
-        <item>Stone</item>
-        <item>Gigagramo</item>
-        <item>Hectogramo</item>
-    </string-array>
-
-    <string-array name="Almacenamiento">
-        <item>Megabytes(MB)</item>
-        <item>Kilobytes(kB)</item>
-        <item>Bytes(B)</item>
-        <item>Gigabytes</item>
-        <item>TeraBytes</item>
-        <item>PetaBytes</item>
-        <item>ExaBytes</item>
-        <item>Bit</item>
-        <item>Nibble</item>
-        <item>Kilobit</item>
-    </string-array>
-
-    <string-array name="Tiempo">
-        <item>Segundos</item>
-        <item>Nanosegundos</item>
-        <item>Microsegundos</item>
-        <item>Milisegundos</item>
-        <item>Minutos</item>
-        <item>Hora</item>
-        <item>Día</item>
-        <item>Semana</item>
-        <item>Mes</item>
-        <item>Año</item>
-    </string-array>
-
-    <string-array name="TransfeDatos">
-        <item>Bit(b/s)</item>
-        <item>Kilobit(Kb/s)</item>
-        <item>Kilobyte(KB/s)</item>
-        <item>Megabit(Mb/s)</item>
-        <item>Megabyte(MB/s)</item>
-        <item>Gigabit(Gb/s)</item>
-        <item>Gigabyte(GB/s)</item>
-        <item>Terabit(Tb/s)</item>
-        <item>Terabyte(TB/s)</item>
     </string-array>
 
 </resources>

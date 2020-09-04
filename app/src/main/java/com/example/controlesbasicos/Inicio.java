@@ -35,13 +35,8 @@ public class Inicio extends AppCompatActivity {
         tbhConversores = findViewById(R.id.tbhConversores);
         tbhConversores.setup();
 
-        tbhConversores.addTab(tbhConversores.newTabSpec("Monedas").setContent(R.id.tabMonedas).setIndicator("",getDrawable(R.drawable.ic_money)));
-        tbhConversores.addTab(tbhConversores.newTabSpec("Masa").setContent(R.id.tabMasa).setIndicator("",getDrawable(R.drawable.weight_kilogram_i)));
-        tbhConversores.addTab(tbhConversores.newTabSpec("Volumen").setContent(R.id.tabVolumen).setIndicator("",getDrawable(R.drawable.cube_icon)));
-        tbhConversores.addTab(tbhConversores.newTabSpec("Longitud").setContent(R.id.tabLongitud).setIndicator("",getDrawable(R.drawable.length)));
-        tbhConversores.addTab(tbhConversores.newTabSpec("Almacenamiento").setContent(R.id.tabAlmacenamiento).setIndicator("",getDrawable(R.drawable.usb_pendrive)));
-        tbhConversores.addTab(tbhConversores.newTabSpec("Tiempo").setContent(R.id.tabTiempo).setIndicator("",getDrawable(R.drawable.ic_baseline_access_time_24)));
-        tbhConversores.addTab(tbhConversores.newTabSpec("TransDatos").setContent(R.id.tabTDatos).setIndicator("",getDrawable(R.drawable.ic_transdatos)));
+        tbhConversores.addTab(tbhConversores.newTabSpec("Monedas").setContent(R.id.tabMulticonver).setIndicator("",getDrawable(R.drawable.ic_money)));
+        tbhConversores.addTab(tbhConversores.newTabSpec("Longitud").setContent(R.id.tabArea).setIndicator("",getDrawable(R.drawable.length)));
 
         tbhConversores.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override
@@ -65,13 +60,13 @@ public class Inicio extends AppCompatActivity {
             double resp = 0;
             switch (tbhConversores.getCurrentTabTag()){
 
-                case "Monedas":
-                    traer.val   = (Spinner) findViewById(R.id.MonedaActualSP);
+               /* case "Monedas":
+                    traer.val   = (Spinner) findViewById(R.id.);
                     de = traer.val .getSelectedItemPosition();
                     traer.val  = (Spinner) findViewById(R.id.MonedaCambiarSP);
                     a = traer.val .getSelectedItemPosition();
                     resp = traer .valores  [0][a] / traer .valores [0][de] * cantidad;
-                    break;
+                    break;*/
 
                 case "Longitud":
                     traer.val = (Spinner) findViewById(R.id.longitudActualSP );
@@ -81,45 +76,6 @@ public class Inicio extends AppCompatActivity {
                     resp = traer.valores  [1][a] / traer.valores [1][de] * cantidad;
                     break;
 
-                case "Volumen":
-                    traer.val = (Spinner) findViewById(R.id.volumenactualsp);
-                    de = traer.val.getSelectedItemPosition();
-                    traer.val = (Spinner) findViewById(R.id.volumencambiosp);
-                    a = traer.val.getSelectedItemPosition();
-                    resp = traer.valores[2][a] / traer.valores[2][de] * cantidad;
-                    break;
-
-                case "Masa":
-                    traer.val = (Spinner) findViewById(R.id.MasaActualsp);
-                    de = traer.val.getSelectedItemPosition();
-                    traer.val = (Spinner) findViewById(R.id.MasaCambiosp);
-                    a = traer.val.getSelectedItemPosition();
-                    resp = traer.valores[3][a] / traer.valores[3][de] * cantidad;
-                    break;
-
-                case "Almacenamiento":
-                    traer.val = (Spinner) findViewById(R.id.spnDe );
-                    de = traer.val.getSelectedItemPosition();
-                    traer.val  = (Spinner) findViewById(R.id.spnA );
-                    a = traer .val.getSelectedItemPosition();
-                    resp = traer.valores  [4][a] / traer.valores [4][de] * cantidad;
-                    break;
-
-                case "Tiempo":
-                    traer.val = (Spinner) findViewById(R.id.spnTime );
-                    de = traer.val.getSelectedItemPosition();
-                    traer.val  = (Spinner) findViewById(R.id.spntimen );
-                    a = traer .val.getSelectedItemPosition();
-                    resp = traer.valores  [5][a] / traer.valores [5][de] * cantidad;
-                    break;
-
-                case "TransDatos":
-                    traer.val = (Spinner) findViewById(R.id.spnTransDActual );
-                    de = traer.val.getSelectedItemPosition();
-                    traer.val  = (Spinner) findViewById(R.id.spnTransDCambiar );
-                    a = traer .val.getSelectedItemPosition();
-                    resp = traer.valores  [6][a] / traer.valores [6][de] * cantidad;
-                    break;
 
             }
 
@@ -129,7 +85,6 @@ public class Inicio extends AppCompatActivity {
             TextView temp = (TextView) findViewById(R.id.ResultadoTV);
 
             Toast.makeText(getApplicationContext(),"Error: Ingrese la cantidad",Toast.LENGTH_LONG).show();
-
 
         }
     }
