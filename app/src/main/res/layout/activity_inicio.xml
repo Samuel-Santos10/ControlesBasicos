@@ -52,7 +52,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/LongitudCambioTV"
+                        android:id="@+id/AreaCambioTV"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="150dp"
@@ -62,7 +62,7 @@
                         android:textSize="18sp" />
 
                     <TextView
-                        android:id="@+id/LongitudActualTV"
+                        android:id="@+id/AreaActualTV"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="145dp"
@@ -72,7 +72,7 @@
                         android:textSize="18sp" />
 
                     <Spinner
-                        android:id="@+id/longitudActualSP"
+                        android:id="@+id/AreaActualSP"
                         android:layout_width="132dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="185dp"
@@ -81,7 +81,7 @@
                         android:gravity="center" />
 
                     <Spinner
-                        android:id="@+id/LongitudCambiarSP"
+                        android:id="@+id/AreaCambiarSP"
                         android:layout_width="132dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="185dp"

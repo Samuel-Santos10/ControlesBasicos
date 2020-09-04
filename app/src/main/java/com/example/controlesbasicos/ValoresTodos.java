@@ -5,7 +5,7 @@ import android.widget.Spinner;
 public class ValoresTodos {
 
     Spinner val;
-    double valores[][] = {
+    double datos[][] = {
             new double[]{ }, //Valores de CONVERSOR UNIVERSAL
             new double[] { }  //Valores de CONVERSOR AREA
     };
