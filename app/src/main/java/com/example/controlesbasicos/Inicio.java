@@ -17,7 +17,7 @@ import android.widget.Toast;
 public class Inicio extends AppCompatActivity {
 
     TabHost tbhConversores;
-    ValoresTodos traer=new ValoresTodos() ;
+    ValoresTodos misvalores=new ValoresTodos() ;
 
     EditText IngreseCantidadTV;
     TextView ResultadoTV;
@@ -36,7 +36,7 @@ public class Inicio extends AppCompatActivity {
         tbhConversores.setup();
 
         tbhConversores.addTab(tbhConversores.newTabSpec("Monedas").setContent(R.id.tabMulticonver).setIndicator("",getDrawable(R.drawable.ic_money)));
-        tbhConversores.addTab(tbhConversores.newTabSpec("Longitud").setContent(R.id.tabArea).setIndicator("",getDrawable(R.drawable.length)));
+        tbhConversores.addTab(tbhConversores.newTabSpec("Area").setContent(R.id.tabArea).setIndicator("",getDrawable(R.drawable.length)));
 
         tbhConversores.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override
@@ -68,12 +68,12 @@ public class Inicio extends AppCompatActivity {
                     resp = traer .valores  [0][a] / traer .valores [0][de] * cantidad;
                     break;*/
 
-                case "Longitud":
-                    traer.val = (Spinner) findViewById(R.id.longitudActualSP );
-                    de = traer.val.getSelectedItemPosition();
-                    traer.val  = (Spinner) findViewById(R.id.LongitudCambiarSP );
-                    a = traer .val.getSelectedItemPosition();
-                    resp = traer.valores  [1][a] / traer.valores [1][de] * cantidad;
+                case "Area":
+                    misvalores.val   = (Spinner) findViewById(R.id.AreaActualSP);
+                    de = misvalores.val .getSelectedItemPosition();
+                    misvalores.val  = (Spinner) findViewById(R.id.AreaCambiarSP);
+                    a = misvalores.val .getSelectedItemPosition();
+                    resp = misvalores.datos [0][a] / misvalores.datos [0][de];
                     break;
 
 
