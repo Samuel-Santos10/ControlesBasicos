@@ -19,18 +19,14 @@
         <item>Cordoba(C$)</item>
     </string-array>
 
-    <string-array name="Longitudes">
-        <item>Metro</item>
-        <item>Cm</item>
-        <item>Pulgada</item>
-        <item>Pie</item>
-        <item>Varas</item>
-        <item>Yardas</item>
-        <item>Km</item>
-        <item>Millas</item>
-        <item>Milímetro</item>
-        <item>MicróMetro</item>
-
+    <string-array name="Superficie">
+        <item>Pie Cuadrado</item>
+        <item>Vara Cuadrada</item>
+        <item>Yarda Cuadrada</item>
+        <item>Metro Cuadrado</item>
+        <item>Tareas</item>
+        <item>Manzana</item>
+        <item>Hectarea</item>
     </string-array>
 
 </resources>
