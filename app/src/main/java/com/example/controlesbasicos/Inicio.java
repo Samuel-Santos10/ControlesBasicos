@@ -73,7 +73,7 @@ public class Inicio extends AppCompatActivity {
                     de = misvalores.val .getSelectedItemPosition();
                     misvalores.val  = (Spinner) findViewById(R.id.AreaCambiarSP);
                     a = misvalores.val .getSelectedItemPosition();
-                    resp = misvalores.datos [0][a] / misvalores.datos [0][de];
+                    resp = misvalores.datos [1][a] / misvalores.datos [1][de];
                     break;
 
 
