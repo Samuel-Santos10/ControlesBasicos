@@ -83,11 +83,11 @@
 
                     <ImageView
                         android:id="@+id/imageView2"
-                        android:layout_width="124dp"
-                        android:layout_height="84dp"
+                        android:layout_width="133dp"
+                        android:layout_height="88dp"
                         android:layout_marginLeft="100dp"
                         android:layout_marginTop="125dp"
-                        app:srcCompat="@drawable/coin"
+                        app:srcCompat="@drawable/converuno"
                         tools:ignore="VectorDrawableCompat" />
 
                 </RelativeLayout>
@@ -185,10 +185,11 @@
                         android:layout_height="84dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="125dp"
-                        app:srcCompat="@drawable/iconlon"
+                        app:srcCompat="@drawable/superfici"
                         tools:ignore="VectorDrawableCompat" />
 
                 </RelativeLayout>
+
 
             </FrameLayout>
         </RelativeLayout>

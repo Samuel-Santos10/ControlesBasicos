@@ -21,6 +21,7 @@ public class Inicio extends AppCompatActivity {
     EditText txtcantidad;
     EditText txtUnidades;
     EditText txtUnidades2;
+    EditText txtcantidadArea;
 
 
     TextView ResultadoTV;
@@ -36,14 +37,15 @@ public class Inicio extends AppCompatActivity {
         txtcantidad = findViewById(R.id.txtCantidad);
         txtUnidades = findViewById(R.id.txtUnidades);
         txtUnidades2 = findViewById(R.id.txtUnidades2);
+        txtcantidadArea = findViewById(R.id.txtCantidadArea);
 
         ResultadoTV = findViewById(R.id.ResultadoTV);
         tbhConversores = findViewById(R.id.tbhConversores);
         tbhConversores.setup();
 
 
-        tbhConversores.addTab(tbhConversores.newTabSpec("Universal").setContent(R.id.tabMulticonver).setIndicator("",getDrawable(R.drawable.ic_money)));
-        tbhConversores.addTab(tbhConversores.newTabSpec("Area").setContent(R.id.tabArea).setIndicator("",getDrawable(R.drawable.length)));
+        tbhConversores.addTab(tbhConversores.newTabSpec("Universal").setContent(R.id.tabMulticonver).setIndicator("",getDrawable(R.drawable.peque)));
+        tbhConversores.addTab(tbhConversores.newTabSpec("Area").setContent(R.id.tabArea).setIndicator("",getDrawable(R.drawable.area)));
 
         tbhConversores.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override
@@ -52,6 +54,7 @@ public class Inicio extends AppCompatActivity {
                 txtcantidad.getText().clear();
                 txtUnidades.getText().clear();
                 txtUnidades2.getText().clear();
+                txtcantidadArea.getText().clear();
 
                 ResultadoTV.setText("");
             }
