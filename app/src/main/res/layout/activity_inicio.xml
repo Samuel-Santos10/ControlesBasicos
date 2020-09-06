@@ -30,8 +30,70 @@
                 android:layout_height="match_parent">
 
 
-                //TAB CONVERSOR AREA
+                //TAB de CONVERSOR UNIVERSAL
 
+                <RelativeLayout
+                    android:id="@+id/tabMulticonver"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/lbltituloConverUniversal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="78dp"
+                        android:layout_marginTop="80dp"
+                        android:background="#EDE5E5"
+                        android:text="@string/TituloConverUniver"
+                        android:textAllCaps="false"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/txtCantidad"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="240dp"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:hint="Ingrese Cantidad"
+                        android:inputType="numberDecimal" />
+
+
+                    <EditText
+                        android:id="@+id/txtUnidades"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="300dp"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:hint="Ingrese Unidades"
+                        android:inputType="numberDecimal" />
+
+                    <EditText
+                        android:id="@+id/txtUnidades2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="360dp"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:hint="Unidades"
+                        android:inputType="numberDecimal" />
+
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="124dp"
+                        android:layout_height="84dp"
+                        android:layout_marginLeft="100dp"
+                        android:layout_marginTop="125dp"
+                        app:srcCompat="@drawable/coin"
+                        tools:ignore="VectorDrawableCompat" />
+
+                </RelativeLayout>
+
+
+                //TAB CONVERSOR AREA
 
                 <RelativeLayout
                     android:id="@+id/tabArea"
@@ -89,13 +151,33 @@
                         android:entries="@array/Superficie"
                         android:gravity="center" />
 
+                    <EditText
+                        android:id="@+id/txtCantidadArea"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="240dp"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:hint="Ingrese Cantidad"
+                        android:inputType="numberDecimal" />
+
                     <TextView
                         android:id="@+id/ResultadoTV"
                         android:layout_width="152dp"
                         android:layout_height="65dp"
                         android:layout_marginLeft="100dp"
-                        android:layout_marginTop="270dp"
+                        android:layout_marginTop="400dp"
                         android:hint="Resultado" />
+
+                    <Button
+                        android:id="@+id/ConvertirBtn"
+                        android:layout_width="164dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="80dp"
+                        android:layout_marginTop="320dp"
+                        android:background="#F8EFA0"
+                        android:onClick="Convertir"
+                        android:text="Convertir" />
 
                     <ImageView
                         android:id="@+id/imageView3"
@@ -108,122 +190,13 @@
 
                 </RelativeLayout>
 
-
-
-                //TAB de CONVERSOR UNIVERSAL
-
-                <RelativeLayout
-                    android:id="@+id/tabMulticonver"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/lbltituloConverUniversal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="78dp"
-                        android:layout_marginTop="80dp"
-                        android:background="#EDE5E5"
-                        android:text="@string/TituloConverUniver"
-                        android:textAllCaps="false"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/lblUniverA"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="45dp"
-                        android:layout_marginTop="310dp"
-                        android:text="A:"
-                        android:textColor="@android:color/background_dark"
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:id="@+id/lbligual"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="45dp"
-                        android:layout_marginTop="360dp"
-                        android:text="=:"
-                        android:textColor="@android:color/background_dark"
-                        android:textSize="18sp" />
-
-
-                    <TextView
-                        android:id="@+id/lblUniverDE"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="45dp"
-                        android:layout_marginTop="260dp"
-                        android:text="DE:"
-                        android:textColor="@android:color/background_dark"
-                        android:textSize="18sp" />
-
-                    <EditText
-                        android:id="@+id/txtcantidadDE"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="90dp"
-                        android:layout_marginTop="250dp"
-                        android:ems="10"
-                        android:gravity="center"
-                        android:hint="Ingrese Cantidad"
-                        android:inputType="numberDecimal" />
-
-
-                    <EditText
-                        android:id="@+id/txtcantidadA"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="90dp"
-                        android:layout_marginTop="300dp"
-                        android:ems="10"
-                        android:gravity="center"
-                        android:hint="Ingrese Unidades"
-                        android:inputType="numberDecimal" />
-
-                    <ImageView
-                        android:id="@+id/imageView2"
-                        android:layout_width="124dp"
-                        android:layout_height="84dp"
-                        android:layout_marginLeft="100dp"
-                        android:layout_marginTop="125dp"
-                        app:srcCompat="@drawable/coin"
-                        tools:ignore="VectorDrawableCompat" />
-
-                </RelativeLayout>
-
-
-
             </FrameLayout>
         </RelativeLayout>
     </TabHost>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <EditText
-            android:id="@+id/IngreseCantidadTV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="90dp"
-            android:layout_marginTop="350dp"
-            android:ems="10"
-            android:gravity="center"
-            android:hint="Unidades"
-            android:inputType="numberDecimal" />
-
-        <Button
-            android:id="@+id/ConvertirBtn"
-            android:layout_width="164dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="80dp"
-            android:layout_marginTop="420dp"
-            android:background="#F8EFA0"
-            android:onClick="Convertir"
-            android:text="Convertir" />
 
 
     </RelativeLayout>

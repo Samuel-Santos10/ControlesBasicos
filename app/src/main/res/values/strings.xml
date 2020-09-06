@@ -6,19 +6,6 @@
     <string name="TituloConverUniver">CONVERSOR UNIVERSAL</string>
     <string name="TituloArea">CONVERSOR AREA</string>
 
-    <string-array name="Moneda">
-        <item>Dolar($)</item>
-        <item>Colones ¢ (SV)</item>
-        <item>Yen</item>
-        <item>Rupias(₹)</item>
-        <item>Lempiras(L))</item>
-        <item>Peso (MXN)</item>
-        <item>Boliviano</item>
-        <item>Quetzal(Q)</item>
-        <item>Euro(€)</item>
-        <item>Cordoba(C$)</item>
-    </string-array>
-
     <string-array name="Superficie">
         <item>Pie Cuadrado</item>
         <item>Vara Cuadrada</item>

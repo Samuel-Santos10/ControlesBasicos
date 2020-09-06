@@ -18,8 +18,11 @@ public class Inicio extends AppCompatActivity {
 
     TabHost tbhConversores;
     ValoresTodos misvalores=new ValoresTodos() ;
+    EditText txtcantidad;
+    EditText txtUnidades;
+    EditText txtUnidades2;
 
-    EditText IngreseCantidadTV;
+
     TextView ResultadoTV;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -30,52 +33,52 @@ public class Inicio extends AppCompatActivity {
         setContentView(R.layout.activity_inicio);
 
 
-        IngreseCantidadTV = findViewById(R.id.IngreseCantidadTV);
+        txtcantidad = findViewById(R.id.txtCantidad);
+        txtUnidades = findViewById(R.id.txtUnidades);
+        txtUnidades2 = findViewById(R.id.txtUnidades2);
+
         ResultadoTV = findViewById(R.id.ResultadoTV);
         tbhConversores = findViewById(R.id.tbhConversores);
         tbhConversores.setup();
 
-        tbhConversores.addTab(tbhConversores.newTabSpec("Monedas").setContent(R.id.tabMulticonver).setIndicator("",getDrawable(R.drawable.ic_money)));
+
+        tbhConversores.addTab(tbhConversores.newTabSpec("Universal").setContent(R.id.tabMulticonver).setIndicator("",getDrawable(R.drawable.ic_money)));
         tbhConversores.addTab(tbhConversores.newTabSpec("Area").setContent(R.id.tabArea).setIndicator("",getDrawable(R.drawable.length)));
 
         tbhConversores.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override
             public void onTabChanged(String s) {
 
-                IngreseCantidadTV.getText().clear();
+                txtcantidad.getText().clear();
+                txtUnidades.getText().clear();
+                txtUnidades2.getText().clear();
+
                 ResultadoTV.setText("");
             }
         });
     }
 
 
+    //Boton de CONVERSOR Area
+
     public void Convertir(View view){
         try {
-            TextView tmpVal = (TextView) findViewById(R.id.IngreseCantidadTV);
-            double cantidad = Double.parseDouble(tmpVal.getText().toString());
 
+            TextView tmpVal = (TextView) findViewById(R.id.txtCantidadArea);
+            double cantidad = Double.parseDouble(tmpVal.getText().toString());
 
 
             int de = 0, a = 0;
             double resp = 0;
             switch (tbhConversores.getCurrentTabTag()){
 
-               /* case "Monedas":
-                    traer.val   = (Spinner) findViewById(R.id.);
-                    de = traer.val .getSelectedItemPosition();
-                    traer.val  = (Spinner) findViewById(R.id.MonedaCambiarSP);
-                    a = traer.val .getSelectedItemPosition();
-                    resp = traer .valores  [0][a] / traer .valores [0][de] * cantidad;
-                    break;*/
-
                 case "Area":
                     misvalores.val   = (Spinner) findViewById(R.id.AreaActualSP);
                     de = misvalores.val .getSelectedItemPosition();
                     misvalores.val  = (Spinner) findViewById(R.id.AreaCambiarSP);
                     a = misvalores.val .getSelectedItemPosition();
-                    resp = misvalores.datos [1][a] / misvalores.datos [1][de];
+                    resp = misvalores.datos [0][a] / misvalores.datos [0][de];
                     break;
-
 
             }
 
@@ -83,7 +86,6 @@ public class Inicio extends AppCompatActivity {
             tmpVal.setText(String.format("Por la cantidad de: "+ cantidad  + " Usted recivira " + resp  ));
         }catch (Exception err){
             TextView temp = (TextView) findViewById(R.id.ResultadoTV);
-
             Toast.makeText(getApplicationContext(),"Error: Ingrese la cantidad",Toast.LENGTH_LONG).show();
 
         }
