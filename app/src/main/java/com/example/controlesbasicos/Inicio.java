@@ -57,7 +57,39 @@ public class Inicio extends AppCompatActivity {
             }
         });
     }
+    //BOTON CONVERSOR UNIVERSAL
 
+    public void UNIDADES(View view)
+    {
+        String inici = "";
+        String signo = "/";
+
+        TextView TXTunidades1 = (TextView) findViewById(R.id.txtUnidades);
+        TextView TXTcantidad = (TextView) findViewById(R.id.txtCantidad);
+        TextView TXTunidades2 = (TextView) findViewById(R.id.txtUnidades2);
+
+        int unidad = TXTunidades1.getText().toString().equals(inici) ? 1 : Integer.parseInt(TXTunidades1.getText().toString());
+
+        if (!TXTcantidad.getText().toString().equals(inici))
+        {
+            int cantidad = Integer.parseInt(TXTcantidad.getText().toString());
+            int CAJAS = cantidad / unidad;
+            StringBuilder sb = new StringBuilder();
+            sb.append(CAJAS);
+            sb.append(signo);
+            sb.append(cantidad % unidad);
+            TXTunidades2.setText(sb.toString());
+        }
+
+        else if (!TXTunidades2.getText().toString().equals(inici))
+        {
+            String[] data = TXTunidades2.getText().toString().split(signo);
+            StringBuilder sb2 = new StringBuilder();
+            sb2.append(inici);
+            sb2.append((Integer.parseInt(data[0]) * unidad) + Integer.parseInt(data[1]));
+            TXTcantidad.setText(sb2.toString());
+        }
+    }
 
     //Boton de CONVERSOR Area
 

@@ -90,6 +90,16 @@
                         app:srcCompat="@drawable/coin"
                         tools:ignore="VectorDrawableCompat" />
 
+                    <Button
+                        android:id="@+id/btnUnidades"
+                        android:layout_width="164dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="80dp"
+                        android:layout_marginTop="420dp"
+                        android:background="#F8EFA0"
+                        android:onClick="UNIDADES"
+                        android:text="CONVERTIR" />
+
                 </RelativeLayout>
 
 
