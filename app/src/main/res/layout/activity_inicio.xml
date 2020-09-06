@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Inicio"
-    android:background="@drawable/otroo">
+    android:background="@drawable/ser">
 
     <TabHost
         android:id="@+id/tbhConversores"
