@@ -4,50 +4,54 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".agregarAmigos"
+    tools:context=".agregarProductos"
     android:padding="10dp">
 
     <EditText
-        android:id="@+id/txtNombreAmigo"
+        android:id="@+id/txtCodigoProd"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="30dp"
-        android:hint="Nombre"/>
+        android:hint="Codigo" />
 
     <EditText
-        android:id="@+id/txtTelegonoAmigos"
+        android:id="@+id/txtDescripcionProd"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:hint="Telefono"
-        android:layout_marginTop="100dp"/>
+        android:layout_marginTop="100dp"
+        android:hint="Descripcion" />
 
     <EditText
-        android:id="@+id/txtDireccionAmigo"
+        android:id="@+id/txtMedidaProd"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:hint="Dirección"
-        android:layout_marginTop="170dp"/>
+        android:layout_marginTop="170dp"
+        android:hint="Medida" />
 
     <EditText
-        android:id="@+id/txtEmailAmigo"
+        android:id="@+id/txtPrecioProd"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:hint="Email"
-        android:layout_marginTop="240dp"/>
+        android:layout_marginTop="240dp"
+        android:ems="10"
+        android:hint="Precio"
+        android:inputType="numberDecimal" />
 
     <Button
-        android:id="@+id/btnGuardarAmigos"
+        android:id="@+id/btnGuardarProducto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Guardar Amigos"
-        android:layout_marginTop="320dp"/>
+        android:layout_marginTop="320dp"
+        android:text="Guardar Producto" />
 
     <Button
-        android:id="@+id/btnMostrarAmigos"
+        android:id="@+id/btnMostrarProductos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Mostar Amigos"
-        android:layout_marginTop="370dp"/>
+        android:layout_marginTop="370dp"
+        android:text="Mostar Productos" />
+
+
 
 
 </RelativeLayout>

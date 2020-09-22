@@ -1,9 +1,6 @@
 package com.example.controlesbasicos;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.database.Cursor;
@@ -23,14 +20,14 @@ import java.util.ArrayList;
 public class MainActivity extends Activity {
 
     DB miDB;
-    Cursor misAmigos;
+    Cursor misProductos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        obtenerDatosAmigos();
+        obtenerDatosProductos();
     }
 
     @Override
@@ -38,29 +35,29 @@ public class MainActivity extends Activity {
         super.onCreateContextMenu(menu, v, menuInfo);
 
         MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.menu_amigos, menu);
+        menuInflater.inflate(R.menu.menu_productos, menu);
 
         AdapterView.AdapterContextMenuInfo adapterContextMenuInfo = (AdapterView.AdapterContextMenuInfo)menuInfo;
-        misAmigos.moveToPosition((adapterContextMenuInfo.position));
-        menu.setHeaderTitle(misAmigos.getString(1));
+        misProductos.moveToPosition((adapterContextMenuInfo.position));
+        menu.setHeaderTitle(misProductos.getString(1));
     }
 
     @Override
     public boolean onContextItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.mnxAgregar:
-                agregarAmigo("Nuevo", new String[]{});
+                agregarProducto("Nuevo", new String[]{});
                 return true;
 
             case R.id.mnxModificar:
-                String[] dataAmigo = {
-                        misAmigos.getString(0), // Para el id amigo
-                        misAmigos.getString(1), // Para el nombre
-                        misAmigos.getString(2), // para el telefono
-                        misAmigos.getString(3), // Para la dirección
-                        misAmigos.getString(4), // y este para el email.
+                String[] dataProducto = {
+                        misProductos.getString(0), // Para el id producto
+                        misProductos.getString(1), // Para el codigo
+                        misProductos.getString(2), // para el descripcion
+                        misProductos.getString(3), // Para la medida
+                        misProductos.getString(4), // y este para el precio.
                 };
-                agregarAmigo("Modificar", dataAmigo);
+                agregarProducto("Modificar", dataProducto);
                 return true;
 
             case R.id.mnxEliminar:
@@ -71,38 +68,38 @@ public class MainActivity extends Activity {
         }
     }
 
-    void obtenerDatosAmigos(){
+    void obtenerDatosProductos(){
         miDB = new DB(getApplicationContext(), "", null, 1);
-        misAmigos = miDB.mantenimientoAmigos( "Consultar", null);
+        misProductos = miDB.mantenimientoProductos( "Consultar", null);
 
-        if(misAmigos.moveToFirst()){ // si hay registros en la base de datos que mostrar
-            mostrarDatosAmigos();
+        if(misProductos.moveToFirst()){ // si hay registros en la base de datos que mostrar
+            mostrarDatosProductos();
         }else{
-            Toast.makeText(getApplicationContext(),"No hay Amigos que mostrar", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),"No hay Productos que mostrar", Toast.LENGTH_SHORT).show();
 
-            agregarAmigo("Nuevo", new String[]{});
+            agregarProducto("Nuevo", new String[]{});
         }
     }
 
-    void agregarAmigo(String accion, String[] dataAmigo){
+    void agregarProducto(String accion, String[] dataProducto){
         Bundle enviarParametros = new Bundle();
         enviarParametros.putString("accion", accion);
-        enviarParametros.putStringArray("dataAmigo", dataAmigo);
-        Intent agregarAmigos = new Intent(MainActivity.this, com.example.controlesbasicos.agregarAmigos.class);
-        agregarAmigos.putExtras(enviarParametros);
-        startActivity(agregarAmigos);
+        enviarParametros.putStringArray("dataProducto", dataProducto);
+        Intent agregarProductos = new Intent(MainActivity.this, agregarProductos.class);
+        agregarProductos.putExtras(enviarParametros);
+        startActivity(agregarProductos);
     }
 
-    void mostrarDatosAmigos() {
-        ListView lvsAmigos = (ListView) findViewById(R.id.lvsAmigos);
+    void mostrarDatosProductos() {
+        ListView lvsProductos = (ListView) findViewById(R.id.lvsProductos);
         ArrayList<String> stringArrayList = new ArrayList<>();
         ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_1, stringArrayList);
-        lvsAmigos.setAdapter(stringArrayAdapter);
+        lvsProductos.setAdapter(stringArrayAdapter);
         do {
-            stringArrayAdapter.add(misAmigos.getString(1));
-        } while (misAmigos.moveToNext());
+            stringArrayAdapter.add(misProductos.getString(1));
+        } while (misProductos.moveToNext());
         stringArrayAdapter.notifyDataSetChanged();
-        registerForContextMenu(lvsAmigos);
+        registerForContextMenu(lvsProductos);
     }
 
 }

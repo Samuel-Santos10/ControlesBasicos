@@ -17,14 +17,14 @@
         android:textSize="18sp" />
 
     <EditText
-        android:id="@+id/etBuscarAmigos"
+        android:id="@+id/etBuscarProducto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Buscar amigos"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"
+        android:hint="Buscar Productos" />
 
     <ListView
-        android:id="@+id/lvsAmigos"
+        android:id="@+id/lvsProductos"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="60dp"/>
