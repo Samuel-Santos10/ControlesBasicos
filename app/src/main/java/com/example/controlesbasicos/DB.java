@@ -40,10 +40,10 @@ public class DB extends SQLiteOpenHelper {
                 sqLiteDatabasewritable.execSQL("INSERT INTO productos(codigo,descripcion,medida,precio) VALUES ('"+ data[1] +"','"+data[2]+"','"+data[3]+"','"+data[4]+"')");
                 break;
             case "Modificar":
-
+                sqLiteDatabasewritable.execSQL("UPDATE productos SET codigo='"+ data[1] +"',descripcion='"+data[2]+"',medida='"+data[3]+"',precio='"+data[4]+"' WHERE idproducto='"+data[0]+"'");
                 break;
             case "Eliminar":
-
+                sqLiteDatabasewritable.execSQL("DELETE FROM productos WHERE idproducto='"+ data[0] +"'");
                 break;
             default:
                 break;

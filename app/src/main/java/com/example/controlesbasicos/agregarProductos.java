@@ -20,8 +20,8 @@ public class agregarProductos extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agregar_productos);
 
-        Button btnGuardarAmigos = (Button)findViewById(R.id.btnGuardarProducto);
-        btnGuardarAmigos.setOnClickListener(new View.OnClickListener() {
+        Button btnproductos = (Button)findViewById(R.id.btnGuardarProducto);
+        btnproductos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 TextView tempval = (TextView)findViewById(R.id.txtCodigoProd);
@@ -42,12 +42,24 @@ public class agregarProductos extends AppCompatActivity {
                 miDB.mantenimientoProductos(accion, data);
 
                 Toast.makeText(getApplicationContext(),"Se ha insertado un producto con exito", Toast.LENGTH_SHORT).show();
-                Intent mostrarProductos = new Intent( agregarProductos.this, MainActivity.class);
-                startActivity(mostrarProductos);
+                mostrarListaProductos();
+            }
+        });
+        btnproductos = (Button)findViewById(R.id.btnMostrarProductos);
+        btnproductos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mostrarListaProductos();
             }
         });
         mostrarDatosProducto();
     }
+
+    void mostrarListaProductos(){
+        Intent mostrarProductos = new Intent( agregarProductos.this, MainActivity.class);
+        startActivity(mostrarProductos);
+    }
+
     void mostrarDatosProducto(){
         try {
             Bundle recibirParametros = getIntent().getExtras();
