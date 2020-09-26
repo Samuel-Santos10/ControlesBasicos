@@ -24,6 +24,7 @@ public class agregarProductos extends AppCompatActivity {
         btnproductos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 TextView tempval = (TextView)findViewById(R.id.txtCodigoProd);
                 String codigo = tempval.getText().toString();
 
@@ -36,13 +37,19 @@ public class agregarProductos extends AppCompatActivity {
                 tempval = (TextView)findViewById(R.id.txtPrecioProd);
                 String precio = tempval.getText().toString();
 
-                String[] data = {idProducto, codigo, descripcion, medida, precio};
+                if(!codigo.isEmpty() && !descripcion.isEmpty() && !medida.isEmpty() && !precio.isEmpty()){
 
-                miDB = new DB(getApplicationContext(), "", null, 1);
-                miDB.mantenimientoProductos(accion, data);
+                    String[] data = {idProducto, codigo, descripcion, medida, precio};
 
-                Toast.makeText(getApplicationContext(),"Se ha insertado un producto con exito", Toast.LENGTH_SHORT).show();
-                mostrarListaProductos();
+                    miDB = new DB(getApplicationContext(), "", null, 1);
+                    miDB.mantenimientoProductos(accion, data);
+
+                    Toast.makeText(getApplicationContext(),"Se ha insertado un producto con exito", Toast.LENGTH_SHORT).show();
+                    mostrarListaProductos();
+                }
+                else {
+                    Toast.makeText(getApplicationContext(), "ERROR: Ingrese los datos", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         btnproductos = (Button)findViewById(R.id.btnMostrarProductos);
