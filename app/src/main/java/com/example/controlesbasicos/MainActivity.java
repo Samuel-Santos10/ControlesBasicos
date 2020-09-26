@@ -27,13 +27,16 @@ import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
+//https://developer.android.com/training/camera/photobasics?hl=es-419#java
+
 public class MainActivity extends AppCompatActivity {
 
     DB miDB;
     Cursor misProductos;
-    ArrayList<String> stringArrayList = new ArrayList<String>();
-    ArrayList<String> copyStringArrayList = new ArrayList<String>();
-    ArrayAdapter<String> stringArrayAdapter;
+    productos producto;
+    ArrayList<productos> stringArrayList = new ArrayList<productos>();
+    ArrayList<productos> copyStringArrayList = new ArrayList<productos>();
+    ListView lvsProductos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
         FloatingActionButton btnAgregarProductos = (FloatingActionButton)findViewById(R.id.btnAgregarProductos);
         btnAgregarProductos.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
                 agregarProducto("Nuevo", new String[]{});
@@ -73,17 +77,23 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                stringArrayList.clear();
-                if( tempVal.getText().toString().trim().length()<1 ){ //en este nos indica que no hay texto para mostrar
-                    stringArrayList.addAll(copyStringArrayList);
-                } else{ // aqui realizamos la busqueda
-                    for (String amigo : copyStringArrayList){
-                        if(amigo.toLowerCase().contains(tempVal.getText().toString().trim().toLowerCase())){
-                            stringArrayList.add(amigo);
+                try {
+                    stringArrayList.clear();
+                    if (tempVal.getText().toString().trim().length() < 1) { //aqui no hay texto para mostrar
+                        stringArrayList.addAll(copyStringArrayList);
+                    } else { // Aqui hacemos la busqueda
+                        for (productos am : copyStringArrayList) {
+                            String nombre = am.getDescripcion();
+                            if (nombre.toLowerCase().contains(tempVal.getText().toString().trim().toLowerCase())) {
+                                stringArrayList.add(am);
+                            }
                         }
                     }
+                    adaptadorImagenes adaptadorImg = new adaptadorImagenes(getApplicationContext(), stringArrayList);
+                    lvsProductos.setAdapter(adaptadorImg);
+                }catch (Exception ex){
+                    Toast.makeText(getApplicationContext(), "Error: "+ ex.getMessage(), Toast.LENGTH_LONG).show();
                 }
-                stringArrayAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -107,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
                         misProductos.getString(2), // para el descripcion
                         misProductos.getString(3), // Para la medida
                         misProductos.getString(4), // y este para el precio.
+                        misProductos.getString(5) // Para la URL
                 };
                 agregarProducto("Modificar", dataProducto);
                 return true;
@@ -168,18 +179,84 @@ public class MainActivity extends AppCompatActivity {
 
     void mostrarDatosProductos() {
         stringArrayList.clear();
-        ListView lvsProductos = (ListView) findViewById(R.id.lvsProductos);
-        stringArrayAdapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_1, stringArrayList);
-        lvsProductos.setAdapter(stringArrayAdapter);
+        lvsProductos = (ListView)findViewById(R.id.lvsProductos);
         do {
-            stringArrayAdapter.add(misProductos.getString(1));
+            producto = new productos(misProductos.getString(0), misProductos.getString(1),misProductos.getString(2), misProductos.getString(3), misProductos.getString(4), misProductos.getString(5));
+            stringArrayList.add(producto);
         } while (misProductos.moveToNext());
+
+        adaptadorImagenes adaptadorImg = new adaptadorImagenes(getApplicationContext(), stringArrayList);
+        lvsProductos.setAdapter(adaptadorImg);
 
         copyStringArrayList.clear(); // Para hacer una limpieza de la lista
         copyStringArrayList.addAll(stringArrayList); //Para crear una copia de la lista de productos
 
-        stringArrayAdapter.notifyDataSetChanged();
         registerForContextMenu(lvsProductos);
     }
+}
 
+class productos{
+    String id;
+    String codigo;
+    String descripcion;
+    String medida;
+    String precio;
+    String urlImg;
+
+    public productos(String id, String codigo, String descripcion, String medida, String precio, String urlImg) {
+        this.id = id;
+        this.codigo = codigo;
+        this.descripcion = descripcion;
+        this.medida = medida;
+        this.precio = precio;
+        this.urlImg = urlImg;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public String getMedida() {
+        return medida;
+    }
+
+    public void setMedida(String medida) {
+        this.medida = medida;
+    }
+
+    public String getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(String precio) {
+        this.precio = precio;
+    }
+
+    public String getUrlImg() {
+        return urlImg;
+    }
+
+    public void setUrlImg(String urlImg) {
+        this.urlImg = urlImg;
+    }
 }
