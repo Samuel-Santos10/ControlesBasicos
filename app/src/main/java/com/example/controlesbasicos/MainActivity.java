@@ -128,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
         confirmacion.setPositiveButton("SI", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                miDB.mantenimientoProductos("eliminar",new String[]{misProductos.getString(0)});
+                miDB.mantenimientoProductos("Eliminar",new String[]{misProductos.getString(0)});
                 obtenerDatosProductos();
                 Toast.makeText(getApplicationContext(), "Producto eliminado exitosamente.",Toast.LENGTH_SHORT).show();
                 dialogInterface.dismiss();
