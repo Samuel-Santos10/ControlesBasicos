@@ -9,25 +9,26 @@
     android:background="@drawable/fd">
 
     <EditText
-        android:id="@+id/txtCodigoProd"
+        android:id="@+id/txtNombreProd"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="85dp"
-        android:hint="Codigo" />
+        android:hint="Nombre" />
 
     <EditText
-        android:id="@+id/txtDescripcionProd"
+        android:id="@+id/txtMarcaProd"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="145dp"
-        android:hint="Descripcion" />
+        android:hint="Marca" />
 
     <EditText
-        android:id="@+id/txtMedidaProd"
+        android:id="@+id/txtStockProd"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="205dp"
-        android:hint="Medida" />
+        android:hint="Stock"
+        android:inputType="number"/>
 
     <EditText
         android:id="@+id/txtPrecioProd"

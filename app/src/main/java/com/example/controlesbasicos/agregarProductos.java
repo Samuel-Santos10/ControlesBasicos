@@ -28,6 +28,9 @@ public class agregarProductos extends AppCompatActivity {
     String accion = "Nuevo";
     String idProducto = "0";
     ImageView imgFotoProducto;
+    //Galeria
+    ImageView imgGaleriaProducto;
+
     String urlCompletaImg;
     Button btnProductos;
     Intent takePictureIntent;
@@ -38,6 +41,8 @@ public class agregarProductos extends AppCompatActivity {
         setContentView(R.layout.activity_agregar_productos);
 
         imgFotoProducto = (ImageView)findViewById(R.id.imgPhotoProducto);
+        //galeria
+        imgGaleriaProducto = (ImageView)findViewById(R.id.imgGaleriaProducto);
 
         btnProductos = (Button) findViewById(R.id.btnMostrarProductos);
         btnProductos.setOnClickListener(new View.OnClickListener() {
@@ -49,6 +54,18 @@ public class agregarProductos extends AppCompatActivity {
         guardarDatosProductos();
         mostrarDatosProducto();
         tomarFotoProducto();
+        TomarGaleriaProducto();
+    }
+
+    //Galeria
+    void TomarGaleriaProducto(){
+        imgGaleriaProducto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentGaleri = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(intentGaleri,100);
+            }
+        });
     }
 
     void  tomarFotoProducto(){
@@ -84,6 +101,11 @@ public class agregarProductos extends AppCompatActivity {
                 Bitmap imageBitmap = BitmapFactory.decodeFile(urlCompletaImg);
                 imgFotoProducto.setImageBitmap(imageBitmap);
             }
+            //Galeria
+            else if(requestCode==100 && resultCode==RESULT_OK){
+                Bitmap imageBitmap = BitmapFactory.decodeFile(urlCompletaImg);
+                imgGaleriaProducto.setImageURI(data.getData());
+            }
         }catch (Exception ex){
             Toast.makeText(getApplicationContext(), "Error: "+ ex.getMessage(), Toast.LENGTH_LONG).show();
         }
@@ -101,6 +123,7 @@ public class agregarProductos extends AppCompatActivity {
                 imageFileName,  /* prefijo */
                 ".jpg",         /* sufijo */
                 storageDir      /* directorio */
+
         );
         // Guarda un archivo, ruta para usar con las intenciones VISTA DE ACCION
         urlCompletaImg = image.getAbsolutePath();
@@ -112,21 +135,21 @@ public class agregarProductos extends AppCompatActivity {
         btnProductos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TextView tempval = (TextView)findViewById(R.id.txtCodigoProd);
-                String codigo = tempval.getText().toString();
+                TextView tempval = (TextView)findViewById(R.id.txtNombreProd);
+                String nombre = tempval.getText().toString();
 
-                tempval = (TextView)findViewById(R.id.txtDescripcionProd);
-                String descripcion = tempval.getText().toString();
+                tempval = (TextView)findViewById(R.id.txtMarcaProd);
+                String marca = tempval.getText().toString();
 
-                tempval = (TextView)findViewById(R.id.txtMedidaProd);
-                String medida = tempval.getText().toString();
+                tempval = (TextView)findViewById(R.id.txtStockProd);
+                String stock = tempval.getText().toString();
 
                 tempval = (TextView)findViewById(R.id.txtPrecioProd);
                 String precio = tempval.getText().toString();
 
-                if(!codigo.isEmpty() && !descripcion.isEmpty() && !medida.isEmpty() && !precio.isEmpty()){
+                if(!nombre.isEmpty() && !marca.isEmpty() && !stock.isEmpty() && !precio.isEmpty()){
 
-                    String[] data = {idProducto, codigo, descripcion, medida, precio, urlCompletaImg};
+                    String[] data = {idProducto, nombre, marca, stock, precio, urlCompletaImg};
 
                     miDB = new DB(getApplicationContext(), "", null, 1);
                     miDB.mantenimientoProductos(accion, data);
@@ -164,13 +187,13 @@ public class agregarProductos extends AppCompatActivity {
 
                 idProducto= dataProducto[0];
 
-                TextView tempval = (TextView)findViewById(R.id.txtCodigoProd);
+                TextView tempval = (TextView)findViewById(R.id.txtNombreProd);
                 tempval.setText(dataProducto[1]);
 
-                tempval = (TextView)findViewById(R.id.txtDescripcionProd);
+                tempval = (TextView)findViewById(R.id.txtMarcaProd);
                 tempval.setText(dataProducto[2]);
 
-                tempval = (TextView)findViewById(R.id.txtMedidaProd);
+                tempval = (TextView)findViewById(R.id.txtStockProd);
                 tempval.setText(dataProducto[3]);
 
                 tempval = (TextView)findViewById(R.id.txtPrecioProd);
@@ -179,6 +202,7 @@ public class agregarProductos extends AppCompatActivity {
                 urlCompletaImg = dataProducto[5];
                 Bitmap imageBitmap = BitmapFactory.decodeFile(urlCompletaImg);
                 imgFotoProducto.setImageBitmap(imageBitmap);
+                imgGaleriaProducto.setImageBitmap(imageBitmap);
             }
 
         }catch (Exception ex){

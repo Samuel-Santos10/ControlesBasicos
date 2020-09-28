@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
                         stringArrayList.addAll(copyStringArrayList);
                     } else { // Aqui hacemos la busqueda
                         for (productos am : copyStringArrayList) {
-                            String nombre = am.getDescripcion();
+                            String nombre = am.getNombre();
                             if (nombre.toLowerCase().contains(tempVal.getText().toString().trim().toLowerCase())) {
                                 stringArrayList.add(am);
                             }
@@ -113,9 +113,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.mnxModificar:
                 String[] dataProducto = {
                         misProductos.getString(0), // Para el id producto
-                        misProductos.getString(1), // Para el codigo
-                        misProductos.getString(2), // para el descripcion
-                        misProductos.getString(3), // Para la medida
+                        misProductos.getString(1), // Para el nombre
+                        misProductos.getString(2), // para el marca
+                        misProductos.getString(3), // Para la stock
                         misProductos.getString(4), // y este para el precio.
                         misProductos.getString(5) // Para la URL
                 };
@@ -197,17 +197,17 @@ public class MainActivity extends AppCompatActivity {
 
 class productos{
     String id;
-    String codigo;
-    String descripcion;
-    String medida;
+    String nombre;
+    String marca;
+    String stock;
     String precio;
     String urlImg;
 
-    public productos(String id, String codigo, String descripcion, String medida, String precio, String urlImg) {
+    public productos(String id, String nombre, String marca, String stock, String precio, String urlImg) {
         this.id = id;
-        this.codigo = codigo;
-        this.descripcion = descripcion;
-        this.medida = medida;
+        this.nombre = nombre;
+        this.marca = marca;
+        this.stock = stock;
         this.precio = precio;
         this.urlImg = urlImg;
     }
@@ -220,28 +220,28 @@ class productos{
         this.id = id;
     }
 
-    public String getCodigo() {
-        return codigo;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getMarca() {
+        return marca;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setMarca(String marca) {
+        this.marca = marca;
     }
 
-    public String getMedida() {
-        return medida;
+    public String getStock() {
+        return stock;
     }
 
-    public void setMedida(String medida) {
-        this.medida = medida;
+    public void setStock(String stock) {
+        this.stock = stock;
     }
 
     public String getPrecio() {

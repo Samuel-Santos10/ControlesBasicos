@@ -12,7 +12,7 @@ public class DB extends SQLiteOpenHelper {
     static String nameDB = "db_tienda"; // aqui estamos declarando la instancia de la base de datos
     // Creacion de tabla y sus campos
 
-    static String tblProductos = "CREATE TABLE productos(idproducto integer primary key autoincrement, codigo text, descripcion text, medida text, precio real, url text)";
+    static String tblProductos = "CREATE TABLE productos(idproducto integer primary key autoincrement, nombre text, marca text, stock int, precio real, url text)";
 
     public DB(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, nameDB, factory, version); // nameDB = La creacion de la base de datos en SQLite
@@ -34,13 +34,13 @@ public class DB extends SQLiteOpenHelper {
         Cursor cursor = null;
         switch (accion){
             case "Consultar":
-                cursor = sqLiteDatabaseReadable.rawQuery("SELECT * FROM productos ORDER BY descripcion ASC", null);
+                cursor = sqLiteDatabaseReadable.rawQuery("SELECT * FROM productos ORDER BY nombre ASC", null);
                 break;
             case "Nuevo":
-                sqLiteDatabasewritable.execSQL("INSERT INTO productos(codigo,descripcion,medida,precio,url) VALUES('"+ data[1] +"','"+data[2]+"','"+data[3]+"','"+data[4]+"','"+data[5]+"')");
+                sqLiteDatabasewritable.execSQL("INSERT INTO productos(nombre,marca,stock,precio,url) VALUES('"+ data[1] +"','"+data[2]+"','"+data[3]+"','"+data[4]+"','"+data[5]+"')");
                 break;
             case "Modificar":
-                sqLiteDatabasewritable.execSQL("UPDATE productos SET codigo='"+ data[1] +"',descripcion='"+data[2]+"',medida='"+data[3]+"',precio='"+data[4]+"', url='"+data[5]+"' WHERE idproducto='"+data[0]+"'");
+                sqLiteDatabasewritable.execSQL("UPDATE productos SET nombre='"+ data[1] +"',marca='"+data[2]+"',stock='"+data[3]+"',precio='"+data[4]+"', url='"+data[5]+"' WHERE idproducto='"+data[0]+"'");
                 break;
             case "Eliminar":
                 sqLiteDatabasewritable.execSQL("DELETE FROM productos WHERE idproducto='"+ data[0] +"'");
