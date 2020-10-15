@@ -7,5 +7,30 @@
     tools:context=".MainActivity"
     android:background="@drawable/fondo">
 
+    <ImageButton
+        android:id="@+id/btnInfoBasica"
+        android:layout_width="291dp"
+        android:layout_height="96dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="100dp"
+        android:background="#3F51B5" />
+
+    <ImageButton
+        android:id="@+id/btnPcPersonalizada"
+        android:layout_width="291dp"
+        android:layout_height="96dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="250dp"
+        android:background="#03A9F4" />
+
+    <ImageButton
+        android:id="@+id/btnNovedades"
+        android:layout_width="291dp"
+        android:layout_height="96dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="390dp"
+        android:background="#009688" />
+
+
 
 </RelativeLayout>

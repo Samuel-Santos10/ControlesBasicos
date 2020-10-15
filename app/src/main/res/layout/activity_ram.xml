@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Ram">
+
+    <Button
+        android:id="@+id/btnRegresar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#4CAF50"
+        android:text="Atras" />
+
+    <TextView
+        android:id="@+id/etmConcepto"
+        android:layout_width="357dp"
+        android:layout_height="322dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginLeft="25dp"
+        android:textColor="@android:color/black"
+        android:textSize="18dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        android:text="Es la memoria principal de un dispositivo, esa donde se
+        almacenan de forma temporal los datos de los programas que estás utilizando
+         en este momento. Sus siglas significan Random Access Memory, lo que traducido
+          al español sería Memoria de Acceso Aleatorio, y es un tipo de memoria que te
+          puedes encontrar en cualquier dispositivo, desde ordenadores de sobremesa hasta
+           teléfonos móviles."/>
+
+</RelativeLayout>

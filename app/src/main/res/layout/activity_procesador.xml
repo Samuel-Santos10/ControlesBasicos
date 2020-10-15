@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Procesador">
+
+    <Button
+        android:id="@+id/btnRegresar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#4CAF50"
+        android:text="Atras" />
+
+    <TextView
+        android:id="@+id/etmConcepto"
+        android:layout_width="357dp"
+        android:layout_height="322dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginLeft="25dp"
+        android:textSize="18dp"
+        android:textColor="@android:color/black"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        android:text=" Es el que se refiere a los diferentes tipos de
+         artículos de sistemas informativos que forma parte de un
+          microprocesador que es parte de un CPU o micro que es el cerebro
+           de la computadora y de todos los procesos informativos desde los
+            más sencillos hasta los más complejos."/>
+
+</RelativeLayout>
