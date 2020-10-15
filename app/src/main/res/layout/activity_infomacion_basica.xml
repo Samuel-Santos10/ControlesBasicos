@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InformacionBasica">
+
+    <TextView
+        android:id="@+id/etConceptos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="Conceptos basicos una pc"
+        android:layout_marginLeft="80dp"
+        android:textSize="18dp"
+        android:textColor="@android:color/black"/>
+
+    <Button
+    android:id="@+id/btnRegresarMenu"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#4CAF50"
+    android:text="Atras" />
+
+    <Button
+        android:id="@+id/btnCompu"
+        android:layout_width="293dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="140dp"
+        android:text="¿Que es una computadora?"
+        android:textColor="@android:color/black"
+        android:textSize="18dp"/>
+
+    <Button
+        android:id="@+id/btnRam"
+        android:layout_width="293dp"
+        android:layout_height="60dp"
+        android:text="¿Que es RAM?"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="200dp"
+        android:textColor="@android:color/black"
+        android:textSize="18dp"/>
+
+    <Button
+        android:id="@+id/btnCPU"
+        android:layout_width="293dp"
+        android:layout_height="60dp"
+        android:text="¿Que es CPU?"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="260dp"
+        android:textColor="@android:color/black"
+        android:textSize="18dp" />
+
+    <Button
+        android:id="@+id/btnProcesador"
+        android:layout_width="293dp"
+        android:layout_height="60dp"
+        android:text="¿Que es procesador?"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="320dp"
+        android:textColor="@android:color/black"
+        android:textSize="18dp" />
+
+    <Button
+        android:id="@+id/btnMotherBoard"
+        android:layout_width="293dp"
+        android:layout_height="60dp"
+        android:text="¿Que es motherboard?"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="380dp"
+        android:textColor="@android:color/black"
+        android:textSize="18dp" />
+
+</RelativeLayout>
