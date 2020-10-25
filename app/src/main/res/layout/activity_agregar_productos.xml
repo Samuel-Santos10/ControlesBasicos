@@ -47,14 +47,6 @@
         android:layout_marginTop="330dp"
         android:text="Guardar Producto" />
 
-    <Button
-        android:id="@+id/btnMostrarProductos"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="373dp"
-        android:text="Mostar Productos" />
-
     <TextView
         android:id="@+id/tvTitulo"
         android:layout_width="match_parent"
@@ -73,15 +65,15 @@
         android:soundEffectsEnabled="false"
         app:srcCompat="@drawable/camara" />
 
-    <ImageView
-        android:id="@+id/imgGaleriaProducto"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginLeft="200dp"
-        android:layout_marginTop="30dp"
-        android:soundEffectsEnabled="false"
-        app:srcCompat="@drawable/picture" />
 
-
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnMostrarProductos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/ic_menu_revert"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="20dp"/>
 
 </RelativeLayout>

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Tienda</string>
+    <string name="app_name">MasterStore</string>
     <string name="titulo">Tienda Online</string>
     <string name="lblnum1">Ingrese un número:</string>
     <string name="lblnum2">Ingrese un número:</string>

@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -17,19 +18,35 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class agregarProductos extends AppCompatActivity {
 
+    //web
+
+    String resp, Accion, id, rev;
+
+    //
+
     DB miDB;
     String accion = "Nuevo";
     String idProducto = "0";
     ImageView imgFotoProducto;
-    //Galeria
-    ImageView imgGaleriaProducto;
 
     String urlCompletaImg;
     Button btnProductos;
@@ -41,32 +58,40 @@ public class agregarProductos extends AppCompatActivity {
         setContentView(R.layout.activity_agregar_productos);
 
         imgFotoProducto = (ImageView)findViewById(R.id.imgPhotoProducto);
-        //galeria
-        imgGaleriaProducto = (ImageView)findViewById(R.id.imgGaleriaProducto);
 
-        btnProductos = (Button) findViewById(R.id.btnMostrarProductos);
-        btnProductos.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mostrarListaProductos();
-            }
-        });
-        guardarDatosProductos();
-        mostrarDatosProducto();
-        tomarFotoProducto();
-        TomarGaleriaProducto();
+        //web
+
+        try {
+            FloatingActionButton btnMostrarProductos = (FloatingActionButton)findViewById(R.id.btnMostrarProductos);
+            btnMostrarProductos.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MostrarDatosProductos();
+                    guardarDatosProductos();
+                    mostrarDatosProducto();
+                    tomarFotoProducto();
+                }
+            });
+            // Boton Guardar
+            Button btnGuardaProducto = findViewById(R.id.btnGuardarProducto);
+            btnGuardaProducto.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    guardarProducto();
+
+                }
+            });
+            mostrarDatosProducto();
+            MostrarDatosProductos();
+
+        }catch (Exception ex){
+            Toast.makeText(getApplicationContext(), "Error al agregar Productos: "+ ex.getMessage(), Toast.LENGTH_LONG).show();
+        }
+
+        //
+
     }
 
-    //Galeria
-    void TomarGaleriaProducto(){
-        imgGaleriaProducto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intentGaleri = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(intentGaleri,100);
-            }
-        });
-    }
 
     void  tomarFotoProducto(){
         imgFotoProducto.setOnClickListener(new View.OnClickListener() {
@@ -101,11 +126,6 @@ public class agregarProductos extends AppCompatActivity {
                 Bitmap imageBitmap = BitmapFactory.decodeFile(urlCompletaImg);
                 imgFotoProducto.setImageBitmap(imageBitmap);
             }
-            //Galeria
-            else if(requestCode==100 && resultCode==RESULT_OK){
-                Bitmap imageBitmap = BitmapFactory.decodeFile(urlCompletaImg);
-                imgGaleriaProducto.setImageURI(data.getData());
-            }
         }catch (Exception ex){
             Toast.makeText(getApplicationContext(), "Error: "+ ex.getMessage(), Toast.LENGTH_LONG).show();
         }
@@ -129,6 +149,109 @@ public class agregarProductos extends AppCompatActivity {
         urlCompletaImg = image.getAbsolutePath();
         return image;
     }
+
+    //web
+
+    private void guardarProducto() {
+        TextView temval = findViewById(R.id.txtNombreProd);
+        String nombre = temval.getText().toString();
+
+        temval = findViewById(R.id.txtMarcaProd);
+        String marca = temval.getText().toString();
+
+        temval = findViewById(R.id.txtStockProd);
+        String stock = temval.getText().toString();
+
+        temval = findViewById(R.id.txtPrecioProd);
+        String precio = temval.getText().toString();
+
+        try {
+            JSONObject datosProducto = new JSONObject();
+            if (accion.equals("Modificar")) {
+                datosProducto.put("_id", id);
+                datosProducto.put("_rev", rev);
+            }
+            datosProducto.put("nombre", nombre);
+            datosProducto.put("marca", marca);
+            datosProducto.put("stock", stock);
+            datosProducto.put("precio", precio);
+
+            enviarDatosProductos objGuardarProducto = new enviarDatosProductos();
+            objGuardarProducto.execute(datosProducto.toString());
+
+        } catch (Exception ex) {
+            Toast.makeText(getApplicationContext(), "Error de codigo" + ex.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    //
+
+    //web
+
+    private class enviarDatosProductos extends AsyncTask<String, String, String> {
+        HttpURLConnection urlConnection;
+        @Override
+        protected String doInBackground(String... parametros) {
+            StringBuilder stringBuilder = new StringBuilder();
+            String jsonResponse = null;
+            String jsonDatos = parametros[0];
+            BufferedReader reader;
+
+            try {
+                URL url = new URL("Http://10.0.2.2:5984/db_tienda/");
+                urlConnection = (HttpURLConnection) url.openConnection();
+                urlConnection.setDoInput(true);
+                urlConnection.setDoOutput(true);
+
+                urlConnection.setRequestMethod("POST");
+                urlConnection.setRequestProperty("Content-Type", "application/json");
+                urlConnection.setRequestProperty("Accept", "application/json");
+
+                Writer writer = new BufferedWriter(new OutputStreamWriter(urlConnection.getOutputStream(), "UTF-8"));
+                writer.write(jsonDatos);
+                writer.close();
+
+                InputStream inputStream = urlConnection.getInputStream();
+                if (inputStream == null) {
+                    return null;
+                }
+                reader = new BufferedReader(new InputStreamReader(inputStream));
+                resp = reader.toString();
+
+                String inputLine;
+                StringBuffer stringBuffer = new StringBuffer();
+                while ((inputLine = reader.readLine()) != null) {
+                    stringBuffer.append(inputLine + "\n");
+                }
+                if (stringBuffer.length() == 0) {
+                    return null;
+                }
+                jsonResponse = stringBuffer.toString();
+                return jsonResponse;
+            } catch (Exception ex) {
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            try {
+                JSONObject jsonObject = new JSONObject(s);
+                if (jsonObject.getBoolean("ok")) {
+                    Toast.makeText(getApplicationContext(), "Datos de producto guardado con exito", Toast.LENGTH_SHORT).show();
+                    mostrarListaProductos();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Error al intentar guardar datos de producto", Toast.LENGTH_SHORT).show();
+                }
+            } catch (Exception e) {
+                Toast.makeText(getApplicationContext(), "Error al guardar producto: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    //
 
     void  guardarDatosProductos(){
         btnProductos = (Button)findViewById(R.id.btnGuardarProducto);
@@ -172,10 +295,41 @@ public class agregarProductos extends AppCompatActivity {
         mostrarDatosProducto();
     }
 
-    void mostrarListaProductos(){
+    private void mostrarListaProductos(){
         Intent mostrarProductos = new Intent( agregarProductos.this, MainActivity.class);
         startActivity(mostrarProductos);
     }
+
+    //web
+
+    void MostrarDatosProductos() {
+        try {
+            Bundle recibirParametros = getIntent().getExtras();
+            accion = recibirParametros.getString("accion");
+            if (accion.equals("Modificar")) {
+                JSONObject DataProducto = new JSONObject(recibirParametros.getString("DataProducto")).getJSONObject("value");
+
+                TextView tempVal = (TextView) findViewById(R.id.txtNombreProd);
+                tempVal.setText(DataProducto.getString("nombre"));
+
+                tempVal = findViewById(R.id.txtMarcaProd);
+                tempVal.setText(DataProducto.getString("marca"));
+
+                tempVal =  findViewById(R.id.txtStockProd);
+                tempVal.setText(DataProducto.getString("stock"));
+
+                tempVal =  findViewById(R.id.txtPrecioProd);
+                tempVal.setText(DataProducto.getString("precio"));
+
+                id = DataProducto.getString("_id");
+                rev = DataProducto.getString("_rev");
+            }
+        } catch (Exception ex) {
+            //
+        }
+    }
+
+    //
 
     void mostrarDatosProducto(){
         try {
@@ -202,7 +356,6 @@ public class agregarProductos extends AppCompatActivity {
                 urlCompletaImg = dataProducto[5];
                 Bitmap imageBitmap = BitmapFactory.decodeFile(urlCompletaImg);
                 imgFotoProducto.setImageBitmap(imageBitmap);
-                imgGaleriaProducto.setImageBitmap(imageBitmap);
             }
 
         }catch (Exception ex){
