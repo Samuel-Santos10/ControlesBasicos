@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Motherboard"></activity>
+        <activity android:name=".Motherboard" ></activity>
         <activity android:name=".Procesador" />
         <activity android:name=".CPU" />
         <activity android:name=".Ram" />
@@ -17,7 +17,9 @@
         <activity android:name=".Novedades" />
         <activity android:name=".PcPersonalizada" />
         <activity android:name=".InformacionBasica" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".PantalladeCarga">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
