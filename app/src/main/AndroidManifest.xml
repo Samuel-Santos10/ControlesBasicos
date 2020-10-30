@@ -9,17 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Motherboard" ></activity>
+        <activity android:name=".Agregar_Productos"></activity>
+        <activity android:name=".ControlProgramador" />
+        <activity android:name=".Motherboard" />
         <activity android:name=".Procesador" />
         <activity android:name=".CPU" />
         <activity android:name=".Ram" />
         <activity android:name=".Compu" />
         <activity android:name=".Novedades" />
         <activity android:name=".PcPersonalizada" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".InformacionBasica" />
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".Login" />
         <activity android:name=".PantalladeCarga">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

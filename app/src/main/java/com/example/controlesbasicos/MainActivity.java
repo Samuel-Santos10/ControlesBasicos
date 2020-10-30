@@ -29,6 +29,7 @@ public class MainActivity extends Activity {
                    pcPersonalizada();
                }
            });
+
            ImageButton btnNovedades = (ImageButton)findViewById(R.id.btnNovedades);
            btnNovedades.setOnClickListener(new View.OnClickListener() {
                @Override
