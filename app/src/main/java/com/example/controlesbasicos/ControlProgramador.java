@@ -3,6 +3,7 @@ package com.example.controlesbasicos;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -35,26 +36,37 @@ import java.util.ArrayList;
 
 public class ControlProgramador extends AppCompatActivity {
 
-    JSONArray datosJSON; // aqui se guardaran los datos que vendran del servidor
+    JSONArray datosJSON;
     JSONObject jsonObject;
     Integer posicion;
     ArrayList<String> arrayList = new ArrayList<String>();
     ArrayList<String> copyStringArrayList = new ArrayList<String>();
     ArrayAdapter<String> stringArrayAdapter;
+    utilidadescomunes uc;
+    detectarInternet di;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_control_programador);
 
-        obtenerDatosProductos objObtenerProductos = new obtenerDatosProductos();
-        objObtenerProductos.execute();
+        di = new detectarInternet(getApplicationContext());
+        if (di.hayConexionInternet()) {
+            conexionServidor objObtenerProductos = new conexionServidor();
+            objObtenerProductos.execute(uc.url_consulta, "GET");
+        } else  {
+            Toast.makeText(getApplicationContext(), "No hay conexion a internet.", Toast.LENGTH_LONG).show();
+        }
 
         FloatingActionButton btnAgregarProductos = (FloatingActionButton) findViewById(R.id.btnAgregarProductos);
         btnAgregarProductos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                agregarNuevosProductos("Nuevo", jsonObject);
+                if (di.hayConexionInternet()) {
+                    agregarNuevosProductos("Nuevo", jsonObject);
+                } else  {
+                    Toast.makeText(getApplicationContext(), "No hay conexion a internet.", Toast.LENGTH_LONG).show();
+                }
             }
         });
         buscarProductos();
@@ -99,7 +111,7 @@ public class ControlProgramador extends AppCompatActivity {
         try {
             AdapterView.AdapterContextMenuInfo adapterContextMenuInfo = (AdapterView.AdapterContextMenuInfo) menuInfo;
             posicion = adapterContextMenuInfo.position;
-            menu.setHeaderTitle(datosJSON.getJSONObject(posicion).getString("codigo"));
+            menu.setHeaderTitle(datosJSON.getJSONObject(posicion).getString("descripcion"));
         } catch (Exception ex) {
             ///
         }
@@ -129,43 +141,6 @@ public class ControlProgramador extends AppCompatActivity {
         }
     }
 
-    private class obtenerDatosProductos extends AsyncTask<Void, Void, String> {
-        HttpURLConnection urlConnection;
-
-        @Override
-        protected String doInBackground(Void... voids) {
-            StringBuilder result = new StringBuilder();
-            try {
-                URL url = new URL("Http://10.0.2.2:5984/db_pc/_design/pc/_view/mi-pc");
-                urlConnection = (HttpURLConnection) url.openConnection();
-                urlConnection.setRequestMethod("GET");
-
-                InputStream in = new BufferedInputStream(urlConnection.getInputStream());
-                BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    result.append(line);
-                }
-            } catch (Exception ex) {
-                //
-            }
-            return result.toString();
-        }
-
-        @Override
-        protected void onPostExecute(String s) {
-            super.onPostExecute(s);
-            try {
-                jsonObject = new JSONObject(s);
-                datosJSON = jsonObject.getJSONArray("rows");
-                mostrarDatosProductos();
-
-            } catch (Exception ex) {
-                Toast.makeText(ControlProgramador.this, "Error al parcear los datos: " + ex.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        }
-    }
-
     private void mostrarDatosProductos() {
         ListView lvTienda = findViewById(R.id.lvTienda);
         try {
@@ -174,7 +149,7 @@ public class ControlProgramador extends AppCompatActivity {
             lvTienda.setAdapter(stringArrayAdapter);
 
             for (int i = 0; i < datosJSON.length(); i++) {
-                stringArrayAdapter.add(datosJSON.getJSONObject(i).getJSONObject("value").getString("codigo"));
+                stringArrayAdapter.add(datosJSON.getJSONObject(i).getJSONObject("value").getString("descripcion"));
             }
             copyStringArrayList.clear();
             copyStringArrayList.addAll(arrayList);
@@ -209,74 +184,76 @@ public class ControlProgramador extends AppCompatActivity {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
 
-                    eliminarDatosProducto objEliminarProducto = new eliminarDatosProducto();
-                    objEliminarProducto.execute();
+                    try {
+                        conexionServidor objEliminarAmigo = new conexionServidor();
+                        objEliminarAmigo.execute(uc.url_mto +
+                                datosJSON.getJSONObject(posicion).getJSONObject("value").getString("_id") + "?rev=" +
+                                datosJSON.getJSONObject(posicion).getJSONObject("value").getString("_rev"), "DELETE");
 
-                    Toast.makeText(getApplicationContext(), "El producto se elimino con exito.", Toast.LENGTH_SHORT).show();
+                    } catch (Exception ex) {
+                        Toast.makeText(getApplicationContext(), "Error al intentar eliminar el Producto: " + ex.getMessage(), Toast.LENGTH_LONG).show();
+                    }
                     dialogInterface.dismiss();
                 }
             });
-            confirmacion.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+            confirmacion.setNegativeButton("No", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
-                    Toast.makeText(getApplicationContext(), "Se canselo la eliminacion.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Eliminacion cancelada por el producto.", Toast.LENGTH_SHORT).show();
                     dialogInterface.dismiss();
                 }
             });
         } catch (Exception ex) {
-            Toast.makeText(getApplicationContext(), "Error al mostrar la confirmacion: " + ex.getMessage(), Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Error al mostrar la confirmacion " + ex.getMessage(), Toast.LENGTH_LONG).show();
         }
         return confirmacion.create();
     }
 
-    private class eliminarDatosProducto extends AsyncTask<String, String, String> {
+    private class conexionServidor extends AsyncTask<String, String, String> {
         HttpURLConnection urlConnection;
 
         @Override
         protected String doInBackground(String... parametros) {
-            StringBuilder stringBuilder = new StringBuilder();
-            String jsonResponse = null;
+            StringBuilder result = new StringBuilder();
             try {
-                URL url = new URL("http://10.0.2.2:5984/db_pc/" +
-                        datosJSON.getJSONObject(posicion).getJSONObject("value").getString("_id") + "?rev=" +
-                        datosJSON.getJSONObject(posicion).getJSONObject("value").getString("_rev"));
+                String uri = parametros[0];
+                String metodo = parametros[1];
 
+                URL url = new URL(uri);
                 urlConnection = (HttpURLConnection) url.openConnection();
-                urlConnection.setRequestMethod("DELETE");
+                urlConnection.setRequestMethod(metodo);
 
                 InputStream in = new BufferedInputStream(urlConnection.getInputStream());
                 BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-
-                String inputLine;
-                StringBuffer stringBuffer = new StringBuffer();
-                while ((inputLine = reader.readLine()) != null) {
-                    stringBuffer.append(inputLine + "\n");
+                String linea;
+                while ((linea = reader.readLine()) != null) {
+                    result.append(linea);
                 }
-                if (stringBuffer.length() == 0) {
-                    return null;
-                }
-                jsonResponse = stringBuffer.toString();
-                return jsonResponse;
             } catch (Exception ex) {
                 //
             }
-            return null;
+            return result.toString();
         }
 
+        @SuppressLint("NewApi")
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
             try {
-                JSONObject jsonObject = new JSONObject(s);
-                if (jsonObject.getBoolean("ok")) {
-                    Toast.makeText(getApplicationContext(), "Datos de producto guardado con exito", Toast.LENGTH_SHORT).show();
-                    obtenerDatosProductos objObtenerProductos = new obtenerDatosProductos();
-                    objObtenerProductos.execute();
+                jsonObject = new JSONObject(s);
+                if (jsonObject.isNull("rows")) {
+                    if (jsonObject.getBoolean("ok")) {
+                        Toast.makeText(ControlProgramador.this, "Producto eliminado con exito", Toast.LENGTH_SHORT).show();
+                        datosJSON.remove(posicion);
+                    } else {
+                        Toast.makeText(ControlProgramador.this, "Error no se pudo eliminar el registro de Producto", Toast.LENGTH_SHORT).show();
+                    }
                 } else {
-                    Toast.makeText(getApplicationContext(), "Error al intentar guardar datos de producto", Toast.LENGTH_SHORT).show();
+                    datosJSON = jsonObject.getJSONArray("rows");
                 }
-            } catch (Exception e) {
-                Toast.makeText(getApplicationContext(), "Error al guardar producto: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                mostrarDatosProductos();
+            } catch (Exception ex) {
+                Toast.makeText(ControlProgramador.this, "Error la parsear los datos: " + ex.getMessage(), Toast.LENGTH_LONG).show();
             }
         }
     }

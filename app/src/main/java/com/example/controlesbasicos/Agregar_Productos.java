@@ -24,7 +24,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class Agregar_Productos extends AppCompatActivity {
-
     String resp, accion, id, rev;
 
     @Override
@@ -83,7 +82,7 @@ public class Agregar_Productos extends AppCompatActivity {
         }
     }
     private void mostrarProductos() {
-        Intent mostrarProductos = new Intent(Agregar_Productos.this, MainActivity.class);
+        Intent mostrarProductos = new Intent(Agregar_Productos.this, ControlProgramador.class);
         startActivity(mostrarProductos);
     }
 
