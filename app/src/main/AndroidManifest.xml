@@ -18,7 +18,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".agregarProducto_sqlite"/>
+        <activity android:name=".AdmiFuente"></activity>
+        <activity android:name=".AdmiDisco" />
+        <activity android:name=".AdmiRAM" />
+        <activity android:name=".AdmiGPU" />
+        <activity android:name=".AdmiMotherboard" />
+        <activity android:name=".agregarProducto_sqlite" />
         <activity android:name=".AdmiCPU" />
         <activity android:name=".Agregar_Productos" />
         <activity android:name=".ControlProgramador" />
@@ -37,9 +42,8 @@
         <activity android:name=".InformacionBasica" />
         <activity android:name=".Login" />
         <activity android:name=".PantalladeCarga" />
-        <activity android:name=".Main"/>
-            <activity android:name=".Seleccion_Componentes">
-
+        <activity android:name=".Main" />
+        <activity android:name=".Seleccion_Componentes">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -48,15 +52,14 @@
         </activity>
 
         <provider
-            android:authorities="com.example.ControlesBasicos.fileprovider"
             android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.ControlesBasicos.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths"></meta-data>
+                android:resource="@xml/file_paths" />
         </provider>
-
     </application>
 
 </manifest>
