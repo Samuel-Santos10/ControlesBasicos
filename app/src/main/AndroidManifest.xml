@@ -14,6 +14,11 @@
         android:theme="@style/AppTheme">
         <activity android:name=".Agregar_Productos" />
         <activity android:name=".ControlProgramador" />
+        <activity android:name=".Mostrar" />
+        <activity android:name=".Editar" />
+        <activity android:name=".Registrar" />
+        <activity android:name=".Seleccion_Componentes" />
+        <activity android:name=".Inicio"/>
         <activity android:name=".Motherboard" />
         <activity android:name=".Procesador" />
         <activity android:name=".CPU" />
@@ -25,7 +30,7 @@
         <activity android:name=".InformacionBasica" />
         <activity android:name=".Login" />
         <activity android:name=".PantalladeCarga"/>
-        <activity android:name=".Seleccion_Componentes">
+        <activity android:name=".Main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
