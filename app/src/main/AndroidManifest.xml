@@ -4,6 +4,12 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -12,13 +18,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".agregarProducto_sqlite"/>
+        <activity android:name=".AdmiCPU" />
         <activity android:name=".Agregar_Productos" />
         <activity android:name=".ControlProgramador" />
         <activity android:name=".Mostrar" />
         <activity android:name=".Editar" />
         <activity android:name=".Registrar" />
-        <activity android:name=".Seleccion_Componentes" />
-        <activity android:name=".Inicio"/>
+        <activity android:name=".Inicio" />
         <activity android:name=".Motherboard" />
         <activity android:name=".Procesador" />
         <activity android:name=".CPU" />
@@ -29,14 +36,27 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".InformacionBasica" />
         <activity android:name=".Login" />
-        <activity android:name=".PantalladeCarga"/>
-        <activity android:name=".Main">
+        <activity android:name=".PantalladeCarga" />
+        <activity android:name=".Main"/>
+            <activity android:name=".Seleccion_Componentes">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <provider
+            android:authorities="com.example.ControlesBasicos.fileprovider"
+            android:name="androidx.core.content.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"></meta-data>
+        </provider>
+
     </application>
 
 </manifest>
