@@ -18,7 +18,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AdmiFuente"></activity>
+        <activity android:name=".Usuario_Programador"></activity>
+        <activity android:name=".AdmiFuente" />
         <activity android:name=".AdmiDisco" />
         <activity android:name=".AdmiRAM" />
         <activity android:name=".AdmiGPU" />
@@ -40,10 +41,9 @@
         <activity android:name=".PcPersonalizada" />
         <activity android:name=".MainActivity" />
         <activity android:name=".InformacionBasica" />
-        <activity android:name=".Login" />
-        <activity android:name=".PantalladeCarga" />
         <activity android:name=".Main" />
-        <activity android:name=".Seleccion_Componentes">
+        <activity android:name=".Seleccion_Componentes" />
+        <activity android:name=".PantalladeCarga">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

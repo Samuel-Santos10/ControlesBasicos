@@ -72,6 +72,7 @@ public class ControlProgramador extends AppCompatActivity {
         buscarProductos();
     }
 
+
     void buscarProductos() {
         final TextView tempVal = findViewById(R.id.etBuscarProductos);
         tempVal.addTextChangedListener(new TextWatcher() {

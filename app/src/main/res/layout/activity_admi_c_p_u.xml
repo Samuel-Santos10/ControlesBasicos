@@ -27,7 +27,7 @@
         android:layout_height="25dp"
         android:layout_marginTop="50dp"
         android:background="#03A9F4"
-        android:text="                                             PROCESADORES"
+        android:text="                             PROCESADORES"
         android:textSize="18sp" />
 
 

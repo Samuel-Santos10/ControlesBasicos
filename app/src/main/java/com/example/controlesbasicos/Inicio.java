@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Inicio extends AppCompatActivity implements View.OnClickListener {
 
-    Button btnEditar, btnEliminar, btnMostrar, btnSalir;
+    Button btnEditar, btnEliminar, btnMostrar, btnSalir, btnModificar;
     TextView nombre;
     int id = 0;
     Usuario u;
@@ -29,11 +29,13 @@ public class Inicio extends AppCompatActivity implements View.OnClickListener {
         btnEliminar = (Button)findViewById(R.id.btnEliminar);
         btnMostrar = (Button)findViewById(R.id.btnMostrar);
         btnSalir = (Button)findViewById(R.id.btnSalir);
+        btnModificar = (Button)findViewById(R.id.btnModificarPartes);
 
         btnEditar.setOnClickListener(this);
         btnEliminar.setOnClickListener(this);
         btnMostrar.setOnClickListener(this);
         btnSalir.setOnClickListener(this);
+        btnModificar.setOnClickListener(this);
 
         Bundle b = getIntent().getExtras();
         id = b.getInt("Id");
@@ -41,6 +43,7 @@ public class Inicio extends AppCompatActivity implements View.OnClickListener {
         u = dao.getUsuarioById(id);
         nombre.setText(u.getNombre() + " " + u.getApellido());
     }
+
 
     @Override
     public void onClick(View v) {
@@ -85,6 +88,12 @@ public class Inicio extends AppCompatActivity implements View.OnClickListener {
                 startActivity(i2);
                 finish();
                 break;
+
+            case  R.id.btnModificarPartes:
+                Intent i5 = new Intent(Inicio.this, agregarProducto_sqlite.class);
+                startActivity(i5);
+                break;
         }
     }
+
 }

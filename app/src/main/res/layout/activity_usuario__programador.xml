@@ -1,22 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="@drawable/fondo">
+    tools:context=".Usuario_Programador">
+
 
     <ImageButton
-        android:id="@+id/btnInfoBasica"
-        android:layout_width="291dp"
-        android:layout_height="96dp"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="100dp"
-        android:background="#EFE487" />
-
-    <ImageButton
-        android:id="@+id/btnPcPersonalizada"
+        android:id="@+id/btnUsuario"
         android:layout_width="291dp"
         android:layout_height="96dp"
         android:layout_marginLeft="60dp"
@@ -24,56 +16,45 @@
         android:background="#03A9F4" />
 
     <ImageButton
-        android:id="@+id/btnNovedades"
+        android:id="@+id/btnProgramador"
         android:layout_width="291dp"
         android:layout_height="96dp"
         android:layout_marginLeft="60dp"
         android:layout_marginTop="390dp"
         android:background="#3ADDCE" />
 
+
     <TextView
-        android:id="@+id/tvTituloInfoBasica"
-        android:layout_width="wrap_content"
+        android:id="@+id/tvTitulInicio"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="120dp"
-        android:background="#243239"
+        android:background="#1E2223"
         android:shadowColor="#E6D3D3"
-        android:text="INFORMACION BASICA"
+        android:text="                       Iniciar"
         android:textColor="#FFFFFF"
         android:textSize="24sp" />
 
     <TextView
-        android:id="@+id/tvTitulPcPersonalizada"
+        android:id="@+id/tvTitulUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="60dp"
         android:layout_marginTop="280dp"
         android:background="#1E2223"
         android:shadowColor="#E6D3D3"
-        android:text="PC PERSONALIZADA"
+        android:text="Usuario"
         android:textColor="#FFFFFF"
         android:textSize="24sp" />
 
     <TextView
-        android:id="@+id/tvTituloNovedades"
+        android:id="@+id/tvTituloProgramador"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="60dp"
         android:layout_marginTop="420dp"
         android:background="#243035"
         android:shadowColor="#E6D3D3"
-        android:text="NOVEDADES"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp" />
-
-    <TextView
-        android:id="@+id/tvTituloInicio"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="#243035"
-        android:shadowColor="#E6D3D3"
-        android:text="                      PC BUILDER"
+        android:text="Desarrollador"
         android:textColor="#FFFFFF"
         android:textSize="24sp" />
 

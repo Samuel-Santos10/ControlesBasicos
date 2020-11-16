@@ -47,7 +47,7 @@ public class MainActivity extends Activity {
          startActivity(inforBasica);
      }
     void pcPersonalizada(){
-        Intent personalizar = new Intent(MainActivity.this, PcPersonalizada.class);
+        Intent personalizar = new Intent(MainActivity.this, Seleccion_Componentes.class);
         startActivity(personalizar);
     }
     void novedades(){

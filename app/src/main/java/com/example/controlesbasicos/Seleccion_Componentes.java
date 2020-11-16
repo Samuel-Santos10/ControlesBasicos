@@ -15,6 +15,7 @@ public class Seleccion_Componentes extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seleccion__componentes);
 
+
         try {
             Button btnSelecCPU = (Button) findViewById(R.id.btnSelecCPU);
             btnSelecCPU.setOnClickListener(new View.OnClickListener() {
@@ -23,6 +24,7 @@ public class Seleccion_Componentes extends AppCompatActivity {
                     informacionBasica();
                 }
             });
+
             Button btnSelecMotherboard = (Button) findViewById(R.id.btnSelecMother);
             btnSelecMotherboard.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -64,7 +66,15 @@ public class Seleccion_Componentes extends AppCompatActivity {
                     informacionFuente();
                 }
             });
-            //aqui ño
+
+            Button btnAtras = (Button)findViewById(R.id.btnRegresarMenu);
+            btnAtras.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    VolverAlMenu();
+                }
+            });
+
         }catch (Exception ex){
             Toast.makeText(getApplicationContext(), "Error al ingresar en la opcion.", Toast.LENGTH_SHORT).show();
         }
@@ -98,4 +108,10 @@ public class Seleccion_Componentes extends AppCompatActivity {
         Intent admiFuente = new Intent(Seleccion_Componentes.this, AdmiFuente.class);
         startActivity(admiFuente);
     }
+
+    void VolverAlMenu(){
+        Intent Retroceder = new Intent(Seleccion_Componentes.this, Seleccion_Componentes.class);
+        startActivity(Retroceder);
+    }
+
 }
