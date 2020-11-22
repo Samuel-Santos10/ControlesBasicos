@@ -13,6 +13,7 @@ public class DB_PC extends SQLiteOpenHelper {
     // Creacion de tabla y sus campos
 
     static String tblProductos = "CREATE TABLE productos(idproducto integer primary key autoincrement, nombre text, marca text, stock int, precio real, url text)";
+    static   String tblMotherboard = "CREATE TABLE motherboard(idproducto integer primary key autoincrement, nombre text, marca text, stock int, precio real, url text)";
 
     public DB_PC(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, nameDB, factory, version); // nameDB = La creacion de la base de datos en SQLite
@@ -21,7 +22,9 @@ public class DB_PC extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(tblProductos);
+        db.execSQL(tblMotherboard);
     }
+
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
@@ -44,6 +47,30 @@ public class DB_PC extends SQLiteOpenHelper {
                 break;
             case "Eliminar":
                 sqLiteDatabasewritable.execSQL("DELETE FROM productos WHERE idproducto='"+ data[0] +"'");
+                break;
+            default:
+                break;
+        }
+        return cursor;
+    }
+
+    //Creamos otra estructura swich pero esta vez para la motherboard
+    public Cursor mantenimientoMotherboard(String accion, String[] data){
+        SQLiteDatabase sqLiteDatabaseReadable = getReadableDatabase();
+        SQLiteDatabase sqLiteDatabasewritable = getWritableDatabase();
+        Cursor cursor = null;
+        switch (accion){
+            case "Consultar":
+                cursor = sqLiteDatabaseReadable.rawQuery("SELECT * FROM motherboard ORDER BY nombre ASC", null);
+                break;
+            case "Nuevo":
+                sqLiteDatabasewritable.execSQL("INSERT INTO motherboard(nombre,marca,stock,precio,url) VALUES('"+ data[1] +"','"+data[2]+"','"+data[3]+"','"+data[4]+"','"+data[5]+"')");
+                break;
+            case "Modificar":
+                sqLiteDatabasewritable.execSQL("UPDATE motherboard SET nombre='"+ data[1] +"',marca='"+data[2]+"',stock='"+data[3]+"',precio='"+data[4]+"', url='"+data[5]+"' WHERE idproducto='"+data[0]+"'");
+                break;
+            case "Eliminar":
+                sqLiteDatabasewritable.execSQL("DELETE FROM motherboard WHERE idproducto='"+ data[0] +"'");
                 break;
             default:
                 break;

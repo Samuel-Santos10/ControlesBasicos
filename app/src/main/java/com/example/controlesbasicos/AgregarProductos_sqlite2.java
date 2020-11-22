@@ -22,7 +22,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class agregarProducto_sqlite extends AppCompatActivity {
+public class AgregarProductos_sqlite2 extends AppCompatActivity {
 
     DB_PC miDB;
     String accion = "Nuevo";
@@ -34,17 +34,16 @@ public class agregarProducto_sqlite extends AppCompatActivity {
     String urlCompletaImg;
     Button btnProductos;
     Intent takePictureIntent;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_agregar_producto_sqlite);
+        setContentView(R.layout.activity_agregar_productos_sqlite2);
 
         imgFotoProducto = (ImageView)findViewById(R.id.imgPhotoProducto);
         //galeria
         imgGaleriaProducto = (ImageView)findViewById(R.id.imgGaleriaProducto);
 
-        btnProductos = (Button) findViewById(R.id.btnMostrarProductos);
+        btnProductos = (Button) findViewById(R.id.btnMostrarProductos2);
         btnProductos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -81,7 +80,7 @@ public class agregarProducto_sqlite extends AppCompatActivity {
                     }catch (Exception ex){}
                     if (photoFile != null) {
                         try {
-                            Uri photoURI = FileProvider.getUriForFile(agregarProducto_sqlite.this, "com.example.ControlesBasicos.fileprovider", photoFile);
+                            Uri photoURI = FileProvider.getUriForFile(AgregarProductos_sqlite2.this, "com.example.ControlesBasicos.fileprovider", photoFile);
                             takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
                             startActivityForResult(takePictureIntent, 1);
                         }catch (Exception ex){
@@ -131,20 +130,20 @@ public class agregarProducto_sqlite extends AppCompatActivity {
     }
 
     void  guardarDatosProductos(){
-        btnProductos = (Button)findViewById(R.id.btnGuardarProducto);
+        btnProductos = (Button)findViewById(R.id.btnGuardarProducto2);
         btnProductos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TextView tempval = (TextView)findViewById(R.id.txtNombreProd);
+                TextView tempval = (TextView)findViewById(R.id.etNombre);
                 String nombre = tempval.getText().toString();
 
-                tempval = (TextView)findViewById(R.id.txtMarcaProd);
+                tempval = (TextView)findViewById(R.id.etMarca);
                 String marca = tempval.getText().toString();
 
-                tempval = (TextView)findViewById(R.id.txtStockProd);
+                tempval = (TextView)findViewById(R.id.etStock);
                 String stock = tempval.getText().toString();
 
-                tempval = (TextView)findViewById(R.id.txtPrecioProd);
+                tempval = (TextView)findViewById(R.id.etPrecio);
                 String precio = tempval.getText().toString();
 
                 if(!nombre.isEmpty() && !marca.isEmpty() && !stock.isEmpty() && !precio.isEmpty()){
@@ -152,7 +151,7 @@ public class agregarProducto_sqlite extends AppCompatActivity {
                     String[] data = {idProducto, nombre, marca, stock, precio, urlCompletaImg};
 
                     miDB = new DB_PC(getApplicationContext(), "", null, 1);
-                    miDB.mantenimientoProductos(accion, data);
+                    miDB.mantenimientoMotherboard(accion, data);
 
                     Toast.makeText(getApplicationContext(),"Se ha insertado un producto con exito", Toast.LENGTH_SHORT).show();
                     mostrarListaProductos();
@@ -171,7 +170,7 @@ public class agregarProducto_sqlite extends AppCompatActivity {
                 }
             }
         });
-        btnProductos = (Button)findViewById(R.id.btnMostrarProductos);
+        btnProductos = (Button)findViewById(R.id.btnMostrarProductos2);
         btnProductos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -182,7 +181,7 @@ public class agregarProducto_sqlite extends AppCompatActivity {
     }
 
     void mostrarListaProductos(){
-        Intent mostrarProductos = new Intent( agregarProducto_sqlite.this, AdmiCPU.class);
+        Intent mostrarProductos = new Intent( AgregarProductos_sqlite2.this, AdmiMotherboard.class);
         startActivity(mostrarProductos);
     }
 
@@ -196,16 +195,16 @@ public class agregarProducto_sqlite extends AppCompatActivity {
 
                 idProducto= dataProducto[0];
 
-                TextView tempval = (TextView)findViewById(R.id.txtNombreProd);
+                TextView tempval = (TextView)findViewById(R.id.etNombre);
                 tempval.setText(dataProducto[1]);
 
-                tempval = (TextView)findViewById(R.id.txtMarcaProd);
+                tempval = (TextView)findViewById(R.id.etMarca);
                 tempval.setText(dataProducto[2]);
 
-                tempval = (TextView)findViewById(R.id.txtStockProd);
+                tempval = (TextView)findViewById(R.id.etStock);
                 tempval.setText(dataProducto[3]);
 
-                tempval = (TextView)findViewById(R.id.txtPrecioProd);
+                tempval = (TextView)findViewById(R.id.etPrecio);
                 tempval.setText(dataProducto[4]);
 
                 urlCompletaImg = dataProducto[5];

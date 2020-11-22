@@ -12,24 +12,23 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class adaptadorImagenes extends BaseAdapter {
-
+public class adaptadorImagenes1 extends BaseAdapter {
     Context context;
-    ArrayList<productos> datos;
+    ArrayList<motherboards> dato;
     LayoutInflater layoutInflater;
-    productos producto;
+    motherboards motherboards;
 
-    public adaptadorImagenes(Context context, ArrayList<productos> dato){
+    public adaptadorImagenes1(Context context, ArrayList<motherboards> dato){
         this.context = context;
         try {
-            this.datos = dato;
+            this.dato = dato;
         }catch (Exception ex){}
     }
 
     @Override
     public int getCount() {
         try {
-            return datos.size();
+            return dato.size();
         }catch (Exception ex) {
             return 0;
         }
@@ -53,12 +52,12 @@ public class adaptadorImagenes extends BaseAdapter {
 
         ImageView imageView = (ImageView)itemView.findViewById(R.id.img);
         try {
-            producto = datos.get(i);
-            tvTituMarca.setText(producto.getNombre());
-            tvTituDescripcion.setText(producto.getMarca());
-            tvTituPrecio.setText(producto.getPrecio());
+            motherboards = dato.get(i);
+            tvTituMarca.setText(motherboards.getNombre());
+            tvTituDescripcion.setText(motherboards.getMarca());
+            tvTituPrecio.setText(motherboards.getPrecio());
 
-            Bitmap imageBitmap = BitmapFactory.decodeFile(producto.getUrlImg());
+            Bitmap imageBitmap = BitmapFactory.decodeFile(motherboards.getUrlImg());
 
             imageView.setImageBitmap(imageBitmap);
         }catch (Exception ex){ }

@@ -7,7 +7,7 @@
     tools:context=".AdmiMotherboard">
 
     <EditText
-        android:id="@+id/etBuscarProducto"
+        android:id="@+id/etBuscarProductoM"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="#FDFDFD"
@@ -15,7 +15,7 @@
         android:textSize="18sp" />
 
     <ListView
-        android:id="@+id/lvsProductos"
+        android:id="@+id/lvMother"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="90dp" />
@@ -31,7 +31,7 @@
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btnAgregarProductos"
+        android:id="@+id/btnAgregarProductos2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
