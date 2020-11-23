@@ -25,26 +25,26 @@ import java.util.ArrayList;
 
 public class AdmiMotherboard extends AppCompatActivity {
     DB_PC miDB;
-    Cursor misProductos;
-    productos producto;
-    ArrayList<productos> stringArrayList = new ArrayList<productos>();
-    ArrayList<productos> copyStringArrayList = new ArrayList<productos>();
-    ListView lvsProductos;
+    Cursor misMotherboard;
+    motherboards motherboard;
+    ArrayList<motherboards> stringArrayList = new ArrayList<motherboards>();
+    ArrayList<motherboards> copyStringArrayList = new ArrayList<motherboards>();
+    ListView lvMother;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admi_motherboard);
 
-        FloatingActionButton btnAgregarProductos = (FloatingActionButton)findViewById(R.id.btnAgregarProductos);
+        FloatingActionButton btnAgregarProductos = (FloatingActionButton)findViewById(R.id.btnAgregarProductos2);
         btnAgregarProductos.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
-                agregarProducto("Nuevo", new String[]{});
+                agregarMotherboard("Nuevo", new String[]{});
             }
         });
-        obtenerDatosProductos();
+        obtenerDatosMotherboard();
         buscarProductos();
     }
 
@@ -56,12 +56,12 @@ public class AdmiMotherboard extends AppCompatActivity {
         menuInflater.inflate(R.menu.menu_principal, menu);
 
         AdapterView.AdapterContextMenuInfo adapterContextMenuInfo = (AdapterView.AdapterContextMenuInfo)menuInfo;
-        misProductos.moveToPosition((adapterContextMenuInfo.position));
-        menu.setHeaderTitle(misProductos.getString(1));
+        misMotherboard.moveToPosition((adapterContextMenuInfo.position));
+        menu.setHeaderTitle(misMotherboard.getString(1));
     }
 
     void buscarProductos(){
-        final TextView tempVal = (TextView)findViewById(R.id.etBuscarProducto);
+        final TextView tempVal = (TextView)findViewById(R.id.etBuscarProductoM);
         tempVal.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -75,15 +75,15 @@ public class AdmiMotherboard extends AppCompatActivity {
                     if (tempVal.getText().toString().trim().length() < 1) { //aqui no hay texto para mostrar
                         stringArrayList.addAll(copyStringArrayList);
                     } else { // Aqui hacemos la busqueda
-                        for (productos am : copyStringArrayList) {
+                        for (motherboards am : copyStringArrayList) {
                             String nombre = am.getNombre();
                             if (nombre.toLowerCase().contains(tempVal.getText().toString().trim().toLowerCase())) {
                                 stringArrayList.add(am);
                             }
                         }
                     }
-                    adaptadorImagenes adaptadorImg = new adaptadorImagenes(getApplicationContext(), stringArrayList);
-                    lvsProductos.setAdapter(adaptadorImg);
+                    adaptadorImagenes1 adaptadorImg = new adaptadorImagenes1(getApplicationContext(), stringArrayList);
+                    lvMother.setAdapter(adaptadorImg);
                 }catch (Exception ex){
                     Toast.makeText(getApplicationContext(), "Error: "+ ex.getMessage(), Toast.LENGTH_LONG).show();
                 }
@@ -100,24 +100,24 @@ public class AdmiMotherboard extends AppCompatActivity {
     public boolean onContextItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.mnxAgregar:
-                agregarProducto("Nuevo", new String[]{});
+                agregarMotherboard("Nuevo", new String[]{});
                 return true;
 
             case R.id.mnxModificar:
-                String[] dataProducto = {
-                        misProductos.getString(0), // Para el id producto
-                        misProductos.getString(1), // Para el nombre
-                        misProductos.getString(2), // para el marca
-                        misProductos.getString(3), // Para la stock
-                        misProductos.getString(4), // y este para el precio.
-                        misProductos.getString(5) // Para la URL
+                String[] dataMotherboard = {
+                        misMotherboard.getString(0), // Para el id producto
+                        misMotherboard.getString(1), // Para el nombre
+                        misMotherboard.getString(2), // para el marca
+                        misMotherboard.getString(3), // Para la stock
+                        misMotherboard.getString(4), // y este para el precio.
+                        misMotherboard.getString(5) // Para la URL
                 };
-                agregarProducto("Modificar", dataProducto);
+                agregarMotherboard("Modificar", dataMotherboard);
                 return true;
 
             case R.id.mnxEliminar:
-                AlertDialog eliminarProduct =  eliminarProductos();
-                eliminarProduct.show();
+                AlertDialog eliminarMother =  eliminarProductos();
+                eliminarMother.show();
                 return true;
 
             default:
@@ -127,13 +127,13 @@ public class AdmiMotherboard extends AppCompatActivity {
 
     AlertDialog eliminarProductos(){
         AlertDialog.Builder confirmacion = new AlertDialog.Builder(AdmiMotherboard.this);
-        confirmacion.setTitle(misProductos.getString(1));
+        confirmacion.setTitle(misMotherboard.getString(1));
         confirmacion.setMessage("Esta seguro de eliminar el Producto?");
         confirmacion.setPositiveButton("SI", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                miDB.mantenimientoProductos("Eliminar",new String[]{misProductos.getString(0)});
-                obtenerDatosProductos();
+                miDB.mantenimientoMotherboard("Eliminar",new String[]{misMotherboard.getString(0)});
+                obtenerDatosMotherboard();
                 Toast.makeText(getApplicationContext(), "Producto eliminado exitosamente.",Toast.LENGTH_SHORT).show();
                 dialogInterface.dismiss();
             }
@@ -148,43 +148,43 @@ public class AdmiMotherboard extends AppCompatActivity {
         return confirmacion.create();
     }
 
-    void obtenerDatosProductos(){
+    void obtenerDatosMotherboard(){
         miDB = new DB_PC(getApplicationContext(), "", null, 1);
-        misProductos = miDB.mantenimientoProductos( "Consultar", null);
+        misMotherboard = miDB.mantenimientoMotherboard( "Consultar", null);
 
-        if(misProductos.moveToFirst()){ // si hay registros en la base de datos que mostrar
-            mostrarDatosProductos();
+        if(misMotherboard.moveToFirst()){ // si hay registros en la base de datos que mostrar
+            mostrarDatosMotherboard();
         }else{
             Toast.makeText(getApplicationContext(),"No hay Productos que mostrar", Toast.LENGTH_SHORT).show();
 
-            agregarProducto("Nuevo", new String[]{});
+            agregarMotherboard("Nuevo", new String[]{});
         }
     }
 
-    void agregarProducto(String accion, String[] dataProducto){
+    void agregarMotherboard(String accion, String[] dataMotheroard){
         Bundle enviarParametros = new Bundle();
         enviarParametros.putString("accion", accion);
-        enviarParametros.putStringArray("dataProducto", dataProducto);
-        Intent agregarProductos = new Intent(AdmiMotherboard.this, agregarProducto_sqlite.class);
-        agregarProductos.putExtras(enviarParametros);
-        startActivity(agregarProductos);
+        enviarParametros.putStringArray("dataMotherboard", dataMotheroard);
+        Intent agregarMother = new Intent(AdmiMotherboard.this, AgregarProductos_sqlite2.class);
+        agregarMother.putExtras(enviarParametros);
+        startActivity(agregarMother);
     }
 
-    void mostrarDatosProductos() {
+    void mostrarDatosMotherboard() {
         stringArrayList.clear();
-        lvsProductos = (ListView)findViewById(R.id.lvsProductos);
+        lvMother = (ListView)findViewById(R.id.lvMother);
         do {
-            producto = new productos(misProductos.getString(0), misProductos.getString(1),misProductos.getString(2), misProductos.getString(3), misProductos.getString(4), misProductos.getString(5));
-            stringArrayList.add(producto);
-        } while (misProductos.moveToNext());
+            motherboard = new motherboards(misMotherboard.getString(0), misMotherboard.getString(1),misMotherboard.getString(2), misMotherboard.getString(3), misMotherboard.getString(4), misMotherboard.getString(5));
+            stringArrayList.add(motherboard);
+        } while (misMotherboard.moveToNext());
 
-        adaptadorImagenes adaptadorImg = new adaptadorImagenes(getApplicationContext(), stringArrayList);
-        lvsProductos.setAdapter(adaptadorImg);
+        adaptadorImagenes1 adaptadorImg = new adaptadorImagenes1(getApplicationContext(), stringArrayList);
+        lvMother.setAdapter(adaptadorImg);
 
         copyStringArrayList.clear(); // Para hacer una limpieza de la lista
         copyStringArrayList.addAll(stringArrayList); //Para crear una copia de la lista de productos
 
-        registerForContextMenu(lvsProductos);
+        registerForContextMenu(lvMother);
     }
 }
 
