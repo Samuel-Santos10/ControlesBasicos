@@ -18,8 +18,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AgregarProductos_sqlite2"></activity>
-        <activity android:name=".Usuario_Programador" />
+        <activity android:name=".AgregarProductos3_SQLITE3"></activity>
+        <activity android:name=".AgregarProductos_sqlite2"/>
         <activity android:name=".AdmiFuente" />
         <activity android:name=".AdmiDisco" />
         <activity android:name=".AdmiRAM" />
@@ -44,7 +44,8 @@
         <activity android:name=".InformacionBasica" />
         <activity android:name=".Main" />
         <activity android:name=".Seleccion_Componentes" />
-        <activity android:name=".PantalladeCarga">
+        <activity android:name=".PantalladeCarga"/>
+            <activity android:name=".Usuario_Programador">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
