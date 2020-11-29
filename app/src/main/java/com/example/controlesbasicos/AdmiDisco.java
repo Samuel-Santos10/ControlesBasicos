@@ -26,11 +26,11 @@ import java.util.ArrayList;
 public class AdmiDisco extends AppCompatActivity {
 
     DB_PC miDB;
-    Cursor misProductos;
-    productos producto;
-    ArrayList<productos> stringArrayList = new ArrayList<productos>();
-    ArrayList<productos> copyStringArrayList = new ArrayList<productos>();
-    ListView lvsProductos;
+    Cursor misDiscos;
+    discos Disco;
+    ArrayList<discos> stringArrayList = new ArrayList<discos>();
+    ArrayList<discos> copyStringArrayList = new ArrayList<discos>();
+    ListView lvsdiscos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,11 +42,11 @@ public class AdmiDisco extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                agregarProducto("Nuevo", new String[]{});
+                agregardiscos("Nuevo", new String[]{});
             }
         });
-        obtenerDatosProductos();
-        buscarProductos();
+        obtenerDatosDiscos();
+        buscarDiscos();
     }
 
     @Override
@@ -57,11 +57,11 @@ public class AdmiDisco extends AppCompatActivity {
         menuInflater.inflate(R.menu.menu_principal, menu);
 
         AdapterView.AdapterContextMenuInfo adapterContextMenuInfo = (AdapterView.AdapterContextMenuInfo)menuInfo;
-        misProductos.moveToPosition((adapterContextMenuInfo.position));
-        menu.setHeaderTitle(misProductos.getString(1));
+        misDiscos.moveToPosition((adapterContextMenuInfo.position));
+        menu.setHeaderTitle(misDiscos.getString(1));
     }
 
-    void buscarProductos(){
+    void buscarDiscos(){
         final TextView tempVal = (TextView)findViewById(R.id.etBuscarProducto);
         tempVal.addTextChangedListener(new TextWatcher() {
             @Override
@@ -76,15 +76,15 @@ public class AdmiDisco extends AppCompatActivity {
                     if (tempVal.getText().toString().trim().length() < 1) { //aqui no hay texto para mostrar
                         stringArrayList.addAll(copyStringArrayList);
                     } else { // Aqui hacemos la busqueda
-                        for (productos am : copyStringArrayList) {
+                        for (discos am : copyStringArrayList) {
                             String nombre = am.getNombre();
                             if (nombre.toLowerCase().contains(tempVal.getText().toString().trim().toLowerCase())) {
                                 stringArrayList.add(am);
                             }
                         }
                     }
-                    adaptadorImagenes adaptadorImg = new adaptadorImagenes(getApplicationContext(), stringArrayList);
-                    lvsProductos.setAdapter(adaptadorImg);
+                    adaptadorImagenes2 adaptadorImg = new adaptadorImagenes2(getApplicationContext(), stringArrayList);
+                    lvsdiscos.setAdapter(adaptadorImg);
                 }catch (Exception ex){
                     Toast.makeText(getApplicationContext(), "Error: "+ ex.getMessage(), Toast.LENGTH_LONG).show();
                 }
@@ -101,24 +101,24 @@ public class AdmiDisco extends AppCompatActivity {
     public boolean onContextItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.mnxAgregar:
-                agregarProducto("Nuevo", new String[]{});
+                agregardiscos("Nuevo", new String[]{});
                 return true;
 
             case R.id.mnxModificar:
-                String[] dataProducto = {
-                        misProductos.getString(0), // Para el id producto
-                        misProductos.getString(1), // Para el nombre
-                        misProductos.getString(2), // para el marca
-                        misProductos.getString(3), // Para la stock
-                        misProductos.getString(4), // y este para el precio.
-                        misProductos.getString(5) // Para la URL
+                String[] dataDiscos = {
+                        misDiscos.getString(0), // Para el id producto
+                        misDiscos.getString(1), // Para el nombre
+                        misDiscos.getString(2), // para el marca
+                        misDiscos.getString(3), // Para la stock
+                        misDiscos.getString(4), // y este para el precio.
+                        misDiscos.getString(5) // Para la URL
                 };
-                agregarProducto("Modificar", dataProducto);
+                agregardiscos("Modificar", dataDiscos);
                 return true;
 
             case R.id.mnxEliminar:
-                AlertDialog eliminarProduct =  eliminarProductos();
-                eliminarProduct.show();
+                AlertDialog eliminardiscos =  eliminardiscos();
+                eliminardiscos.show();
                 return true;
 
             default:
@@ -126,15 +126,15 @@ public class AdmiDisco extends AppCompatActivity {
         }
     }
 
-    AlertDialog eliminarProductos(){
+    AlertDialog eliminardiscos(){
         AlertDialog.Builder confirmacion = new AlertDialog.Builder(AdmiDisco.this);
-        confirmacion.setTitle(misProductos.getString(1));
+        confirmacion.setTitle(misDiscos.getString(1));
         confirmacion.setMessage("Esta seguro de eliminar el Producto?");
         confirmacion.setPositiveButton("SI", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                miDB.mantenimientoProductos("Eliminar",new String[]{misProductos.getString(0)});
-                obtenerDatosProductos();
+                miDB.mantenimientoDisco("Eliminar",new String[]{misDiscos.getString(0)});
+                obtenerDatosDiscos();
                 Toast.makeText(getApplicationContext(), "Producto eliminado exitosamente.",Toast.LENGTH_SHORT).show();
                 dialogInterface.dismiss();
             }
@@ -142,50 +142,50 @@ public class AdmiDisco extends AppCompatActivity {
         confirmacion.setNegativeButton("NO", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Toast.makeText(getApplicationContext(), "Sea eliminado el producto.",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Sea eliminado el disco.",Toast.LENGTH_SHORT).show();
                 dialogInterface.dismiss();
             }
         });
         return confirmacion.create();
     }
 
-    void obtenerDatosProductos(){
+    void obtenerDatosDiscos(){
         miDB = new DB_PC(getApplicationContext(), "", null, 1);
-        misProductos = miDB.mantenimientoProductos( "Consultar", null);
+        misDiscos = miDB.mantenimientoDisco( "Consultar", null);
 
-        if(misProductos.moveToFirst()){ // si hay registros en la base de datos que mostrar
+        if(misDiscos.moveToFirst()){ // si hay registros en la base de datos que mostrar
             mostrarDatosProductos();
         }else{
-            Toast.makeText(getApplicationContext(),"No hay Productos que mostrar", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),"No hay Discos que mostrar", Toast.LENGTH_SHORT).show();
 
-            agregarProducto("Nuevo", new String[]{});
+            agregardiscos("Nuevo", new String[]{});
         }
     }
 
-    void agregarProducto(String accion, String[] dataProducto){
+    void agregardiscos(String accion, String[] dataDiscos){
         Bundle enviarParametros = new Bundle();
         enviarParametros.putString("accion", accion);
-        enviarParametros.putStringArray("dataProducto", dataProducto);
-        Intent agregarProductos = new Intent(AdmiDisco.this, agregarProducto_sqlite.class);
-        agregarProductos.putExtras(enviarParametros);
-        startActivity(agregarProductos);
+        enviarParametros.putStringArray("dataDiscos", dataDiscos);
+        Intent agregarDisco = new Intent(AdmiDisco.this, AgregarProductos3_SQLITE3.class);
+        agregarDisco.putExtras(enviarParametros);
+        startActivity(agregarDisco);
     }
 
     void mostrarDatosProductos() {
         stringArrayList.clear();
-        lvsProductos = (ListView)findViewById(R.id.lvsProductos);
+        lvsdiscos = (ListView)findViewById(R.id.lvsProductos);
         do {
-            producto = new productos(misProductos.getString(0), misProductos.getString(1),misProductos.getString(2), misProductos.getString(3), misProductos.getString(4), misProductos.getString(5));
-            stringArrayList.add(producto);
-        } while (misProductos.moveToNext());
+            Disco = new discos(misDiscos.getString(0), misDiscos.getString(1),misDiscos.getString(2), misDiscos.getString(3), misDiscos.getString(4), misDiscos.getString(5));
+            stringArrayList.add(Disco);
+        } while (misDiscos.moveToNext());
 
-        adaptadorImagenes adaptadorImg = new adaptadorImagenes(getApplicationContext(), stringArrayList);
-        lvsProductos.setAdapter(adaptadorImg);
+        adaptadorImagenes2 adaptadorImg = new adaptadorImagenes2(getApplicationContext(), stringArrayList);
+        lvsdiscos.setAdapter(adaptadorImg);
 
         copyStringArrayList.clear(); // Para hacer una limpieza de la lista
         copyStringArrayList.addAll(stringArrayList); //Para crear una copia de la lista de productos
 
-        registerForContextMenu(lvsProductos);
+        registerForContextMenu(lvsdiscos);
     }
 }
 
