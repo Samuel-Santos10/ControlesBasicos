@@ -22,7 +22,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class AgregarProductos3_SQLITE3 extends AppCompatActivity {
+public class AgregarProductos_Disco extends AppCompatActivity {
 
 
         DB_PC miDB;
@@ -38,13 +38,13 @@ public class AgregarProductos3_SQLITE3 extends AppCompatActivity {
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_agregar_productos3__s_q_l_i_t_e3);
+            setContentView(R.layout.activity_agregar_productos_disco);
 
             imgFotoProducto = (ImageView)findViewById(R.id.imgPhotoProducto);
             //galeria
             imgGaleriaProducto = (ImageView)findViewById(R.id.imgGaleriaProducto);
 
-            btnProductos = (Button) findViewById(R.id.btnMostrarProductos2);
+            btnProductos = (Button) findViewById(R.id.btnMostrarProductos6);
             btnProductos.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -81,7 +81,7 @@ public class AgregarProductos3_SQLITE3 extends AppCompatActivity {
                         }catch (Exception ex){}
                         if (photoFile != null) {
                             try {
-                                Uri photoURI = FileProvider.getUriForFile(AgregarProductos3_SQLITE3.this, "com.example.ControlesBasicos.fileprovider", photoFile);
+                                Uri photoURI = FileProvider.getUriForFile(AgregarProductos_Disco.this, "com.example.ControlesBasicos.fileprovider", photoFile);
                                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
                                 startActivityForResult(takePictureIntent, 1);
                             }catch (Exception ex){
@@ -131,7 +131,7 @@ public class AgregarProductos3_SQLITE3 extends AppCompatActivity {
         }
 
         void  guardarDatosProductos(){
-            btnProductos = (Button)findViewById(R.id.btnGuardarProducto2);
+            btnProductos = (Button)findViewById(R.id.btnGuardarProducto6);
             btnProductos.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -171,7 +171,7 @@ public class AgregarProductos3_SQLITE3 extends AppCompatActivity {
                     }
                 }
             });
-            btnProductos = (Button)findViewById(R.id.btnMostrarProductos2);
+            btnProductos = (Button)findViewById(R.id.btnMostrarProductos6);
             btnProductos.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -182,7 +182,7 @@ public class AgregarProductos3_SQLITE3 extends AppCompatActivity {
         }
 
         void mostrarListaProductos(){
-            Intent mostrarProductos = new Intent( AgregarProductos3_SQLITE3.this, AdmiDisco.class);
+            Intent mostrarProductos = new Intent( AgregarProductos_Disco.this, AdmiDisco.class);
             startActivity(mostrarProductos);
         }
 

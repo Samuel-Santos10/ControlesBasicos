@@ -161,11 +161,11 @@ public class AdmiMotherboard extends AppCompatActivity {
         }
     }
 
-    void agregarMotherboard(String accion, String[] dataMotheroard){
+    void agregarMotherboard(String accion, String[] dataMotherboard){
         Bundle enviarParametros = new Bundle();
         enviarParametros.putString("accion", accion);
-        enviarParametros.putStringArray("dataMotherboard", dataMotheroard);
-        Intent agregarMother = new Intent(AdmiMotherboard.this, AgregarProductos_sqlite2.class);
+        enviarParametros.putStringArray("dataMotherboard", dataMotherboard);
+        Intent agregarMother = new Intent(AdmiMotherboard.this, AgregarProductos_Mother.class);
         agregarMother.putExtras(enviarParametros);
         startActivity(agregarMother);
     }

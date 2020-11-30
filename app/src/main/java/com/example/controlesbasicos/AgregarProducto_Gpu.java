@@ -22,11 +22,10 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class AgregarProducto_sql4 extends AppCompatActivity {
-
+public class AgregarProducto_Gpu extends AppCompatActivity {
     DB_PC miDB;
     String accion = "Nuevo";
-    String idRam = "0";
+    String idGpu = "0";
     ImageView imgFotoProducto;
     //Galeria
     ImageView imgGaleriaProducto;
@@ -37,21 +36,21 @@ public class AgregarProducto_sql4 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_agregar_producto_sql4);
+        setContentView(R.layout.activity_agregar_producto_gpu);
 
         imgFotoProducto = (ImageView)findViewById(R.id.imgPhotoProducto);
         //galeria
         imgGaleriaProducto = (ImageView)findViewById(R.id.imgGaleriaProducto);
 
-        btnProductos = (Button) findViewById(R.id.btnMostrarProductos2);
+        btnProductos = (Button) findViewById(R.id.btnMostrarProductos11);
         btnProductos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mostrarListaProductos();
+                mostrarListaGpu();
             }
         });
-        guardarDatosProductos();
-        mostrarDatosProducto();
+        guardarDatosGpu();
+        mostrarDatosGpu();
         tomarFotoProducto();
         TomarGaleriaProducto();
     }
@@ -80,7 +79,7 @@ public class AgregarProducto_sql4 extends AppCompatActivity {
                     }catch (Exception ex){}
                     if (photoFile != null) {
                         try {
-                            Uri photoURI = FileProvider.getUriForFile(AgregarProducto_sql4.this, "com.example.ControlesBasicos.fileprovider", photoFile);
+                            Uri photoURI = FileProvider.getUriForFile(AgregarProducto_Gpu.this, "com.example.ControlesBasicos.fileprovider", photoFile);
                             takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
                             startActivityForResult(takePictureIntent, 1);
                         }catch (Exception ex){
@@ -129,8 +128,8 @@ public class AgregarProducto_sql4 extends AppCompatActivity {
         return image;
     }
 
-    void  guardarDatosProductos(){
-        btnProductos = (Button)findViewById(R.id.btnGuardarProducto2);
+    void  guardarDatosGpu(){
+        btnProductos = (Button)findViewById(R.id.btnGuardarProducto11);
         btnProductos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -148,66 +147,66 @@ public class AgregarProducto_sql4 extends AppCompatActivity {
 
                 if(!nombre.isEmpty() && !marca.isEmpty() && !stock.isEmpty() && !precio.isEmpty()){
 
-                    String[] data = {idRam, nombre, marca, stock, precio, urlCompletaImg};
+                    String[] data = {idGpu, nombre, marca, stock, precio, urlCompletaImg};
 
                     miDB = new DB_PC(getApplicationContext(), "", null, 1);
-                    miDB.mantenimientoRam(accion, data);
+                    miDB.mantenimientoGpu(accion, data);
 
                     Toast.makeText(getApplicationContext(),"Se ha insertado un producto con exito", Toast.LENGTH_SHORT).show();
-                    mostrarListaProductos();
+                    mostrarListaGpu();
                 }else if(!nombre.isEmpty() && !marca.isEmpty() && !stock.isEmpty() && !precio.isEmpty()){
 
-                    String[] data = {idRam, nombre, marca, stock, precio, urlCompletaImg};
+                    String[] data = {idGpu, nombre, marca, stock, precio, urlCompletaImg};
 
                     miDB = new DB_PC(getApplicationContext(), "", null, 1);
-                    miDB.mantenimientoRam(accion, data);
+                    miDB.mantenimientoGpu(accion, data);
 
                     Toast.makeText(getApplicationContext(),"Se ha insertado un producto con exito", Toast.LENGTH_SHORT).show();
-                    mostrarListaProductos();
+                    mostrarListaGpu();
                 }
                 else {
                     Toast.makeText(getApplicationContext(), "ERROR: Ingrese los datos", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-        btnProductos = (Button)findViewById(R.id.btnMostrarProductos2);
+        btnProductos = (Button)findViewById(R.id.btnMostrarProductos11);
         btnProductos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mostrarListaProductos();
+                mostrarListaGpu();
             }
         });
-        mostrarDatosProducto();
+        mostrarDatosGpu();
     }
 
-    void mostrarListaProductos(){
-        Intent mostrarProductos = new Intent( AgregarProducto_sql4.this, AdmiRAM.class);
-        startActivity(mostrarProductos);
+    void mostrarListaGpu(){
+        Intent mostrarGpu = new Intent( AgregarProducto_Gpu.this, AdmiGPU.class);
+        startActivity(mostrarGpu);
     }
 
-    void mostrarDatosProducto(){
+    void mostrarDatosGpu(){
         try {
             Bundle recibirParametros = getIntent().getExtras();
             accion = recibirParametros.getString("accion");
 
             if(accion.equals("Modificar")){
-                String[] dataRam= recibirParametros.getStringArray("dataRam");
+                String[] dataGpu= recibirParametros.getStringArray("dataGpu");
 
-                idRam= dataRam[0];
+                idGpu= dataGpu[0];
 
                 TextView tempval = (TextView)findViewById(R.id.etNombre);
-                tempval.setText(dataRam[1]);
+                tempval.setText(dataGpu[1]);
 
                 tempval = (TextView)findViewById(R.id.etMarca);
-                tempval.setText(dataRam[2]);
+                tempval.setText(dataGpu[2]);
 
                 tempval = (TextView)findViewById(R.id.etStock);
-                tempval.setText(dataRam[3]);
+                tempval.setText(dataGpu[3]);
 
                 tempval = (TextView)findViewById(R.id.etPrecio);
-                tempval.setText(dataRam[4]);
+                tempval.setText(dataGpu[4]);
 
-                urlCompletaImg = dataRam[5];
+                urlCompletaImg = dataGpu[5];
                 Bitmap imageBitmap = BitmapFactory.decodeFile(urlCompletaImg);
                 imgFotoProducto.setImageBitmap(imageBitmap);
                 imgGaleriaProducto.setImageBitmap(imageBitmap);
@@ -217,4 +216,5 @@ public class AgregarProducto_sql4 extends AppCompatActivity {
 
         }
     }
+
 }

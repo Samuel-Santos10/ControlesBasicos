@@ -26,11 +26,11 @@ import java.util.ArrayList;
 public class AdmiFuente extends AppCompatActivity {
 
     DB_PC miDB;
-    Cursor misProductos;
-    productos producto;
-    ArrayList<productos> stringArrayList = new ArrayList<productos>();
-    ArrayList<productos> copyStringArrayList = new ArrayList<productos>();
-    ListView lvsProductos;
+    Cursor misFuente;
+    fuentes fuente;
+    ArrayList<fuentes> stringArrayList = new ArrayList<fuentes>();
+    ArrayList<fuentes> copyStringArrayList = new ArrayList<fuentes>();
+    ListView lvsFuente;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,10 +42,10 @@ public class AdmiFuente extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                agregarProducto("Nuevo", new String[]{});
+                agregarFuente("Nuevo", new String[]{});
             }
         });
-        obtenerDatosProductos();
+        obtenerDatosFuente();
         buscarProductos();
     }
 
@@ -57,8 +57,8 @@ public class AdmiFuente extends AppCompatActivity {
         menuInflater.inflate(R.menu.menu_principal, menu);
 
         AdapterView.AdapterContextMenuInfo adapterContextMenuInfo = (AdapterView.AdapterContextMenuInfo)menuInfo;
-        misProductos.moveToPosition((adapterContextMenuInfo.position));
-        menu.setHeaderTitle(misProductos.getString(1));
+        misFuente.moveToPosition((adapterContextMenuInfo.position));
+        menu.setHeaderTitle(misFuente.getString(1));
     }
 
     void buscarProductos(){
@@ -76,15 +76,15 @@ public class AdmiFuente extends AppCompatActivity {
                     if (tempVal.getText().toString().trim().length() < 1) { //aqui no hay texto para mostrar
                         stringArrayList.addAll(copyStringArrayList);
                     } else { // Aqui hacemos la busqueda
-                        for (productos am : copyStringArrayList) {
+                        for (fuentes am : copyStringArrayList) {
                             String nombre = am.getNombre();
                             if (nombre.toLowerCase().contains(tempVal.getText().toString().trim().toLowerCase())) {
                                 stringArrayList.add(am);
                             }
                         }
                     }
-                    adaptadorImagenes adaptadorImg = new adaptadorImagenes(getApplicationContext(), stringArrayList);
-                    lvsProductos.setAdapter(adaptadorImg);
+                    adaptadorImagen4 adaptadorImg = new adaptadorImagen4(getApplicationContext(), stringArrayList);
+                    lvsFuente.setAdapter(adaptadorImg);
                 }catch (Exception ex){
                     Toast.makeText(getApplicationContext(), "Error: "+ ex.getMessage(), Toast.LENGTH_LONG).show();
                 }
@@ -101,19 +101,19 @@ public class AdmiFuente extends AppCompatActivity {
     public boolean onContextItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.mnxAgregar:
-                agregarProducto("Nuevo", new String[]{});
+                agregarFuente("Nuevo", new String[]{});
                 return true;
 
             case R.id.mnxModificar:
-                String[] dataProducto = {
-                        misProductos.getString(0), // Para el id producto
-                        misProductos.getString(1), // Para el nombre
-                        misProductos.getString(2), // para el marca
-                        misProductos.getString(3), // Para la stock
-                        misProductos.getString(4), // y este para el precio.
-                        misProductos.getString(5) // Para la URL
+                String[] dataFuente = {
+                        misFuente.getString(0), // Para el id producto
+                        misFuente.getString(1), // Para el nombre
+                        misFuente.getString(2), // para el marca
+                        misFuente.getString(3), // Para la stock
+                        misFuente.getString(4), // y este para el precio.
+                        misFuente.getString(5) // Para la URL
                 };
-                agregarProducto("Modificar", dataProducto);
+                agregarFuente("Modificar", dataFuente);
                 return true;
 
             case R.id.mnxEliminar:
@@ -128,13 +128,13 @@ public class AdmiFuente extends AppCompatActivity {
 
     AlertDialog eliminarProductos(){
         AlertDialog.Builder confirmacion = new AlertDialog.Builder(AdmiFuente.this);
-        confirmacion.setTitle(misProductos.getString(1));
+        confirmacion.setTitle(misFuente.getString(1));
         confirmacion.setMessage("Esta seguro de eliminar el Producto?");
         confirmacion.setPositiveButton("SI", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                miDB.mantenimientoProductos("Eliminar",new String[]{misProductos.getString(0)});
-                obtenerDatosProductos();
+                miDB.mantenimientoProductos("Eliminar",new String[]{misFuente.getString(0)});
+                obtenerDatosFuente();
                 Toast.makeText(getApplicationContext(), "Producto eliminado exitosamente.",Toast.LENGTH_SHORT).show();
                 dialogInterface.dismiss();
             }
@@ -149,43 +149,43 @@ public class AdmiFuente extends AppCompatActivity {
         return confirmacion.create();
     }
 
-    void obtenerDatosProductos(){
+    void obtenerDatosFuente(){
         miDB = new DB_PC(getApplicationContext(), "", null, 1);
-        misProductos = miDB.mantenimientoProductos( "Consultar", null);
+        misFuente = miDB.mantenimientoFuente( "Consultar", null);
 
-        if(misProductos.moveToFirst()){ // si hay registros en la base de datos que mostrar
-            mostrarDatosProductos();
+        if(misFuente.moveToFirst()){ // si hay registros en la base de datos que mostrar
+            mostrarDatosFuente();
         }else{
             Toast.makeText(getApplicationContext(),"No hay Productos que mostrar", Toast.LENGTH_SHORT).show();
 
-            agregarProducto("Nuevo", new String[]{});
+            agregarFuente("Nuevo", new String[]{});
         }
     }
 
-    void agregarProducto(String accion, String[] dataProducto){
+    void agregarFuente(String accion, String[] dataFuente){
         Bundle enviarParametros = new Bundle();
         enviarParametros.putString("accion", accion);
-        enviarParametros.putStringArray("dataProducto", dataProducto);
-        Intent agregarProductos = new Intent(AdmiFuente.this, agregarProducto_sqlite.class);
+        enviarParametros.putStringArray("dataFuente", dataFuente);
+        Intent agregarProductos = new Intent(AdmiFuente.this, AgregarProducto_Fuente.class);
         agregarProductos.putExtras(enviarParametros);
         startActivity(agregarProductos);
     }
 
-    void mostrarDatosProductos() {
+    void mostrarDatosFuente() {
         stringArrayList.clear();
-        lvsProductos = (ListView)findViewById(R.id.lvsProductos);
+        lvsFuente = (ListView)findViewById(R.id.lvsFuente);
         do {
-            producto = new productos(misProductos.getString(0), misProductos.getString(1),misProductos.getString(2), misProductos.getString(3), misProductos.getString(4), misProductos.getString(5));
-            stringArrayList.add(producto);
-        } while (misProductos.moveToNext());
+            fuente = new fuentes(misFuente.getString(0), misFuente.getString(1),misFuente.getString(2), misFuente.getString(3), misFuente.getString(4), misFuente.getString(5));
+            stringArrayList.add(fuente);
+        } while (misFuente.moveToNext());
 
-        adaptadorImagenes adaptadorImg = new adaptadorImagenes(getApplicationContext(), stringArrayList);
-        lvsProductos.setAdapter(adaptadorImg);
+        adaptadorImagen4 adaptadorImg = new adaptadorImagen4(getApplicationContext(), stringArrayList);
+        lvsFuente.setAdapter(adaptadorImg);
 
         copyStringArrayList.clear(); // Para hacer una limpieza de la lista
         copyStringArrayList.addAll(stringArrayList); //Para crear una copia de la lista de productos
 
-        registerForContextMenu(lvsProductos);
+        registerForContextMenu(lvsFuente);
     }
 }
 

@@ -18,11 +18,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AgregarProducto_sql6"></activity>
-        <activity android:name=".AgregarProducto_sql5" />
-        <activity android:name=".AgregarProducto_sql4" />
-        <activity android:name=".AgregarProductos3_SQLITE3" />
-        <activity android:name=".AgregarProductos_sqlite2" />
+        <activity android:name=".AgregarProducto_Gpu"></activity>
+        <activity android:name=".AgregarProducto_Fuente" />
+        <activity android:name=".AgregarProducto_Ram" />
+        <activity android:name=".AgregarProductos_Disco" />
+        <activity android:name=".AgregarProductos_Mother" />
         <activity android:name=".AdmiFuente" />
         <activity android:name=".AdmiDisco" />
         <activity android:name=".AdmiRAM" />

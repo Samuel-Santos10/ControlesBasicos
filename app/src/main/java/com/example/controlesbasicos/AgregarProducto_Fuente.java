@@ -22,11 +22,11 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class AgregarProductos_sqlite2 extends AppCompatActivity {
+public class AgregarProducto_Fuente extends AppCompatActivity {
 
     DB_PC miDB;
     String accion = "Nuevo";
-    String idProducto = "0";
+    String idFuente = "0";
     ImageView imgFotoProducto;
     //Galeria
     ImageView imgGaleriaProducto;
@@ -34,24 +34,25 @@ public class AgregarProductos_sqlite2 extends AppCompatActivity {
     String urlCompletaImg;
     Button btnProductos;
     Intent takePictureIntent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_agregar_productos_sqlite2);
+        setContentView(R.layout.activity_agregar_producto_fuente);
 
         imgFotoProducto = (ImageView)findViewById(R.id.imgPhotoProducto);
         //galeria
         imgGaleriaProducto = (ImageView)findViewById(R.id.imgGaleriaProducto);
 
-        btnProductos = (Button) findViewById(R.id.btnMostrarProductos2);
+        btnProductos = (Button) findViewById(R.id.btnMostrarProductos12);
         btnProductos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mostrarListaProductos();
+                mostrarListaFuente();
             }
         });
-        guardarDatosProductos();
-        mostrarDatosProducto();
+        guardarDatosFuente();
+        mostrarDatosFuente();
         tomarFotoProducto();
         TomarGaleriaProducto();
     }
@@ -80,7 +81,7 @@ public class AgregarProductos_sqlite2 extends AppCompatActivity {
                     }catch (Exception ex){}
                     if (photoFile != null) {
                         try {
-                            Uri photoURI = FileProvider.getUriForFile(AgregarProductos_sqlite2.this, "com.example.ControlesBasicos.fileprovider", photoFile);
+                            Uri photoURI = FileProvider.getUriForFile(AgregarProducto_Fuente.this, "com.example.ControlesBasicos.fileprovider", photoFile);
                             takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
                             startActivityForResult(takePictureIntent, 1);
                         }catch (Exception ex){
@@ -129,8 +130,8 @@ public class AgregarProductos_sqlite2 extends AppCompatActivity {
         return image;
     }
 
-    void  guardarDatosProductos(){
-        btnProductos = (Button)findViewById(R.id.btnGuardarProducto2);
+    void  guardarDatosFuente(){
+        btnProductos = (Button)findViewById(R.id.btnGuardarProducto12);
         btnProductos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -148,66 +149,66 @@ public class AgregarProductos_sqlite2 extends AppCompatActivity {
 
                 if(!nombre.isEmpty() && !marca.isEmpty() && !stock.isEmpty() && !precio.isEmpty()){
 
-                    String[] data = {idProducto, nombre, marca, stock, precio, urlCompletaImg};
+                    String[] data = {idFuente, nombre, marca, stock, precio, urlCompletaImg};
 
                     miDB = new DB_PC(getApplicationContext(), "", null, 1);
-                    miDB.mantenimientoMotherboard(accion, data);
+                    miDB.mantenimientoFuente(accion, data);
 
                     Toast.makeText(getApplicationContext(),"Se ha insertado un producto con exito", Toast.LENGTH_SHORT).show();
-                    mostrarListaProductos();
+                    mostrarListaFuente();
                 }else if(!nombre.isEmpty() && !marca.isEmpty() && !stock.isEmpty() && !precio.isEmpty()){
 
-                    String[] data = {idProducto, nombre, marca, stock, precio, urlCompletaImg};
+                    String[] data = {idFuente, nombre, marca, stock, precio, urlCompletaImg};
 
                     miDB = new DB_PC(getApplicationContext(), "", null, 1);
-                    miDB.mantenimientoMotherboard(accion, data);
+                    miDB.mantenimientoFuente(accion, data);
 
                     Toast.makeText(getApplicationContext(),"Se ha insertado un producto con exito", Toast.LENGTH_SHORT).show();
-                    mostrarListaProductos();
+                    mostrarListaFuente();
                 }
                 else {
                     Toast.makeText(getApplicationContext(), "ERROR: Ingrese los datos", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-        btnProductos = (Button)findViewById(R.id.btnMostrarProductos2);
+        btnProductos = (Button)findViewById(R.id.btnMostrarProductos12);
         btnProductos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mostrarListaProductos();
+                mostrarListaFuente();
             }
         });
-        mostrarDatosProducto();
+        mostrarDatosFuente();
     }
 
-    void mostrarListaProductos(){
-        Intent mostrarProductos = new Intent( AgregarProductos_sqlite2.this, AdmiMotherboard.class);
+    void mostrarListaFuente(){
+        Intent mostrarProductos = new Intent( AgregarProducto_Fuente.this, AdmiDisco.class);
         startActivity(mostrarProductos);
     }
 
-    void mostrarDatosProducto(){
+    void mostrarDatosFuente(){
         try {
             Bundle recibirParametros = getIntent().getExtras();
             accion = recibirParametros.getString("accion");
 
             if(accion.equals("Modificar")){
-                String[] dataProducto= recibirParametros.getStringArray("dataProducto");
+                String[] dataFuente= recibirParametros.getStringArray("dataFuente");
 
-                idProducto= dataProducto[0];
+                idFuente= dataFuente[0];
 
                 TextView tempval = (TextView)findViewById(R.id.etNombre);
-                tempval.setText(dataProducto[1]);
+                tempval.setText(dataFuente[1]);
 
                 tempval = (TextView)findViewById(R.id.etMarca);
-                tempval.setText(dataProducto[2]);
+                tempval.setText(dataFuente[2]);
 
                 tempval = (TextView)findViewById(R.id.etStock);
-                tempval.setText(dataProducto[3]);
+                tempval.setText(dataFuente[3]);
 
                 tempval = (TextView)findViewById(R.id.etPrecio);
-                tempval.setText(dataProducto[4]);
+                tempval.setText(dataFuente[4]);
 
-                urlCompletaImg = dataProducto[5];
+                urlCompletaImg = dataFuente[5];
                 Bitmap imageBitmap = BitmapFactory.decodeFile(urlCompletaImg);
                 imgFotoProducto.setImageBitmap(imageBitmap);
                 imgGaleriaProducto.setImageBitmap(imageBitmap);

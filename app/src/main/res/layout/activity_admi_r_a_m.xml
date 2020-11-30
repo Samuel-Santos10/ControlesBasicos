@@ -15,13 +15,13 @@
         android:textSize="18sp" />
 
     <ListView
-        android:id="@+id/lvsProductos"
+        android:id="@+id/lvsRam"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="90dp" />
 
     <TextView
-        android:id="@+id/tvTituloCPU"
+        android:id="@+id/tvTituloRam"
         android:layout_width="match_parent"
         android:layout_height="25dp"
         android:layout_marginTop="50dp"

@@ -26,11 +26,11 @@ import java.util.ArrayList;
 public class AdmiGPU extends AppCompatActivity {
 
     DB_PC miDB;
-    Cursor misProductos;
-    productos producto;
-    ArrayList<productos> stringArrayList = new ArrayList<productos>();
-    ArrayList<productos> copyStringArrayList = new ArrayList<productos>();
-    ListView lvsProductos;
+    Cursor misGpu;
+    gpus gpu;
+    ArrayList<gpus> stringArrayList = new ArrayList<gpus>();
+    ArrayList<gpus> copyStringArrayList = new ArrayList<gpus>();
+    ListView lvsGpu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,8 +57,8 @@ public class AdmiGPU extends AppCompatActivity {
         menuInflater.inflate(R.menu.menu_principal, menu);
 
         AdapterView.AdapterContextMenuInfo adapterContextMenuInfo = (AdapterView.AdapterContextMenuInfo)menuInfo;
-        misProductos.moveToPosition((adapterContextMenuInfo.position));
-        menu.setHeaderTitle(misProductos.getString(1));
+        misGpu.moveToPosition((adapterContextMenuInfo.position));
+        menu.setHeaderTitle(misGpu.getString(1));
     }
 
     void buscarProductos(){
@@ -76,15 +76,15 @@ public class AdmiGPU extends AppCompatActivity {
                     if (tempVal.getText().toString().trim().length() < 1) { //aqui no hay texto para mostrar
                         stringArrayList.addAll(copyStringArrayList);
                     } else { // Aqui hacemos la busqueda
-                        for (productos am : copyStringArrayList) {
+                        for (gpus am : copyStringArrayList) {
                             String nombre = am.getNombre();
                             if (nombre.toLowerCase().contains(tempVal.getText().toString().trim().toLowerCase())) {
                                 stringArrayList.add(am);
                             }
                         }
                     }
-                    adaptadorImagenes adaptadorImg = new adaptadorImagenes(getApplicationContext(), stringArrayList);
-                    lvsProductos.setAdapter(adaptadorImg);
+                    adaptadorImagen5 adaptadorImg = new adaptadorImagen5(getApplicationContext(), stringArrayList);
+                    lvsGpu.setAdapter(adaptadorImg);
                 }catch (Exception ex){
                     Toast.makeText(getApplicationContext(), "Error: "+ ex.getMessage(), Toast.LENGTH_LONG).show();
                 }
@@ -106,12 +106,12 @@ public class AdmiGPU extends AppCompatActivity {
 
             case R.id.mnxModificar:
                 String[] dataProducto = {
-                        misProductos.getString(0), // Para el id producto
-                        misProductos.getString(1), // Para el nombre
-                        misProductos.getString(2), // para el marca
-                        misProductos.getString(3), // Para la stock
-                        misProductos.getString(4), // y este para el precio.
-                        misProductos.getString(5) // Para la URL
+                        misGpu.getString(0), // Para el id producto
+                        misGpu.getString(1), // Para el nombre
+                        misGpu.getString(2), // para el marca
+                        misGpu.getString(3), // Para la stock
+                        misGpu.getString(4), // y este para el precio.
+                        misGpu.getString(5) // Para la URL
                 };
                 agregarProducto("Modificar", dataProducto);
                 return true;
@@ -128,12 +128,12 @@ public class AdmiGPU extends AppCompatActivity {
 
     AlertDialog eliminarProductos(){
         AlertDialog.Builder confirmacion = new AlertDialog.Builder(AdmiGPU.this);
-        confirmacion.setTitle(misProductos.getString(1));
+        confirmacion.setTitle(misGpu.getString(1));
         confirmacion.setMessage("Esta seguro de eliminar el Producto?");
         confirmacion.setPositiveButton("SI", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                miDB.mantenimientoProductos("Eliminar",new String[]{misProductos.getString(0)});
+                miDB.mantenimientoGpu("Eliminar",new String[]{misGpu.getString(0)});
                 obtenerDatosProductos();
                 Toast.makeText(getApplicationContext(), "Producto eliminado exitosamente.",Toast.LENGTH_SHORT).show();
                 dialogInterface.dismiss();
@@ -151,9 +151,9 @@ public class AdmiGPU extends AppCompatActivity {
 
     void obtenerDatosProductos(){
         miDB = new DB_PC(getApplicationContext(), "", null, 1);
-        misProductos = miDB.mantenimientoProductos( "Consultar", null);
+        misGpu = miDB.mantenimientoGpu( "Consultar", null);
 
-        if(misProductos.moveToFirst()){ // si hay registros en la base de datos que mostrar
+        if(misGpu.moveToFirst()){ // si hay registros en la base de datos que mostrar
             mostrarDatosProductos();
         }else{
             Toast.makeText(getApplicationContext(),"No hay Productos que mostrar", Toast.LENGTH_SHORT).show();
@@ -166,26 +166,26 @@ public class AdmiGPU extends AppCompatActivity {
         Bundle enviarParametros = new Bundle();
         enviarParametros.putString("accion", accion);
         enviarParametros.putStringArray("dataProducto", dataProducto);
-        Intent agregarProductos = new Intent(AdmiGPU.this, agregarProducto_sqlite.class);
+        Intent agregarProductos = new Intent(AdmiGPU.this, AgregarProducto_Gpu.class);
         agregarProductos.putExtras(enviarParametros);
         startActivity(agregarProductos);
     }
 
     void mostrarDatosProductos() {
         stringArrayList.clear();
-        lvsProductos = (ListView)findViewById(R.id.lvsProductos);
+        lvsGpu = (ListView)findViewById(R.id.lvsGpu);
         do {
-            producto = new productos(misProductos.getString(0), misProductos.getString(1),misProductos.getString(2), misProductos.getString(3), misProductos.getString(4), misProductos.getString(5));
-            stringArrayList.add(producto);
-        } while (misProductos.moveToNext());
+            gpu = new gpus(misGpu.getString(0), misGpu.getString(1),misGpu.getString(2), misGpu.getString(3), misGpu.getString(4), misGpu.getString(5));
+            stringArrayList.add(gpu);
+        } while (misGpu.moveToNext());
 
-        adaptadorImagenes adaptadorImg = new adaptadorImagenes(getApplicationContext(), stringArrayList);
-        lvsProductos.setAdapter(adaptadorImg);
+        adaptadorImagen5 adaptadorImg = new adaptadorImagen5(getApplicationContext(), stringArrayList);
+        lvsGpu.setAdapter(adaptadorImg);
 
         copyStringArrayList.clear(); // Para hacer una limpieza de la lista
         copyStringArrayList.addAll(stringArrayList); //Para crear una copia de la lista de productos
 
-        registerForContextMenu(lvsProductos);
+        registerForContextMenu(lvsGpu);
     }
 }
 

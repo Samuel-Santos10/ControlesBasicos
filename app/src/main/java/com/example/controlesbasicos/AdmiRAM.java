@@ -26,11 +26,11 @@ import java.util.ArrayList;
 public class AdmiRAM extends AppCompatActivity {
 
     DB_PC miDB;
-    Cursor misProductos;
-    productos producto;
-    ArrayList<productos> stringArrayList = new ArrayList<productos>();
-    ArrayList<productos> copyStringArrayList = new ArrayList<productos>();
-    ListView lvsProductos;
+    Cursor misRam;
+    ram rams;
+    ArrayList<ram> stringArrayList = new ArrayList<ram>();
+    ArrayList<ram> copyStringArrayList = new ArrayList<ram>();
+    ListView lvsRam;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,10 +42,10 @@ public class AdmiRAM extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                agregarProducto("Nuevo", new String[]{});
+                agregarRam("Nuevo", new String[]{});
             }
         });
-        obtenerDatosProductos();
+        obtenerDatosRam();
         buscarProductos();
     }
 
@@ -57,8 +57,8 @@ public class AdmiRAM extends AppCompatActivity {
         menuInflater.inflate(R.menu.menu_principal, menu);
 
         AdapterView.AdapterContextMenuInfo adapterContextMenuInfo = (AdapterView.AdapterContextMenuInfo)menuInfo;
-        misProductos.moveToPosition((adapterContextMenuInfo.position));
-        menu.setHeaderTitle(misProductos.getString(1));
+        misRam.moveToPosition((adapterContextMenuInfo.position));
+        menu.setHeaderTitle(misRam.getString(1));
     }
 
     void buscarProductos(){
@@ -76,15 +76,15 @@ public class AdmiRAM extends AppCompatActivity {
                     if (tempVal.getText().toString().trim().length() < 1) { //aqui no hay texto para mostrar
                         stringArrayList.addAll(copyStringArrayList);
                     } else { // Aqui hacemos la busqueda
-                        for (productos am : copyStringArrayList) {
+                        for (ram am : copyStringArrayList) {
                             String nombre = am.getNombre();
                             if (nombre.toLowerCase().contains(tempVal.getText().toString().trim().toLowerCase())) {
                                 stringArrayList.add(am);
                             }
                         }
                     }
-                    adaptadorImagenes adaptadorImg = new adaptadorImagenes(getApplicationContext(), stringArrayList);
-                    lvsProductos.setAdapter(adaptadorImg);
+                    adaptadorImagen3 adaptadorImg = new adaptadorImagen3(getApplicationContext(), stringArrayList);
+                    lvsRam.setAdapter(adaptadorImg);
                 }catch (Exception ex){
                     Toast.makeText(getApplicationContext(), "Error: "+ ex.getMessage(), Toast.LENGTH_LONG).show();
                 }
@@ -101,19 +101,19 @@ public class AdmiRAM extends AppCompatActivity {
     public boolean onContextItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.mnxAgregar:
-                agregarProducto("Nuevo", new String[]{});
+                agregarRam("Nuevo", new String[]{});
                 return true;
 
             case R.id.mnxModificar:
-                String[] dataProducto = {
-                        misProductos.getString(0), // Para el id producto
-                        misProductos.getString(1), // Para el nombre
-                        misProductos.getString(2), // para el marca
-                        misProductos.getString(3), // Para la stock
-                        misProductos.getString(4), // y este para el precio.
-                        misProductos.getString(5) // Para la URL
+                String[] dataRam = {
+                        misRam.getString(0), // Para el id producto
+                        misRam.getString(1), // Para el nombre
+                        misRam.getString(2), // para el marca
+                        misRam.getString(3), // Para la stock
+                        misRam.getString(4), // y este para el precio.
+                        misRam.getString(5) // Para la URL
                 };
-                agregarProducto("Modificar", dataProducto);
+                agregarRam("Modificar", dataRam);
                 return true;
 
             case R.id.mnxEliminar:
@@ -128,13 +128,13 @@ public class AdmiRAM extends AppCompatActivity {
 
     AlertDialog eliminarProductos(){
         AlertDialog.Builder confirmacion = new AlertDialog.Builder(AdmiRAM.this);
-        confirmacion.setTitle(misProductos.getString(1));
+        confirmacion.setTitle(misRam.getString(1));
         confirmacion.setMessage("Esta seguro de eliminar el Producto?");
         confirmacion.setPositiveButton("SI", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                miDB.mantenimientoProductos("Eliminar",new String[]{misProductos.getString(0)});
-                obtenerDatosProductos();
+                miDB.mantenimientoRam("Eliminar",new String[]{misRam.getString(0)});
+                obtenerDatosRam();
                 Toast.makeText(getApplicationContext(), "Producto eliminado exitosamente.",Toast.LENGTH_SHORT).show();
                 dialogInterface.dismiss();
             }
@@ -149,48 +149,49 @@ public class AdmiRAM extends AppCompatActivity {
         return confirmacion.create();
     }
 
-    void obtenerDatosProductos(){
+    void obtenerDatosRam(){
         miDB = new DB_PC(getApplicationContext(), "", null, 1);
-        misProductos = miDB.mantenimientoProductos( "Consultar", null);
+        misRam = miDB.mantenimientoRam( "Consultar", null);
 
-        if(misProductos.moveToFirst()){ // si hay registros en la base de datos que mostrar
-            mostrarDatosProductos();
+        if(misRam.moveToFirst()){ // si hay registros en la base de datos que mostrar
+            mostrarDatosRam();
         }else{
             Toast.makeText(getApplicationContext(),"No hay Productos que mostrar", Toast.LENGTH_SHORT).show();
 
-            agregarProducto("Nuevo", new String[]{});
+            agregarRam("Nuevo", new String[]{});
         }
     }
 
-    void agregarProducto(String accion, String[] dataProducto){
+    void agregarRam(String accion, String[] dataRam){
         Bundle enviarParametros = new Bundle();
         enviarParametros.putString("accion", accion);
-        enviarParametros.putStringArray("dataProducto", dataProducto);
-        Intent agregarProductos = new Intent(AdmiRAM.this, agregarProducto_sqlite.class);
-        agregarProductos.putExtras(enviarParametros);
-        startActivity(agregarProductos);
+        enviarParametros.putStringArray("dataRam", dataRam);
+        Intent agregarRam = new Intent(AdmiRAM.this, AgregarProducto_Ram.class);
+        agregarRam.putExtras(enviarParametros);
+        startActivity(agregarRam);
     }
 
-    void mostrarDatosProductos() {
+    void mostrarDatosRam() {
         stringArrayList.clear();
-        lvsProductos = (ListView)findViewById(R.id.lvsProductos);
+        lvsRam = (ListView)findViewById(R.id.lvsRam);
         do {
-            producto = new productos(misProductos.getString(0), misProductos.getString(1),misProductos.getString(2), misProductos.getString(3), misProductos.getString(4), misProductos.getString(5));
-            stringArrayList.add(producto);
-        } while (misProductos.moveToNext());
+            rams = new ram(misRam.getString(0), misRam.getString(1),misRam.getString(2), misRam.getString(3), misRam.getString(4), misRam.getString(5));
+            stringArrayList.add(rams);
+        } while (misRam.moveToNext());
 
-        adaptadorImagenes adaptadorImg = new adaptadorImagenes(getApplicationContext(), stringArrayList);
-        lvsProductos.setAdapter(adaptadorImg);
+        adaptadorImagen3 adaptadorImg = new adaptadorImagen3(getApplicationContext(), stringArrayList);
+        lvsRam.setAdapter(adaptadorImg);
 
         copyStringArrayList.clear(); // Para hacer una limpieza de la lista
         copyStringArrayList.addAll(stringArrayList); //Para crear una copia de la lista de productos
 
-        registerForContextMenu(lvsProductos);
+        registerForContextMenu(lvsRam);
     }
 }
 
 class ram{
     String id;
+
     String nombre;
     String marca;
     String stock;

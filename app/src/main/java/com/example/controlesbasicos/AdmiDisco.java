@@ -166,14 +166,14 @@ public class AdmiDisco extends AppCompatActivity {
         Bundle enviarParametros = new Bundle();
         enviarParametros.putString("accion", accion);
         enviarParametros.putStringArray("dataDiscos", dataDiscos);
-        Intent agregarDisco = new Intent(AdmiDisco.this, AgregarProductos3_SQLITE3.class);
+        Intent agregarDisco = new Intent(AdmiDisco.this, AgregarProductos_Disco.class);
         agregarDisco.putExtras(enviarParametros);
         startActivity(agregarDisco);
     }
 
     void mostrarDatosProductos() {
         stringArrayList.clear();
-        lvsdiscos = (ListView)findViewById(R.id.lvsProductos);
+        lvsdiscos = (ListView)findViewById(R.id.lvsDisco);
         do {
             Disco = new discos(misDiscos.getString(0), misDiscos.getString(1),misDiscos.getString(2), misDiscos.getString(3), misDiscos.getString(4), misDiscos.getString(5));
             stringArrayList.add(Disco);

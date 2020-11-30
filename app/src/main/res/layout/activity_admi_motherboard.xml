@@ -21,7 +21,7 @@
         android:layout_marginTop="90dp" />
 
     <TextView
-        android:id="@+id/tvTituloCPU"
+        android:id="@+id/tvTituloGpu"
         android:layout_width="match_parent"
         android:layout_height="25dp"
         android:layout_marginTop="50dp"

@@ -173,7 +173,7 @@ public class AdmiCPU extends AppCompatActivity {
 
     void mostrarDatosProductos() {
         stringArrayList.clear();
-        lvsProductos = (ListView)findViewById(R.id.lvsProductos);
+        lvsProductos = (ListView)findViewById(R.id.lvscpu);
         do {
             producto = new productos(misProductos.getString(0), misProductos.getString(1),misProductos.getString(2), misProductos.getString(3), misProductos.getString(4), misProductos.getString(5));
             stringArrayList.add(producto);

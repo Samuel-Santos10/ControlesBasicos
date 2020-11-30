@@ -22,11 +22,11 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class AgregarProducto_sql5 extends AppCompatActivity {
+public class AgregarProductos_Mother extends AppCompatActivity {
 
     DB_PC miDB;
     String accion = "Nuevo";
-    String idFuente = "0";
+    String idMother = "0";
     ImageView imgFotoProducto;
     //Galeria
     ImageView imgGaleriaProducto;
@@ -37,13 +37,13 @@ public class AgregarProducto_sql5 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_agregar_producto_sql5);
+        setContentView(R.layout.activity_agregar_productos_mother);
 
         imgFotoProducto = (ImageView)findViewById(R.id.imgPhotoProducto);
         //galeria
         imgGaleriaProducto = (ImageView)findViewById(R.id.imgGaleriaProducto);
 
-        btnProductos = (Button) findViewById(R.id.btnMostrarProductos2);
+        btnProductos = (Button) findViewById(R.id.btnMostrarProductos10);
         btnProductos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -80,7 +80,7 @@ public class AgregarProducto_sql5 extends AppCompatActivity {
                     }catch (Exception ex){}
                     if (photoFile != null) {
                         try {
-                            Uri photoURI = FileProvider.getUriForFile(AgregarProducto_sql5.this, "com.example.ControlesBasicos.fileprovider", photoFile);
+                            Uri photoURI = FileProvider.getUriForFile(AgregarProductos_Mother.this, "com.example.ControlesBasicos.fileprovider", photoFile);
                             takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
                             startActivityForResult(takePictureIntent, 1);
                         }catch (Exception ex){
@@ -130,7 +130,7 @@ public class AgregarProducto_sql5 extends AppCompatActivity {
     }
 
     void  guardarDatosProductos(){
-        btnProductos = (Button)findViewById(R.id.btnGuardarProducto2);
+        btnProductos = (Button)findViewById(R.id.btnGuardarProducto10);
         btnProductos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -148,19 +148,19 @@ public class AgregarProducto_sql5 extends AppCompatActivity {
 
                 if(!nombre.isEmpty() && !marca.isEmpty() && !stock.isEmpty() && !precio.isEmpty()){
 
-                    String[] data = {idFuente, nombre, marca, stock, precio, urlCompletaImg};
+                    String[] data = {idMother, nombre, marca, stock, precio, urlCompletaImg};
 
                     miDB = new DB_PC(getApplicationContext(), "", null, 1);
-                    miDB.mantenimientoDisco(accion, data);
+                    miDB.mantenimientoMotherboard(accion, data);
 
                     Toast.makeText(getApplicationContext(),"Se ha insertado un producto con exito", Toast.LENGTH_SHORT).show();
                     mostrarListaProductos();
                 }else if(!nombre.isEmpty() && !marca.isEmpty() && !stock.isEmpty() && !precio.isEmpty()){
 
-                    String[] data = {idFuente, nombre, marca, stock, precio, urlCompletaImg};
+                    String[] data = {idMother, nombre, marca, stock, precio, urlCompletaImg};
 
                     miDB = new DB_PC(getApplicationContext(), "", null, 1);
-                    miDB.mantenimientoFuente(accion, data);
+                    miDB.mantenimientoMotherboard(accion, data);
 
                     Toast.makeText(getApplicationContext(),"Se ha insertado un producto con exito", Toast.LENGTH_SHORT).show();
                     mostrarListaProductos();
@@ -170,7 +170,7 @@ public class AgregarProducto_sql5 extends AppCompatActivity {
                 }
             }
         });
-        btnProductos = (Button)findViewById(R.id.btnMostrarProductos2);
+        btnProductos = (Button)findViewById(R.id.btnMostrarProductos10);
         btnProductos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -181,7 +181,7 @@ public class AgregarProducto_sql5 extends AppCompatActivity {
     }
 
     void mostrarListaProductos(){
-        Intent mostrarProductos = new Intent( AgregarProducto_sql5.this, AdmiDisco.class);
+        Intent mostrarProductos = new Intent( AgregarProductos_Mother.this, AdmiMotherboard.class);
         startActivity(mostrarProductos);
     }
 
@@ -191,23 +191,23 @@ public class AgregarProducto_sql5 extends AppCompatActivity {
             accion = recibirParametros.getString("accion");
 
             if(accion.equals("Modificar")){
-                String[] dataFuente= recibirParametros.getStringArray("dataFuente");
+                String[] dataMother= recibirParametros.getStringArray("dataMother");
 
-                idFuente= dataFuente[0];
+                idMother= dataMother[0];
 
                 TextView tempval = (TextView)findViewById(R.id.etNombre);
-                tempval.setText(dataFuente[1]);
+                tempval.setText(dataMother[1]);
 
                 tempval = (TextView)findViewById(R.id.etMarca);
-                tempval.setText(dataFuente[2]);
+                tempval.setText(dataMother[2]);
 
                 tempval = (TextView)findViewById(R.id.etStock);
-                tempval.setText(dataFuente[3]);
+                tempval.setText(dataMother[3]);
 
                 tempval = (TextView)findViewById(R.id.etPrecio);
-                tempval.setText(dataFuente[4]);
+                tempval.setText(dataMother[4]);
 
-                urlCompletaImg = dataFuente[5];
+                urlCompletaImg = dataMother[5];
                 Bitmap imageBitmap = BitmapFactory.decodeFile(urlCompletaImg);
                 imgFotoProducto.setImageBitmap(imageBitmap);
                 imgGaleriaProducto.setImageBitmap(imageBitmap);
