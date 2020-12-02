@@ -18,7 +18,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AgregarProducto_Gpu"></activity>
+        <activity android:name=".ModificarComponentes"></activity>
+        <activity android:name=".AgregarProducto_Gpu" />
         <activity android:name=".AgregarProducto_Fuente" />
         <activity android:name=".AgregarProducto_Ram" />
         <activity android:name=".AgregarProductos_Disco" />

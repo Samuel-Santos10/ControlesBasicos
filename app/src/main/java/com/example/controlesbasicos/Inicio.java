@@ -90,7 +90,7 @@ public class Inicio extends AppCompatActivity implements View.OnClickListener {
                 break;
 
             case  R.id.btnModificarPartes:
-                Intent i5 = new Intent(Inicio.this, agregarProducto_sqlite.class);
+                Intent i5 = new Intent(Inicio.this, ModificarComponentes.class);
                 startActivity(i5);
                 break;
         }
