@@ -34,7 +34,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".chats"></activity>
+        <activity android:name=".Usuario_ventana"></activity>
+        <activity
+            android:name=".Menu_Login"
+            android:label="@string/title_activity_menu__login"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".chats" />
         <activity android:name=".lista_usuarios" />
         <activity android:name=".Usuario_Programador" />
         <activity android:name=".ModificarComponentes" />
@@ -67,8 +72,8 @@
         <activity android:name=".InformacionBasica" />
         <activity android:name=".Main" />
         <activity android:name=".Seleccion_Componentes" />
-        <activity android:name=".PantalladeCarga" />
-        <activity android:name=".MainActivity2">
+        <activity android:name=".MainActivity2" />
+        <activity android:name=".PantalladeCarga">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -104,7 +109,6 @@
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
             </intent-filter>
         </service>
-
         <service android:name=".MyFirebaseInstanceIdService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
