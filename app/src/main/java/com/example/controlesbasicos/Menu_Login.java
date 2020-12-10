@@ -31,7 +31,7 @@ public class Menu_Login extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                fa();
+                fas();
             }
         });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -64,7 +64,7 @@ public class Menu_Login extends AppCompatActivity {
 
 
     }
-    void fa(){
+    void fas(){
         Intent fab = new Intent(Menu_Login.this, MainActivity2.class);
         startActivity(fab);
     }
