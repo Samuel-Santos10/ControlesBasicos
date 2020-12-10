@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Compu">
+
+    <Button
+        android:id="@+id/btnAtras"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#4CAF50"
+        android:text="Atras" />
+
+    <TextView
+        android:id="@+id/etmConcepto"
+        android:layout_width="353dp"
+        android:layout_height="215dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="150dp"
+        android:textColor="@android:color/black"
+        android:textSize="18dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        android:text="Una computadora es un dispositivo informático que es capaz de
+        recibir, almacenar y procesar información de una forma útil. Una computadora
+        está programada para realizar operaciones lógicas o aritméticas
+        de forma automática." />
+
+</RelativeLayout>

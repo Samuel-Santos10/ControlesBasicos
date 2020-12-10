@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Seleccion_Componentes">
+
+    <Button
+    android:id="@+id/btnSelecCPU"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:text="Elegir CPU"
+    android:layout_marginTop="80dp"/>
+
+    <Button
+        android:id="@+id/btnSelecMother"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="140dp"
+        android:text="Elegir Motherboard" />
+
+    <Button
+        android:id="@+id/btnSelecGPU"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Elegir GPU"
+        android:layout_marginTop="200dp" />
+
+    <Button
+        android:id="@+id/btnSelecRAM"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Elegir RAM"
+        android:layout_marginTop="260dp" />
+
+    <Button
+        android:id="@+id/btnSelecDisco"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Elegir Disco"
+        android:layout_marginTop="320dp" />
+
+    <Button
+        android:id="@+id/btnSelecFuente"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Elegir Fuente"
+        android:layout_marginTop="380dp" />
+
+    <TextView
+        android:id="@+id/tvCompatibilidad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="40dp"
+        android:text="Compatibilidad:" />
+
+    <TextView
+        android:id="@+id/tvTotalPrecio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Total:" />
+
+    <Button
+        android:id="@+id/btnRegresarMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="550dp"
+        android:background="#4CAF50"
+        android:text="Atras" />
+
+</RelativeLayout>

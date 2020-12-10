@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Usuario_Programador">
+
+
+    <ImageButton
+        android:id="@+id/btnUsuario"
+        android:layout_width="291dp"
+        android:layout_height="96dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="250dp"
+        android:background="#03A9F4" />
+
+    <ImageButton
+        android:id="@+id/btnProgramador"
+        android:layout_width="291dp"
+        android:layout_height="96dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="390dp"
+        android:background="#3ADDCE" />
+
+
+    <TextView
+        android:id="@+id/tvTitulInicio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#1E2223"
+        android:shadowColor="#E6D3D3"
+        android:text="                       Iniciar"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/tvTitulUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="280dp"
+        android:background="#1E2223"
+        android:shadowColor="#E6D3D3"
+        android:text="Usuario"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/tvTituloProgramador"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="420dp"
+        android:background="#243035"
+        android:shadowColor="#E6D3D3"
+        android:text="Desarrollador"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp" />
+
+</RelativeLayout>

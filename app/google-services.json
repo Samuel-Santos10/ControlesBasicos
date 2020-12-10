@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "351946702716",
+    "project_id": "chatnotificacionespushfi-fd231",
+    "storage_bucket": "chatnotificacionespushfi-fd231.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:351946702716:android:7fa9fa0cddaecc8aa2aef9",
+        "android_client_info": {
+          "package_name": "com.example.controlesbasicos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "351946702716-pnm2nu8beh8neqtl08r2ur59q3b6o4iu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5DRzN7BmY__PYXpnqXiqY_jbVUQqEo5o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "351946702716-pnm2nu8beh8neqtl08r2ur59q3b6o4iu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
