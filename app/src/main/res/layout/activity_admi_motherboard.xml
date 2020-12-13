@@ -4,13 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fdt"
+
     tools:context=".AdmiMotherboard">
 
     <EditText
         android:id="@+id/etBuscarProductoM"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="#FDFDFD"
+        android:layout_width="349dp"
+        android:layout_height="42dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="40dp"
+        android:background="@color/colorWhite"
+        android:gravity="center"
         android:hint="Buscar Productos"
         android:textSize="18sp" />
 
@@ -22,11 +27,13 @@
 
     <TextView
         android:id="@+id/tvTituloGpu"
-        android:layout_width="match_parent"
-        android:layout_height="25dp"
-        android:layout_marginTop="50dp"
-        android:background="#03A9F4"
-        android:text="                                     MOTHERBOARS"
+        android:layout_width="326dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/menu_nuevo"
+        android:gravity="center"
+        android:text="MOTHERBOARS"
         android:textSize="18sp" />
 
 

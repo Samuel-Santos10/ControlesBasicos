@@ -3,14 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/fdt"
+
     android:layout_height="match_parent"
     tools:context=".AdmiGPU">
 
     <EditText
         android:id="@+id/etBuscarProducto"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="#FDFDFD"
+        android:layout_width="321dp"
+        android:layout_height="37dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="40dp"
+        android:background="@color/colorWhite"
+        android:gravity="center"
         android:hint="Buscar Productos"
         android:textSize="18sp" />
 
@@ -22,11 +27,13 @@
 
     <TextView
         android:id="@+id/tvTituloGpu"
-        android:layout_width="match_parent"
-        android:layout_height="25dp"
-        android:layout_marginTop="50dp"
-        android:background="#03A9F4"
-        android:text="                                          GPU"
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/menu_nuevo"
+        android:gravity="center"
+        android:text="GPU"
         android:textSize="18sp" />
 
 

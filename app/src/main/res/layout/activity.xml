@@ -11,19 +11,26 @@ tools:context=".Main">
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_weight="1"
-    android:src="@drawable/wel"/>
+    android:src="@drawable/bien"/>
 
-<EditText
-    android:id="@+id/etUser"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_margin="20dp"
-    android:layout_weight="1"
-    android:hint="  Usuario"
-    android:textSize="20sp"
-    android:textColor="@android:color/black"
-    android:drawableLeft="@drawable/user"
-    android:inputType="textEmailAddress"/>
+    <EditText
+        android:id="@+id/etUser"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:layout_weight="1"
+        android:background="@drawable/custom_input"
+        android:drawableStart="@drawable/custom_baseline"
+        android:drawablePadding="12dp"
+        android:hint="Usuario"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:textColor="@android:color/background_dark"
+        android:textSize="20sp"
+
+        android:drawableLeft="@drawable/custom_baseline" />
 
 <EditText
     android:id="@+id/etPass"
@@ -31,34 +38,36 @@ tools:context=".Main">
     android:layout_height="match_parent"
     android:layout_margin="20dp"
     android:layout_weight="1"
+    android:drawableStart="@drawable/custom_lock_2"
+    android:background="@drawable/custom_input"
     android:textColor="@android:color/black"
-    android:drawableLeft="@drawable/pass"
+    android:drawableLeft="@drawable/ic_baseline_lock_24"
     android:hint="  Password"
     android:textSize="20sp"
     android:inputType="textPassword"/>
 
-<Button
-    android:id="@+id/btnEntrar"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_weight="1"
-    android:background="#FF0000"
-    android:layout_margin="20dp"
-    android:textColor="#ffffff"
-    android:text="Entrar"
-    android:textSize="30sp"
-    android:textStyle="bold"/>
+    <Button
+        android:id="@+id/btnEntrar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:layout_weight="1"
+        android:background="@drawable/botones"
+        android:text="Entrar"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
-<Button
-    android:id="@+id/btnRegistrar"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_weight="1"
-    android:background="#0000FF"
-    android:layout_margin="20dp"
-    android:textColor="#ffffff"
-    android:text="Registrar "
-    android:textSize="30sp"
-    android:textStyle="bold"/>
+    <Button
+        android:id="@+id/btnRegistrar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:layout_weight="1"
+        android:background="@drawable/botones_1"
+        android:text="Registrar "
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
 </LinearLayout>

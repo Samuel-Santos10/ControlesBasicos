@@ -5,56 +5,81 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ModificarComponentes">
-
+    <View
+        android:id="@+id/view5"
+        android:layout_width="1000dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/wave"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topView"/>
     <Button
         android:id="@+id/btnAddCPU"
-        android:layout_width="match_parent"
+        android:layout_width="293dp"
         android:layout_height="60dp"
-        android:text="Agregar CPU"
-        android:layout_marginTop="80dp"/>
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="170dp"
+        android:background="@drawable/custom_buttom"
+        android:text="Agregar CPU" />
 
     <Button
         android:id="@+id/btnAddMother"
-        android:layout_width="match_parent"
+        android:layout_width="293dp"
+        android:background="@drawable/custom_buttom"
         android:layout_height="60dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="235dp"
         android:text="Agregar Motherboard" />
 
     <Button
         android:id="@+id/btnAddGPU"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
         android:text="Agregar GPU"
-        android:layout_marginTop="200dp" />
+        android:layout_width="293dp"
+        android:layout_height="60dp"
+        android:background="@drawable/custom_buttom"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="300dp"/>
 
     <Button
         android:id="@+id/btnAddRAM"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
         android:text="Agregar RAM"
-        android:layout_marginTop="260dp" />
+        android:layout_width="293dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="60dp"
+        android:background="@drawable/custom_buttom"
+        android:layout_marginTop="365dp"
+        android:textColor="@android:color/black"/>
 
     <Button
         android:id="@+id/btnAddDisco"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
         android:text="Agregar Disco"
-        android:layout_marginTop="320dp" />
+        android:layout_width="293dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="430dp"
+        android:background="@drawable/custom_buttom"
+        android:textColor="@android:color/black"/>
 
     <Button
         android:id="@+id/btnAddFuente"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
         android:text="Agregar Fuente"
-        android:layout_marginTop="380dp" />
+
+        android:layout_width="293dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="495dp"
+        android:background="@drawable/custom_buttom"
+        android:textColor="@android:color/black"/>
 
 
     <Button
         android:id="@+id/btnRegresarMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="550dp"
-        android:background="#4CAF50"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="600dp"
+        android:background="@drawable/custom_buttom_2"
         android:text="Atras" />
 
 </RelativeLayout>

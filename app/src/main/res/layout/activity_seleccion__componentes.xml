@@ -4,49 +4,68 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/menu_nuevo"
     tools:context=".Seleccion_Componentes">
 
     <Button
-    android:id="@+id/btnSelecCPU"
-    android:layout_width="match_parent"
-    android:layout_height="60dp"
-    android:text="Elegir CPU"
-    android:layout_marginTop="80dp"/>
+        android:id="@+id/btnSelecCPU"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="80dp"
+        android:stateListAnimator="@null"
+        android:background="@drawable/bk_boton_plano"
+        android:text="Elegir CPU" />
 
     <Button
         android:id="@+id/btnSelecMother"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="140dp"
+        android:layout_width="254dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="170dp"
+        android:background="@drawable/bk_boton_plano"
+        android:stateListAnimator="@null"
         android:text="Elegir Motherboard" />
 
     <Button
         android:id="@+id/btnSelecGPU"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="Elegir GPU"
-        android:layout_marginTop="200dp" />
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="240dp"
+        android:background="@drawable/bk_boton_plano"
+        android:stateListAnimator="@null"
+        android:text="Elegir GPU" />
 
     <Button
         android:id="@+id/btnSelecRAM"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="Elegir RAM"
-        android:layout_marginTop="260dp" />
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="320dp"
+        android:background="@drawable/bk_boton_plano"
+        android:stateListAnimator="@null"
+        android:text="Elegir RAM" />
 
     <Button
         android:id="@+id/btnSelecDisco"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="Elegir Disco"
-        android:layout_marginTop="320dp" />
+        android:layout_width="255dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="400dp"
+        android:background="@drawable/bk_boton_plano"
+        android:stateListAnimator="@null"
+        android:text="Elegir Disco" />
 
     <Button
         android:id="@+id/btnSelecFuente"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="Elegir Fuente"
-        android:layout_marginTop="380dp" />
+        android:layout_width="252dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="480dp"
+        android:background="@drawable/bk_boton_plano"
+        android:stateListAnimator="@null"
+        android:text="Elegir Fuente" />
 
     <TextView
         android:id="@+id/tvCompatibilidad"
@@ -65,11 +84,12 @@
         android:text="Total:" />
 
     <Button
-        android:id="@+id/btnRegresarMenu"
+        android:id="@+id/btnRegresarMenu2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="550dp"
-        android:background="#4CAF50"
+        android:layout_marginLeft="160dp"
+        android:layout_marginTop="600dp"
+        android:background="@drawable/custom_buttom_4"
         android:text="Atras" />
 
 </RelativeLayout>

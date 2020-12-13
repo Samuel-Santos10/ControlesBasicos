@@ -62,7 +62,7 @@ public class InformacionBasica extends AppCompatActivity {
        }
     }
     void VolverAlMenu(){
-        Intent Retroceder = new Intent(InformacionBasica.this, MainActivity.class);
+        Intent Retroceder = new Intent(InformacionBasica.this, Usuario_ventana.class);
         startActivity(Retroceder);
     }
     void irCompu(){

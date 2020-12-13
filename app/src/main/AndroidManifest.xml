@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.controlesbasicos">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -34,17 +35,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Usuario_ventana"></activity>
+
         <activity
-            android:name=".Menu_Login"
-            android:label="@string/title_activity_menu__login"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:name=".Usuario_ventana"
+            android:theme="@style/FullScreen" />
         <activity android:name=".chats" />
         <activity android:name=".lista_usuarios" />
         <activity android:name=".Usuario_Programador" />
         <activity android:name=".ModificarComponentes" />
-        <activity android:name=".AgregarProducto_Gpu" />
-        <activity android:name=".AgregarProducto_Fuente" />
+
         <activity android:name=".AgregarProducto_Ram" />
         <activity android:name=".AgregarProductos_Disco" />
         <activity android:name=".AgregarProductos_Mother" />
@@ -55,7 +54,6 @@
         <activity android:name=".AdmiMotherboard" />
         <activity android:name=".agregarProducto_sqlite" />
         <activity android:name=".AdmiCPU" />
-        <activity android:name=".Agregar_Productos" />
         <activity android:name=".ControlProgramador" />
         <activity android:name=".Mostrar" />
         <activity android:name=".Editar" />
@@ -68,12 +66,17 @@
         <activity android:name=".Compu" />
         <activity android:name=".Novedades" />
         <activity android:name=".PcPersonalizada" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".InformacionBasica" />
-        <activity android:name=".Main" />
         <activity android:name=".Seleccion_Componentes" />
         <activity android:name=".MainActivity2" />
-        <activity android:name=".PantalladeCarga">
+        <activity android:name=".PantalladeCarga" />
+        <activity android:name=".Main" />
+        <activity android:name=".InformacionBasica" />
+        <activity android:name=".MainActivity" />
+
+        <activity android:name=".Agregar_Productos" />
+        <activity android:name=".AgregarProducto_Gpu" />
+        <activity android:name=".AgregarProducto_Fuente" />
+            <activity android:name=".Menu_Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

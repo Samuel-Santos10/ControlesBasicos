@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#FF0000"
+            android:background="@drawable/custom_buttom_2"
             android:layout_margin="3dp"
             android:textColor="#ffffff"
             android:text="Editar"/>
@@ -29,7 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#FF0000"
+            android:background="@drawable/custom_buttom"
             android:layout_margin="3dp"
             android:textColor="#ffffff"
             android:text="Eliminar"/>
@@ -39,7 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#FF0000"
+            android:background="@drawable/custom_buttom_4"
             android:layout_margin="3dp"
             android:textColor="#ffffff"
             android:text="Mostrar"/>
@@ -49,7 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#FF0000"
+            android:background="@drawable/custom_buttom_5"
             android:layout_margin="3dp"
             android:textColor="#ffffff"
             android:text="Salir"/>
@@ -76,11 +76,11 @@
         android:id="@+id/btnModificarPartes"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:background="#FF0000"
         android:layout_margin="3dp"
-        android:textColor="#ffffff"
-        android:text="Modificar Datos"/>
+        android:layout_weight="1"
+        android:background="@drawable/botones"
+        android:text="Modificar Datos"
+        android:textColor="@color/common_google_signin_btn_text_light_pressed" />
 
 
 </LinearLayout>
