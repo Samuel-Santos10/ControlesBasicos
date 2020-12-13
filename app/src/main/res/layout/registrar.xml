@@ -62,24 +62,24 @@
         android:id="@+id/btnRegRegistrar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:background="#FF0000"
         android:layout_margin="20dp"
-        android:textColor="#ffffff"
+        android:layout_weight="1"
+        android:background="@drawable/botones"
         android:text="Registrar"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
         android:textSize="30sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/btnRegCancelar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:background="#0000FF"
         android:layout_margin="20dp"
-        android:textColor="#ffffff"
+        android:layout_weight="1"
+        android:background="@drawable/botones_1"
         android:text="Cancelar "
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
         android:textSize="30sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
 </LinearLayout>

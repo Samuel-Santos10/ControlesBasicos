@@ -8,49 +8,65 @@
 
     <EditText
         android:id="@+id/etNombre"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="85dp"
+        android:layout_width="381dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="115dp"
+        android:layout_marginLeft="15dp"
+        android:gravity="center"
+        android:background="@drawable/custom_input"
         android:hint="Nombre" />
 
     <EditText
         android:id="@+id/etMarca"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="145dp"
+        android:layout_width="379dp"
+        android:gravity="center"
+        android:layout_marginLeft="15dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="185dp"
+        android:background="@drawable/custom_input"
         android:hint="Descripcion" />
 
     <EditText
         android:id="@+id/etStock"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="205dp"
+        android:layout_width="379dp"
+        android:layout_height="59dp"
+        android:gravity="center"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="250dp"
+        android:background="@drawable/custom_input"
         android:hint="Stock"
         android:inputType="number"/>
 
     <EditText
         android:id="@+id/etPrecio"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="265dp"
         android:ems="10"
         android:hint="Precio"
-        android:inputType="numberDecimal" />
+        android:inputType="numberDecimal"
+        android:layout_width="380dp"
+        android:layout_height="57dp"
+        android:gravity="center"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="320dp"
+        android:background="@drawable/custom_input"/>
 
     <Button
         android:id="@+id/btnGuardarProducto9"
         style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="match_parent"
+        android:layout_width="323dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="330dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="490dp"
+        android:background="@drawable/bk_boton_plano"
         android:text="Guardar Producto" />
 
     <Button
         android:id="@+id/btnMostrarProductos9"
         style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="match_parent"
+        android:layout_width="323dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="373dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="430dp"
+        android:background="@drawable/bk_boton_plano"
         android:text="Mostar Productos" />
 
 
@@ -58,17 +74,19 @@
         android:id="@+id/TvTitulo"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:background="#3F51B5"
-        android:text="              PRODUCTOS"
+        android:background="@drawable/custom_buttom10"
+        android:text="RAM"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
         android:textColor="#FFFDFD"
-        android:textSize="24sp" />
+        android:textSize="24sp"/>
 
     <ImageView
         android:id="@+id/imgPhotoProducto"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_marginLeft="70dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="50dp"
         android:soundEffectsEnabled="false"
         app:srcCompat="@drawable/camara" />
 
@@ -76,8 +94,8 @@
         android:id="@+id/imgGaleriaProducto"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_marginLeft="200dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginLeft="260dp"
+        android:layout_marginTop="50dp"
         android:soundEffectsEnabled="false"
         app:srcCompat="@drawable/picture" />
 

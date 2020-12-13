@@ -10,7 +10,7 @@
         android:id="@+id/btnAtras"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#4CAF50"
+        android:background="@drawable/custom_buttom_2"
         android:text="Atras" />
 
     <TextView

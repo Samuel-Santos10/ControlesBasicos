@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/bg_login"
     android:layout_height="match_parent" android:layout_margin="10dp"
     tools:context=".MainActivity2">
 
@@ -22,21 +23,25 @@
             android:src="@drawable/camara"/>
 
     </androidx.cardview.widget.CardView>
+
     <EditText
         android:id="@+id/txtNombre"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="320dp"
+        android:layout_height="45dp"
         android:layout_below="@+id/crvFoto"
-        android:hint="Nombre Completo"
-        android:layout_marginTop="60dp" />
+        android:layout_marginLeft="30dp"
+        android:gravity="center"
+        android:layout_marginTop="49dp"
+        android:background="@drawable/custom_input"
+        android:hint="Nombre Completo" />
 
     <Button
         android:id="@+id/btnGuardarRegistro"
-        android:background="@drawable/save"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="90dp"
         android:layout_below="@+id/txtNombre"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="60dp"
-        android:layout_centerHorizontal="true"/>
+        android:background="@drawable/save" />
 
 </RelativeLayout>
