@@ -4,30 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/custom_buttom10"
     tools:context=".Procesador">
 
     <Button
         android:id="@+id/btnRegresar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="550dp"
+        android:layout_marginLeft="160dp"
         android:background="@drawable/custom_buttom_2"
         android:text="Atras" />
 
     <TextView
-        android:id="@+id/etmConcepto"
-        android:layout_width="357dp"
-        android:layout_height="322dp"
-        android:layout_marginTop="150dp"
+        android:id="@+id/etmConcepto2"
+        android:layout_width="354dp"
+        android:layout_height="218dp"
         android:layout_marginLeft="25dp"
-        android:textSize="18dp"
-        android:textColor="@android:color/black"
+        android:layout_marginTop="30dp"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
-        android:text=" Es el que se refiere a los diferentes tipos de
-         artículos de sistemas informativos que forma parte de un
-          microprocesador que es parte de un CPU o micro que es el cerebro
-           de la computadora y de todos los procesos informativos desde los
-            más sencillos hasta los más complejos."/>
+        android:padding="25dp"
+        android:text=" Es el que se refiere a los diferentes tipos de artículos de sistemas informativos que forma parte de un microprocesador que es parte de un CPU o micro que es el cerebro de la computadora y de todos los procesos informativos desde los más sencillos hasta los más complejos."
+        android:textColor="@android:color/black"
+        android:textSize="18dp"
+        android:textStyle="bold" />
 
 </RelativeLayout>

@@ -4,29 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/custom_buttom10"
     tools:context=".Compu">
 
     <Button
         android:id="@+id/btnAtras"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="500dp"
+        android:layout_marginLeft="155dp"
+
         android:background="@drawable/custom_buttom_2"
         android:text="Atras" />
 
     <TextView
-        android:id="@+id/etmConcepto"
-        android:layout_width="353dp"
-        android:layout_height="215dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="150dp"
-        android:textColor="@android:color/black"
-        android:textSize="18dp"
+        android:id="@+id/etmConcepto5"
+        android:layout_width="339dp"
+        android:layout_height="210dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="30dp"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
-        android:text="Una computadora es un dispositivo informático que es capaz de
-        recibir, almacenar y procesar información de una forma útil. Una computadora
-        está programada para realizar operaciones lógicas o aritméticas
-        de forma automática." />
+        android:padding="25dp"
+        android:text="Una computadora es un dispositivo informático que es capaz de recibir, almacenar y procesar información de una forma útil. Una computadora está programada para realizar operaciones lógicas o aritméticas de forma automática."
+        android:textColor="@android:color/black"
+        android:textSize="18dp"
+        android:textStyle="bold" />
 
 </RelativeLayout>
