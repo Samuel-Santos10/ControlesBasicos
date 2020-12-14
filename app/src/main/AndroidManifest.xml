@@ -43,7 +43,6 @@
         <activity android:name=".lista_usuarios" />
         <activity android:name=".Usuario_Programador" />
         <activity android:name=".ModificarComponentes" />
-
         <activity android:name=".AgregarProducto_Ram" />
         <activity android:name=".AgregarProductos_Disco" />
         <activity android:name=".AgregarProductos_Mother" />
@@ -72,11 +71,10 @@
         <activity android:name=".Main" />
         <activity android:name=".InformacionBasica" />
         <activity android:name=".MainActivity" />
-
         <activity android:name=".Agregar_Productos" />
         <activity android:name=".AgregarProducto_Gpu" />
         <activity android:name=".AgregarProducto_Fuente" />
-            <activity android:name=".Menu_Login">
+        <activity android:name=".Menu_Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

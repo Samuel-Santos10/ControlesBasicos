@@ -4,29 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/custom_buttom10"
     tools:context=".Motherboard">
 
     <Button
         android:id="@+id/btnRegresar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="500dp"
+        android:layout_marginLeft="155dp"
         android:background="@drawable/custom_buttom_2"
         android:text="Atras" />
 
     <TextView
-        android:id="@+id/etmConcepto"
-        android:layout_width="357dp"
-        android:layout_height="322dp"
-        android:layout_marginTop="150dp"
+        android:id="@+id/etmConcepto3"
+        android:layout_width="359dp"
+        android:layout_height="245dp"
         android:layout_marginLeft="25dp"
-        android:textColor="@android:color/black"
-        android:textSize="18dp"
+        android:layout_marginTop="30dp"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
-        android:text="Es llamada en algunos países la tarjeta madre o placa
-         base es la parte más importante de la CPU (Unidad Central de Procesamiento), es un
-          circuito muy complejo que se encarga de unir todos los componentes que se necesitan
-           para poder procesar la información que la computadora recibe."/>
+        android:padding="25dp"
+        android:text="Es llamada en algunos países la tarjeta madre o placa base es la parte más importante de la CPU (Unidad Central de Procesamiento), es un circuito muy complejo que se encarga de unir todos los componentes que se necesitan para poder procesar la información que la computadora recibe."
+        android:textColor="@android:color/black"
+        android:textSize="18dp"
+        android:textStyle="bold" />
 
 </RelativeLayout>

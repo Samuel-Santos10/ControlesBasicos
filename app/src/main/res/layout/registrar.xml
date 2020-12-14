@@ -24,19 +24,23 @@
         android:layout_height="match_parent"
         android:layout_margin="20dp"
         android:layout_weight="1"
+        android:gravity="center"
+        android:background="@drawable/custom_input"
         android:hint="Usuario"
-        android:textSize="20sp"
-        android:inputType="textEmailAddress"/>
+        android:inputType="textEmailAddress"
+        android:textSize="20sp" />
 
     <EditText
-    android:id="@+id/etRegPass"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_margin="20dp"
-    android:layout_weight="1"
-    android:hint="Password"
-        android:textSize="20sp"
-    android:inputType="textPassword"/>
+        android:id="@+id/etRegPass"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:background="@drawable/custom_input"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:textSize="20sp" />
 
     <EditText
         android:id="@+id/etRegNombre"
@@ -44,9 +48,11 @@
         android:layout_height="match_parent"
         android:layout_margin="20dp"
         android:layout_weight="1"
+        android:gravity="center"
+        android:background="@drawable/custom_input"
         android:hint="Nombre"
-        android:textSize="20sp"
-        android:inputType="textEmailAddress"/>
+        android:inputType="textEmailAddress"
+        android:textSize="20sp" />
 
     <EditText
         android:id="@+id/etRegApellido"
@@ -54,15 +60,17 @@
         android:layout_height="match_parent"
         android:layout_margin="20dp"
         android:layout_weight="1"
+        android:gravity="center"
+        android:background="@drawable/custom_input"
         android:hint="Apellido"
-        android:textSize="20sp"
-        android:inputType="textEmailAddress"/>
+        android:inputType="textEmailAddress"
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/btnRegRegistrar"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="20dp"
+        android:layout_width="177dp"
+        android:layout_height="655dp"
+        android:layout_marginLeft="110dp"
         android:layout_weight="1"
         android:background="@drawable/botones"
         android:text="Registrar"
@@ -72,9 +80,9 @@
 
     <Button
         android:id="@+id/btnRegCancelar"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="20dp"
+        android:layout_width="177dp"
+        android:layout_height="654dp"
+        android:layout_marginLeft="110dp"
         android:layout_weight="1"
         android:background="@drawable/botones_1"
         android:text="Cancelar "

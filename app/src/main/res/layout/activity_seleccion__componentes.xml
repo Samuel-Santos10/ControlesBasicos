@@ -71,7 +71,7 @@
         android:id="@+id/tvCompatibilidad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="150dp"
         android:layout_marginTop="40dp"
         android:text="Compatibilidad:" />
 
@@ -79,7 +79,7 @@
         android:id="@+id/tvTotalPrecio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="180dp"
         android:layout_marginTop="10dp"
         android:text="Total:" />
 

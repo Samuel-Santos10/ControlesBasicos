@@ -4,30 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/custom_buttom10"
     tools:context=".CPU">
 
     <Button
-        android:id="@+id/btnRegresar"
+        android:id="@+id/btnRegresar1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="500dp"
+        android:layout_marginLeft="155dp"
         android:background="@drawable/custom_buttom_2"
         android:text="Atras" />
 
     <TextView
-        android:id="@+id/etmConcepto"
-        android:layout_width="357dp"
-        android:layout_height="322dp"
-        android:layout_marginTop="150dp"
+        android:id="@+id/ERROR"
+        android:layout_width="352dp"
+        android:layout_height="289dp"
         android:layout_marginLeft="25dp"
-        android:textSize="18dp"
-        android:textColor="@android:color/black"
+        android:layout_marginTop="30dp"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
-        android:text="Es un componente básico de la computadora personal u ordenador
-         que procesa datos y realiza cálculos matemáticos-informáticos.
-          El CPU proporciona la capacidad de programación, y junto con la memoria y los
-           dispositivos de entrada/salida, es de los componentes computacionales que
-           encontramos presente en toda la historia de las computadoras."/>
+        android:padding="25dp"
+        android:text="Es un componente básico de la computadora personal u ordenador que procesa datos y realiza cálculos matemáticos-informáticos. El CPU proporciona la capacidad de programación, y junto con la memoria y los dispositivos de entrada/salida, es de los componentes computacionales que encontramos presente en toda la historia de las computadoras."
+        android:textColor="@android:color/black"
+        android:textSize="18dp"
+        android:textStyle="bold" />
 
 </RelativeLayout>
